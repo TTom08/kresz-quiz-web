@@ -65,7 +65,7 @@ A felhasználói felület és a különböző funkciók szoros kapcsolatban áll
   - Ez azonnali vizuális megerősítést ad és ezáltal segíti a tanulókat, hogy minél gyorsabban elsajátíthassák a helyes közlekedési szabályokat.
 
 - **Pontszám kijelzés közben és a végén:**  
-  - A felhasználó minden helyes válaszért pontot kap, amely a válaszadás gyorsaságától is függ(**K3**).  
+  - A felhasználó minden helyes válaszért pontot kap, amely a válaszadás gyorsaságától is függ(**K3**). A pontszám dinamikusan frissül minden kérdés után.  
   - A kvíz befejezésekor a végső eredmény az **Eredmény** képernyőn jelenik meg (**K5**).  
   - Ez tartalmazza a helyesen megválaszolt kérdések számát, az összesített pontszámot és a toplista helyezettjeit (**K5, K7**).
 
@@ -73,3 +73,5 @@ A felhasználói felület és a különböző funkciók szoros kapcsolatban áll
   - A toplista a főmenüből érhető el, ahol a felhasználó megtekintheti a legjobban teljesítők helyi rangsorát. A pontszámok a böngésző helyi tárhelyében (Local Storage) kerülnek mentésre, így a rangsor a következő játék alkalmával is elérhető marad (**K7**).  
   - Ez motivációt nyújt a tanulóknak, hogy újra és újra próbálkozzanak a jobb eredmény eléréséért.  
   - A kérdésekhez használt közlekedési táblák képei segítik a vizuális tanulást és a valós helyzetek felismerését (**K4**).  
+
+  ## Képernyő tervek
