@@ -65,3 +65,15 @@ Az alkalmazásunk a tanulási folyamatot interaktívvá és dinamikussá teszi, 
 Ez az alkalmazás tehát kiegészíti a meglévő online tanulási módszereket és modern, hatékony alternatívát nyújt a KRESZ-tudás elsajátításához. 
 
 ## Követelménylista
+
+| Modul ID | Név és Kifejtés |
+| :--- | :--- |
+| **K1** | **Adatkezelés**<br>A program képes a kérdéseket, válaszokat, a táblák képeit és a hozzájuk tartozó szabályokat egy **Json fájlból** beolvasni. Ha nem találja az adatokat, akkor hibaüzenetet küld, mert hibakezelést is szeretnénk belerakni. |
+| **K2** | **Kvíz Logika**<br>A program véletlenszerűen választ ki kérdéseket a betöltött adatok közül. A felhasználó válaszát összehasonlítja a helyes válasszal. Ha rossz választ ad a felhasználó, a program attól még kiírja mi volt a helyes. |
+| **K3** | **Pontszámítás**<br>Helyes válasz esetén pontot ad a felhasználónak. A pontszám a válaszadás **idejétől** is függ. |
+| **K4** | **Felhasználói Felület**<br>A felhasználó beírhatja a nevét, majd **megjeleníti** a kvíz elemeit: **közlekedési tábla képe vagy szöveges kresz szabály**, kérdés, válaszlehetőségek gombjai, pontszám. |
+| **K5** | **Eredmény Képernyő**<br>A kvíz végén **megjeleníti** a végleges pontszámot, és lehetővé teszi a kvíz újraindítását vagy a kilépést. |
+| **K6** | **Helyi pontszám mentése**<br>A program a kvíz végén elmenti a felhasználó nevét és pontszámát a böngésző helyi tárhelyére (Local Storage).
+| **K7** | **Helyi Toplista**<br>A főmenüből megtekinthető a legjobban teljesítők helyi listája, amely a böngészőben van eltárolva.
+
+*Az alkalmazásunkkal a hagyományos tanulási folyamatot interaktívvá és dinamikussá tesszük. A diákok digitális felületen, játékos formában tesztelhetik tudásukat, azonnali visszajelzést kapva. A platform lehetőséget teremt az **önálló és egyéni tempójú tanulásra**, ami a hagyományos oktatásban sokszor nem valósul meg.*
