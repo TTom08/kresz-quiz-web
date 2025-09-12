@@ -32,3 +32,5 @@ A kérdésekhez egy közlekedési tábla képe vagy egy rövid KRESZ-szabály ta
 A rendszer időzítőt is tartalmaz, amely 40 másodpercet biztosít a kérdések megválaszolására. Ez fokozza a játék izgalmát, valamint a vizsgahelyzethez hasonló nyomást gyakorol a játékosra, ezzel felkészítve őt az éles vizsgára. A kvíz befejezése után az alkalmazás egy eredmény képernyőt jelenít meg, amely tartalmazza a felhasználó végső pontszámát, a helyesen megválaszolt kérdések számát, valamint az első három helyezést elért felhasználót.
 
 A toplista lehetővé teszi a felhasználók számára, hogy összehasonlítsák teljesítményüket és motivációt nyerjenek a további gyakorláshoz. Az összes funkció együttesen egy könnyen kezelhető és vizuálisan vonzó rendszert alkot, amely nagyban elősegíti a KRESZ-tanulás folyamatát.
+
+## Jelenlegi üzleti folyamatok modellje
