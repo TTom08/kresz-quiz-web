@@ -123,3 +123,14 @@ A vizuális elemek, a színkódok és a folyamatos visszajelzés együttesen seg
 
   ## Játéklogika és szabályok
 
+A játék motorja a következő funkciókat valósítja meg, amelyek biztosítják a zökkenőmentes játékmenetet:
+
+  | Modul ID | Név és Kifejtés |
+| :--- | :--- |
+| **K1** | **Adatkezelés**<br>A program képes a kérdéseket, válaszokat, a táblák képeit és a hozzájuk tartozó szabályokat egy külön **JSON** fájlból beolvasni, amely a projekt struktúrájában található. A JavaScript a fetch() API segítségével aszinkron módon olvassa be a fájlt a weboldal betöltésekor. Ha a fájl nem található, vagy a beolvasás sikertelen, a program hibaüzenetet küld a konzolra. |
+| **K2** | **Kvíz Logika**<br>A rendszer véletlenszerűen, **ismétlés nélkül** választ kérdéseket. Összehasonlítja a felhasználó válaszát a helyes válasszal, és **azonnali vizuális visszajelzést** ad. Helyes válasz esetén zöld jelölés, helytelen esetén piros, ekkor a helyes válasz is zöld színnel kiemelt. |
+| **K3** | **Pontszámítás**<br>Minden kérdésre **legfeljebb 100 pont** adható. A helyes válasz pontszáma a válaszadásra fordított időtől függ, a következő képlet szerint: **Pontszám = min(100, 100 * ((40 - eltelt idő) / 40))**. Hibás válasz vagy időtúllépés esetén a pontszám 0. A végleges pontszám az összesített pontok összege. <br>**Példák a pontszámításra:**<ul><li>Ha 5 másodperc alatt válaszol a játékos: Pontszám = min(100, 100 * ((40-5)/40)) = min(100, 87.5) = 87.5 pont.</li><li>Ha 30 másodperc alatt válaszol: Pontszám = min(100, 100 * ((40-30)/40)) = min(100, 25) = 25 pont.</li><li>Ha 40 másodperc vagy több telik el: Pontszám = 0.</li></ul> |
+| **K4** | **Felhasználói Felület**<br>**Főmenü:** név megadása. <br>**Kvíz felület:** forgalmi tábla képe, kérdés szövege, 4 válaszlehetőség (gombok), pillanatnyi pontszám, 40 másodperces visszaszámláló. **Modern, intuitív UX/UI**, elsősorban **asztali gépen/laptopon** való használatra optimalizálva. |
+| **K5** | **Eredmény Képernyő**<br>A kvíz végén megjelenik a végső pontszám, a helyes válaszok száma. Gombokkal újraindítható a kvíz vagy kiléphető a programból. |
+| **K6** | **Helyi pontszám mentése**<br>A program a kvíz végén elmenti a felhasználó nevét és pontszámát a böngésző helyi tárhelyére (Local Storage).
+| **K7** | **Helyi Toplista**<br>A főmenüből megtekinthető a legjobban teljesítők helyi listája, amely a böngészőben van eltárolva.
