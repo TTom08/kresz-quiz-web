@@ -42,3 +42,7 @@ A meglévő platformok nem mindig alkalmazkodnak a felhasználó egyéni tempój
 A projektünk célja, hogy egy interaktív kvízjátékot biztosítson, amely a közlekedési táblák felismerésére és a KRESZ-szabályok elsajátítására épül, miközben a játékos elemek, mint az időzítő és a toplista, ösztönzik a tanulókat a gyakorlásra és a fejlődésre.
 
 ## Igényelt üzleti folyamatok modellje
+
+Az alkalmazásunk a tanulási folyamatot interaktívvá és dinamikussá teszi, játékos elemekkel kiegészítve ezt. A felhasználók egy digitális felületen, saját tempójukban gyakorolhatják a KRESZ-szabályokat és a közlekedési táblákat. A rendszer azonnali visszajelzést ad a válaszok helyességéről, így a hibák gyorsan korrigálhatók, és ezáltal a tanulás is hatékonyabbá válik. A pontozási rendszer és az időzítő fokozza a kihívást, valamint a toplista motivációt nyújt a további gyakorláshoz.
+
+Ez az alkalmazás tehát kiegészíti a meglévő online tanulási módszereket és modern, hatékony alternatívát nyújt a KRESZ-tudás elsajátításához.  
