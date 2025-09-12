@@ -40,3 +40,5 @@ A KRESZ-tanulás Magyarországon ma már elsősorban digitális platformokon ker
 A meglévő platformok nem mindig alkalmazkodnak a felhasználó egyéni tempójához, így a diákok gyakran nem kapnak azonnali megerősítést, ami lassítja a tanulási folyamatot és csökkenti a motiváltságukat.  
   
 A projektünk célja, hogy egy interaktív kvízjátékot biztosítson, amely a közlekedési táblák felismerésére és a KRESZ-szabályok elsajátítására épül, miközben a játékos elemek, mint az időzítő és a toplista, ösztönzik a tanulókat a gyakorlásra és a fejlődésre.
+
+## Igényelt üzleti folyamatok modellje
