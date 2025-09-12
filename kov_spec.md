@@ -34,3 +34,9 @@ A rendszer időzítőt is tartalmaz, amely 40 másodpercet biztosít a kérdése
 A toplista lehetővé teszi a felhasználók számára, hogy összehasonlítsák teljesítményüket és motivációt nyerjenek a további gyakorláshoz. Az összes funkció együttesen egy könnyen kezelhető és vizuálisan vonzó rendszert alkot, amely nagyban elősegíti a KRESZ-tanulás folyamatát.
 
 ## Jelenlegi üzleti folyamatok modellje
+
+A KRESZ-tanulás Magyarországon ma már elsősorban digitális platformokon keresztül történik, amelyek online teszteket és vizsgaszimulációkat kínálnak. Ezek a megoldások azonban többnyire a hagyományos tananyag digitalizált másai, statikus kérdésekkel, szöveges magyarázatokkal és kevés vizuális visszajelzéssel.  Hiányoznak belőlük az interaktív elemek, mint például az időzítő vagy a pontszámok versenyszerű összehasonlítása.  
+
+A meglévő platformok nem mindig alkalmazkodnak a felhasználó egyéni tempójához, így a diákok gyakran nem kapnak azonnali megerősítést, ami lassítja a tanulási folyamatot és csökkenti a motiváltságukat.  
+  
+A projektünk célja, hogy egy interaktív kvízjátékot biztosítson, amely a közlekedési táblák felismerésére és a KRESZ-szabályok elsajátítására épül, miközben a játékos elemek, mint az időzítő és a toplista, ösztönzik a tanulókat a gyakorlásra és a fejlődésre.
