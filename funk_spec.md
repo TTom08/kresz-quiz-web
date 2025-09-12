@@ -120,3 +120,6 @@ A felhasználói felület és a különböző funkciók szoros kapcsolatban áll
 
 Összességében a képernyőtervek célja, hogy átlátható, motiváló és könnyen használható tanulási környezetet biztosítsanak a felhasználóknak.  
 A vizuális elemek, a színkódok és a folyamatos visszajelzés együttesen segítik a felhasználót a közlekedési szabályok és táblák gyors és hatékony elsajátításában.
+
+  ## Játéklogika és szabályok
+
