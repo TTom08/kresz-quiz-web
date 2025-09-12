@@ -35,6 +35,21 @@ A rendszer időzítőt is tartalmaz, amely 40 másodpercet biztosít a kérdése
 
 A toplista lehetővé teszi a felhasználók számára, hogy összehasonlítsák teljesítményüket és motivációt nyerjenek a további gyakorláshoz. Az összes funkció együttesen egy könnyen kezelhető és vizuálisan vonzó rendszert alkot, amely nagyban elősegíti a KRESZ-tanulás folyamatát.
 
+## Nem funkcionális követelmények és technológia
+
+Ez a szakasz részletezi a kvíz alkalmazásunk technológiai döntéseit és nem funkcionális követelményeit. A célunk egy olyan termék létrehozása, amely hatékony, megbízható és felhasználóbarát.
+
+A felhasználói felület megvalósításához **HTML**, **CSS** és **JavaScript** nyelveket használunk. A kvíz kérdései és válaszai egy **statikus JSON**-fájlban vannak tárolva. Ez a megközelítés egyszerűsíti az adatkezelést, mivel nincs szükség adatbázisra vagy szerveroldali adatokra.
+
+**Teljesítmény**: Az alkalmazásnak **gyorsan be kell töltenie** a böngészőben, és gördülékenyen kell futnia a felhasználói interakciók során. A statikus JSON-fájl használata hozzájárul ehhez, mivel a böngészőnek nem kell szerveroldali kérésekre várnia.
+
+**Megbízhatóság**: Az alkalmazásnak stabilnak kell lennie. Ez magában foglalja, hogy **ne fagyjon le** vagy **álljon le** a használat során, és minden kvízkérdés **elérhető** és **hibátlanul** megjelenjen.
+
+**Felhasználóbarát UI**: A felület intuitív és könnyen kezelhető.
+
+**Korlátok**: Mivel minden adat a kliens böngészőjében van, a felhasználók eredményei vagy a kvíz állapota nem menthető el a munkamenetek között. A felhasználóknak minden alkalommal elölről kell kezdeniük a kvízt.
+
+
 ## Jelenlegi üzleti folyamatok modellje
 
 A KRESZ-tanulás Magyarországon ma már elsősorban digitális platformokon keresztül történik, amelyek online teszteket és vizsgaszimulációkat kínálnak. Ezek a megoldások azonban többnyire a hagyományos tananyag digitalizált másai, statikus kérdésekkel, szöveges magyarázatokkal és kevés vizuális visszajelzéssel.  Hiányoznak belőlük az interaktív elemek, mint például az időzítő vagy a pontszámok versenyszerű összehasonlítása.  
@@ -47,4 +62,18 @@ A projektünk célja, hogy egy interaktív kvízjátékot biztosítson, amely a 
 
 Az alkalmazásunk a tanulási folyamatot interaktívvá és dinamikussá teszi, játékos elemekkel kiegészítve ezt. A felhasználók egy digitális felületen, saját tempójukban gyakorolhatják a KRESZ-szabályokat és a közlekedési táblákat. A rendszer azonnali visszajelzést ad a válaszok helyességéről, így a hibák gyorsan korrigálhatók, és ezáltal a tanulás is hatékonyabbá válik. A pontozási rendszer és az időzítő fokozza a kihívást, valamint a toplista motivációt nyújt a további gyakorláshoz.
 
-Ez az alkalmazás tehát kiegészíti a meglévő online tanulási módszereket és modern, hatékony alternatívát nyújt a KRESZ-tudás elsajátításához.  
+Ez az alkalmazás tehát kiegészíti a meglévő online tanulási módszereket és modern, hatékony alternatívát nyújt a KRESZ-tudás elsajátításához. 
+
+## Követelménylista
+
+| Modul ID | Név és Kifejtés |
+| :--- | :--- |
+| **K1** | **Adatkezelés**<br>A program képes a kérdéseket, válaszokat, a táblák képeit és a hozzájuk tartozó szabályokat egy **Json fájlból** beolvasni. Ha nem találja az adatokat, akkor hibaüzenetet küld, mert hibakezelést is szeretnénk belerakni. |
+| **K2** | **Kvíz Logika**<br>A program véletlenszerűen választ ki kérdéseket a betöltött adatok közül. A felhasználó válaszát összehasonlítja a helyes válasszal. Ha rossz választ ad a felhasználó, a program attól még kiírja mi volt a helyes. |
+| **K3** | **Pontszámítás**<br>Helyes válasz esetén pontot ad a felhasználónak. A pontszám a válaszadás **idejétől** is függ. |
+| **K4** | **Felhasználói Felület**<br>A felhasználó beírhatja a nevét, majd **megjeleníti** a kvíz elemeit: **közlekedési tábla képe vagy szöveges kresz szabály**, kérdés, válaszlehetőségek gombjai, pontszám. |
+| **K5** | **Eredmény Képernyő**<br>A kvíz végén **megjeleníti** a végleges pontszámot, és lehetővé teszi a kvíz újraindítását vagy a kilépést. |
+| **K6** | **Helyi pontszám mentése**<br>A program a kvíz végén elmenti a felhasználó nevét és pontszámát a böngésző helyi tárhelyére (Local Storage).
+| **K7** | **Helyi Toplista**<br>A főmenüből megtekinthető a legjobban teljesítők helyi listája, amely a böngészőben van eltárolva.
+
+*Az alkalmazásunkkal a hagyományos tanulási folyamatot interaktívvá és dinamikussá tesszük. A diákok digitális felületen, játékos formában tesztelhetik tudásukat, azonnali visszajelzést kapva. A platform lehetőséget teremt az **önálló és egyéni tempójú tanulásra**, ami a hagyományos oktatásban sokszor nem valósul meg.*
