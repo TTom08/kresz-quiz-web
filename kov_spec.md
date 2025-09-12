@@ -37,6 +37,19 @@ A toplista lehetővé teszi a felhasználók számára, hogy összehasonlítsák
 
 ## Nem funkcionális követelmények és technológia
 
+Ez a szakasz részletezi a kvíz alkalmazásunk technológiai döntéseit és nem funkcionális követelményeit. A célunk egy olyan termék létrehozása, amely hatékony, megbízható és felhasználóbarát.
+
+A felhasználói felület megvalósításához **HTML**, **CSS** és **JavaScript** nyelveket használunk. A kvíz kérdései és válaszai egy **statikus JSON**-fájlban vannak tárolva. Ez a megközelítés egyszerűsíti az adatkezelést, mivel nincs szükség adatbázisra vagy szerveroldali adatokra.
+
+**Teljesítmény**: Az alkalmazásnak **gyorsan be kell töltenie** a böngészőben, és gördülékenyen kell futnia a felhasználói interakciók során. A statikus JSON-fájl használata hozzájárul ehhez, mivel a böngészőnek nem kell szerveroldali kérésekre várnia.
+
+**Megbízhatóság**: Az alkalmazásnak stabilnak kell lennie. Ez magában foglalja, hogy **ne fagyjon le** vagy **álljon le** a használat során, és minden kvízkérdés **elérhető** és **hibátlanul** megjelenjen.
+
+**Felhasználóbarát UI**: A felület intuitív és könnyen kezelhető.
+
+**Korlátok**: Mivel minden adat a kliens böngészőjében van, a felhasználók eredményei vagy a kvíz állapota nem menthető el a munkamenetek között. A felhasználóknak minden alkalommal elölről kell kezdeniük a kvízt.
+
+
 ## Jelenlegi üzleti folyamatok modellje
 
 A KRESZ-tanulás Magyarországon ma már elsősorban digitális platformokon keresztül történik, amelyek online teszteket és vizsgaszimulációkat kínálnak. Ezek a megoldások azonban többnyire a hagyományos tananyag digitalizált másai, statikus kérdésekkel, szöveges magyarázatokkal és kevés vizuális visszajelzéssel.  Hiányoznak belőlük az interaktív elemek, mint például az időzítő vagy a pontszámok versenyszerű összehasonlítása.  
