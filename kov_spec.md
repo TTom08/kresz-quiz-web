@@ -62,4 +62,6 @@ A projektünk célja, hogy egy interaktív kvízjátékot biztosítson, amely a 
 
 Az alkalmazásunk a tanulási folyamatot interaktívvá és dinamikussá teszi, játékos elemekkel kiegészítve ezt. A felhasználók egy digitális felületen, saját tempójukban gyakorolhatják a KRESZ-szabályokat és a közlekedési táblákat. A rendszer azonnali visszajelzést ad a válaszok helyességéről, így a hibák gyorsan korrigálhatók, és ezáltal a tanulás is hatékonyabbá válik. A pontozási rendszer és az időzítő fokozza a kihívást, valamint a toplista motivációt nyújt a további gyakorláshoz.
 
-Ez az alkalmazás tehát kiegészíti a meglévő online tanulási módszereket és modern, hatékony alternatívát nyújt a KRESZ-tudás elsajátításához.  
+Ez az alkalmazás tehát kiegészíti a meglévő online tanulási módszereket és modern, hatékony alternatívát nyújt a KRESZ-tudás elsajátításához. 
+
+## Követelménylista
