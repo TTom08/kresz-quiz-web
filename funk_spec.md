@@ -6,6 +6,36 @@ A rendszer célja, hogy a felhasználó egy egyszerű, átlátható és interakt
 
 ### Használati esetek
 
+1. **Játék indítása**
+
+
+
+2. **Kvíz képernyő**
+
+
+
+3. **Válaszadás**
+
+
+
+4. **Pontszámítás és időkorlát**
+
+
+
+5. **Továbblépés a következő kérdésre**
+
+
+
+6. **Játék vége és eredmények**
+
+
+
+7. **Ranglista megtekintése**
+
+
+
+8. **Újraindítás vagy kilépés**
+
 ## Forgatókönyv
 
 ## Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
