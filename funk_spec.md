@@ -2,7 +2,9 @@
 
 ## Felhasználói folyamatok --> User flow
 
-## Használati esetek
+A rendszer célja, hogy a felhasználó egy egyszerű, átlátható és interaktív folyamat során sajátíthassa el a KRESZ szabályait. A következőkben bemutatjuk a játékhoz tartozó felhasználói folyamatokat a belépéstől a kilépésig, lépésről lépésre.
+
+### Használati esetek
 
 ## Forgatókönyv
 
