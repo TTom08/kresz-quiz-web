@@ -48,6 +48,22 @@ Az eredmény képernyőről két lehetőség választható:
 
 ## Forgatókönyv
 
+- A felhasználó megnyitja a játékot, beírja a nevét és elindítja a kvízt.
+
+- Az első kérdés megjelenik, a felhasználó elolvassa, majd kiválasztja a helyesnek gondolt választ.
+
+- A rendszer azonnali színkódos visszajelzést ad.
+
+- A pontszám azonnal frissül, és a felhasználó továbblép a következő kérdésre.
+
+- A folyamat több kérdésen át ismétlődik, miközben a játékos figyeli az időzítőt és a pontszámát.
+
+- A kvíz végén a felhasználó látja a végső pontszámát és helyezését a toplistán.
+
+- Ezután újrakezdheti a játékot vagy kiléphet az alkalmazásból.
+
+Ez a felhasználói folyamat biztosítja, hogy a játék egyszerű, intuitív és motiváló legyen, miközben segíti a KRESZ-szabályok elsajátítását.
+
 ## Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
 
 A felhasználói felület és a különböző funkciók szoros kapcsolatban állnak a követelményekkel. A fő cél, hogy a tanulók interaktív módon gyakorolhassák a KRESZ-szabályokat. Az alábbiakban bemutatjuk, hogyan fedik le az egyes UI-elemek a funkcionális követelményeket.
