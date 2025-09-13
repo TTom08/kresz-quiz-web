@@ -10,7 +10,9 @@ A projekt jól illeszkedik egyetemi miniprojekt kereteibe, mert kellően kicsi a
 
 ## Jelenlegi helyzet
 
+Jelenleg a KRESZ vizsgára való felkészülés már online felületen keresztül történik, viszont úgy érezzük, hogy más megoldásokat alkalmazva jobban és könnyebben tudnának tanulni az emberek. Ezek a weboldalak (mint az e-Titán) sokszor monotonok, nehezen motiválják a tanulókat, és nem adnak azonnali visszajelzést a teljesítményről. Nem nyújtanak játékélményt, inkább a vizsga környezetét próbálják szimulálni.  
 
+A hagyományos tesztelés nagy hátránya, hogy nem interaktív. A tanuló egyszerűen kiválasztja a választ, majd később ellenőrzi az eredményeket, ami nem annyira motiváló. Ráadásul a hibákból való tanulás is lassabb, hiszen nincs azonnali visszajelzés arról, hogy miért volt helytelen egy adott válasz. Ez csökkenti a tanulás hatékonyságát, és sokak számára fárasztóvá, sőt demotiválóvá teszi a felkészülést.
 
 ## Vágyálom rendszer
 
