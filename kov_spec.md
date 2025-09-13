@@ -1,27 +1,14 @@
 # Követelmény Specifikáció
 
+## Áttekintés
 
 
 
+## Jelenlegi helyzet
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Vágyálom rendszer
 
 
 
