@@ -1,48 +1,10 @@
 # Funkcionális Specifikáció
 
+## Felhasználói folyamatok --> User flow
 
+## Használati esetek
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Forgatókönyv
 
 ## Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
 
