@@ -2,7 +2,11 @@
 
 ## Áttekintés
 
+A projekt célja egy olyan webes kvízjáték létrehozása, amely segíti a felhasználókat a KRESZ szabályainak elsajátításában és gyakorlásában. A KRESZ ismerete minden forgalomban közlekedő számára elengedhetetlen, de a tanulási folyamat gyakran unalmas és nehezen követhető. A mi célunk egy olyan eszköz készítése, amely játékos formában nyújt lehetőséget a tudás fejlesztésére.  
 
+A választott platform a web, mivel ez a legkönnyebben elérhető mindenki számára. Nincs szükség telepítésre, elegendő egy böngésző, így a felhasználók gyorsan kipróbálhatják a játékot bármilyen nehézség elkerülésével. Ez különösen fontos, mert elsősorban a célközönség a fiatalság, amely jogosítványra készülő tanulókból és friss vezetőkből áll, akik már megszokták az online alkalmazások használatát.  
+
+A projekt jól illeszkedik egyetemi miniprojekt kereteibe, mert kellően kicsi ahhoz, hogy rövid idő alatt megvalósítható legyen, ugyanakkor elég összetett ahhoz, hogy több csapattag párhuzamosan tudjon rajta dolgozni. A játék tartalmaz adatkezelést (JSON kérdésbázis), interaktív felhasználói felületet (kérdés-válasz megjelenítés), valamint pontozási rendszert, ami elegendő komplexitást biztosít a projekt értékeléséhez.
 
 ## Jelenlegi helyzet
 
