@@ -8,33 +8,43 @@ A rendszer célja, hogy a felhasználó egy egyszerű, átlátható és interakt
 
 1. **Játék indítása**
 
-
+A felhasználó megnyitja a webalkalmazást a böngészőben. A kezdőképernyőn található egy mező, amelyben a saját nevét kell megadnia. Ez kötelező lépés, mivel a név a pontszámok mentéséhez és a toplistán való megjelenítéshez szükséges. A név beírása után a játékot elindító gomb aktívvá válik, és a felhasználó elindíthatja a kvízt.
 
 2. **Kvíz képernyő**
 
-
+A játék elindítása után megjelenik az első kérdés. A képernyő felső részén látható a kérdés szövege, valamint egy közlekedési tábla képe vagy egy rövid KRESZ-szabály. Az alatta elhelyezett négy gombon jelennek meg a válaszlehetőségek. A felhasználó ezek közül kattintással választ.
 
 3. **Válaszadás**
 
+Amikor a felhasználó rákattint egy válaszra, a rendszer azonnal visszajelzést ad:
 
+- helyes válasz esetén a gomb zöld színűvé válik,
+
+- hibás válasz esetén pirosra színeződik, és a helyes megoldás zöld színnel kerül kiemelésre.
 
 4. **Pontszámítás és időkorlát**
 
-
+A válaszadásra egy addott számú másodperc áll rendelkezésre. A pontszámot a rendszer automatikusan kiszámítja a válasz gyorsaságától függően: minél hamarabb adja meg a felhasználó a helyes választ, annál több pontot kap. A képernyő jobb felső részén látható a visszaszámláló, valamint az eddig elért pontszám.
 
 5. **Továbblépés a következő kérdésre**
 
-
+A visszajelzés megjelenítése után egy gomb segítségével léphetünk tovább a következő kérdésre. Ez ismételten tartalmaz egy rövid szöveget vagy képet, valamint a négy lehetséges választ. A folyamat mindaddig ismétlődik, amíg a felhasználó az összes kérdést meg nem válaszolta.
 
 6. **Játék vége és eredmények**
 
-
+Amikor a felhasználó az utolsó kérdésre is válaszolt, megjelenik az Eredmény képernyő. Itt látható a végső pontszám és a helyesen megválaszolt kérdések száma. Az eredmények automatikusan mentésre kerülnek a böngésző helyi tárhelyére, a felhasználó neve mellett.
 
 7. **Ranglista megtekintése**
 
-
+Az eredmény képernyőről, illetve a főmenüből elérhető a ranglista. Ez a helyi tárhelyben tárolt pontszámokat mutatja, csökkenő sorrendben.
 
 8. **Újraindítás vagy kilépés**
+
+Az eredmény képernyőről két lehetőség választható:
+
+- Újraindítás: a felhasználó új játékot kezdhet, új kérdésekkel.
+
+- Kilépés: a program bezárható, a ranglistán tárolt adatok megőrzésével.
 
 ## Forgatókönyv
 
