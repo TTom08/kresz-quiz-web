@@ -16,9 +16,9 @@ A hagyományos tesztelés nagy hátránya, hogy nem interaktív. A tanuló egysz
 
 ## Vágyálom rendszer
 
-Az ideális rendszer egy olyan színes és interaktív webes alkalmazás, amely játékos formában tanítja a KRESZ szabályokat. A kérdések nem csupán szövegesek, hanem képekkel is kiegészíthetők, például közlekedési táblák vagy forgalmi szituációk illusztrációival. Ez jelentősen növeli a tanulás hatékonyságát, mert a vizuális elemek jobban rögzülnek a felhasználók memóriájában.  
+Az ideális rendszer egy olyan színes és interaktív webes alkalmazás, amely játékos formában tanítja a KRESZ szabályokat. A kérdések nem csupán szövegesek, hanem képekkel is kiegészíthetők, például közlekedési táblák vagy forgalmi szituációk illusztrációival. Ez jelentősen növeli a tanulás hatékonyságát, mert a vizuális elemek jobban rögzülnek a felhasználók memóriájában.
 
-A játék tartalmazna ranglistát is, amely motivációt adna a felhasználóknak. A tanulók láthatnák saját eredményeiket, és összehasonlíthatnák más játékosokkal, ami egészséges versenyt szül. Az azonnali visszajelzés – például a helyes válasz zöld színnel, a hibás válasz pirossal – segíti a gyorsabb tanulást és a hibák elkerülését a jövőben.  
+A játék tartalmazna ranglistát is, amely motivációt adna a felhasználóknak. A tanulók láthatnák saját eredményeiket, és összehasonlíthatnák más játékosokkal. Az azonnali visszajelzés (például a helyes válasz zöld színnel, a hibás válasz pirossal) segíti a gyorsabb tanulást és a hibák elkerülését a jövőben.
 
 Az álomrendszer tehát nem csak egy kvíz lenne, hanem egy tanulási élmény. Egy olyan platform, ahol a felhasználó nem kényszerből tanul, hanem sokkal könnyebben és majdnem szórakozva sajátítja el a közlekedési szabályokat. Ezáltal a felkészülés hatékonyabb, gyorsabb és élvezetesebb lesz, ami végső soron jobb vizsgaeredményeket és biztonságosabb közlekedést eredményezhet.
 
