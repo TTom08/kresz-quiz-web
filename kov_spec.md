@@ -53,13 +53,18 @@ A KRESZ-tanulás Magyarországon ma már elsősorban digitális platformokon ker
 
 A meglévő platformok nem mindig alkalmazkodnak a felhasználó egyéni tempójához, így a diákok gyakran nem kapnak azonnali megerősítést, ami lassítja a tanulási folyamatot és csökkenti a motiváltságukat.  
   
-A projektünk célja, hogy egy interaktív kvízjátékot biztosítson, amely a közlekedési táblák felismerésére és a KRESZ-szabályok elsajátítására épül, miközben a játékos elemek, mint az időzítő és a toplista, ösztönzik a tanulókat a gyakorlásra és a fejlődésre.
+A projektünk célja, hogy egy interaktív kvízjátékot biztosítson, amely a közlekedési táblák felismerésére és a KRESZ-szabályok elsajátítására épül, miközben a játékos elemek, mint az időzítő és a ranglista, ösztönzik a tanulókat a gyakorlásra és a fejlődésre.
 
 ## Igényelt üzleti folyamatok modellje
 
-Az alkalmazásunk a tanulási folyamatot interaktívvá és dinamikussá teszi, játékos elemekkel kiegészítve ezt. A felhasználók egy digitális felületen, saját tempójukban gyakorolhatják a KRESZ-szabályokat és a közlekedési táblákat. A rendszer azonnali visszajelzést ad a válaszok helyességéről, így a hibák gyorsan korrigálhatók, és ezáltal a tanulás is hatékonyabbá válik. A pontozási rendszer és az időzítő fokozza a kihívást, valamint a toplista motivációt nyújt a további gyakorláshoz.
+Az alkalmazásunk a tanulási folyamatot interaktívvá és dinamikussá teszi, játékos elemekkel kiegészítve ezt. A felhasználók egy digitális felületen, saját tempójukban gyakorolhatják a KRESZ-szabályokat és a közlekedési táblákat. A rendszer azonnali visszajelzést ad a válaszok helyességéről, így a hibák gyorsan korrigálhatók, és ezáltal a tanulás is hatékonyabbá válik. A pontozási rendszer és az időzítő fokozza a kihívást, valamint a ranglista motivációt nyújt a további gyakorláshoz.
 
-Ez az alkalmazás tehát kiegészíti a meglévő online tanulási módszereket és modern, hatékony alternatívát nyújt a KRESZ-tudás elsajátításához. 
+Ez az alkalmazás tehát kiegészíti a meglévő online tanulási módszereket és modern, hatékony alternatívát nyújt a KRESZ-tudás elsajátításához.
+
+![Igényelt üzleti folyamatok modellje](images/Igenyelt_uzleti_folyamatok_modell.png)
+
+Az "Igényelt üzleti folyamatok modellje" diagram bemutatja a felhasználói interakciót, a pontozási és ranglista rendszert, az azonnali visszajelzést, valamint az időzítő működését, szemléltetve a játékos KRESZ-tanulási folyamatot.
+
 
 ## Követelménylista
 
