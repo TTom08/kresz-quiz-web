@@ -65,12 +65,13 @@ Ez az alkalmazás tehát kiegészíti a meglévő online tanulási módszereket 
 
 | Modul ID | Név és Kifejtés |
 | :--- | :--- |
-| **K1** | **Adatkezelés**<br>A program képes a kérdéseket, válaszokat, a táblák képeit és a hozzájuk tartozó szabályokat egy **Json fájlból** beolvasni. Ha nem találja az adatokat, akkor hibaüzenetet küld, mert hibakezelést is szeretnénk belerakni. |
+| **K1** | **Adatkezelés**<br>A program a kvízkérdéseket, válaszokat, a táblák képeit és a hozzájuk tartozó szabályokat egy **PostgreSQL adatbázisból** olvassa be. Ha az adatok nem elérhetőek, a program hibakezeléssel reagál, és megfelelő hibaüzenetet küld. |
 | **K2** | **Kvíz Logika**<br>A program véletlenszerűen választ ki kérdéseket a betöltött adatok közül. A felhasználó válaszát összehasonlítja a helyes válasszal. Ha rossz választ ad a felhasználó, a program attól még kiírja mi volt a helyes. |
 | **K3** | **Pontszámítás**<br>Helyes válasz esetén pontot ad a felhasználónak. A pontszám a válaszadás **idejétől** is függ. |
-| **K4** | **Felhasználói Felület**<br>A felhasználó beírhatja a nevét, majd **megjeleníti** a kvíz elemeit: **közlekedési tábla képe vagy szöveges kresz szabály**, kérdés, válaszlehetőségek gombjai, pontszám. |
+| **K4** | **Felhasználói Felület**<br>A felhasználó beírhatja a nevét, majd **megjeleníti** a kvíz elemeit: **közlekedési tábla képe vagy szöveges KRESZ szabály**, kérdés, válaszlehetőségek gombjai, pontszám. |
 | **K5** | **Eredmény Képernyő**<br>A kvíz végén **megjeleníti** a végleges pontszámot, és lehetővé teszi a kvíz újraindítását vagy a kilépést. |
-| **K6** | **Helyi pontszám mentése**<br>A program a kvíz végén elmenti a felhasználó nevét és pontszámát a böngésző helyi tárhelyére (Local Storage).
-| **K7** | **Helyi Toplista**<br>A főmenüből megtekinthető a legjobban teljesítők helyi listája, amely a böngészőben van eltárolva.
+| **K6** | **Adatbázisba mentés**<br>A kvíz végén a program a felhasználó nevét és pontszámát elküldi a backendnek, amely az adatokat a **PostgreSQL adatbázisba** menti a tartós tárolás érdekében.
+| **K7** | **Globális Ranglista**<br>A főmenüből megtekinthető a legjobban teljesítők listája, amely a **PostgreSQL adatbázisból** kerül lekérésre, így az eredmények minden felhasználó számára elérhetőek.
 
-*Az alkalmazásunkkal a hagyományos tanulási folyamatot interaktívvá és dinamikussá tesszük. A diákok digitális felületen, játékos formában tesztelhetik tudásukat, azonnali visszajelzést kapva. A platform lehetőséget teremt az **önálló és egyéni tempójú tanulásra**, ami a hagyományos oktatásban sokszor nem valósul meg.*
+*Alkalmazásunkkal a hagyományos tanulási folyamatot egy interaktív és dinamikus online élménnyé tesszük. A diákok digitális felületen, játékos formában tesztelhetik tudásukat, és **azonnali visszajelzést** kapnak. A rendszerünk az adatok központosított, **adatbázisba** való mentésével lehetővé teszi a felhasználói rangsorok valós idejű, globális frissítését, ami motiváló versenyt hoz létre. A platform lehetőséget teremt az önálló és egyéni tempójú tanulásra, miközben egy közösségi elemet is beépít a ranglista funkción keresztül, ami a hagyományos oktatásban sokszor nem valósul meg.
+*
