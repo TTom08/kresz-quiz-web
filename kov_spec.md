@@ -28,9 +28,9 @@ Az alkalmazás fő célja, hogy egy interaktív KRESZ-kvízt biztosítson a felh
 
 A kérdésekhez egy közlekedési tábla képe vagy egy rövid KRESZ-szabály tartozik, és ezekhez több válaszlehetőség is kapcsolódik. A felhasználó kattintással adhatja meg válaszát, amelynek helyességéről azonnali visszajelzést kap. Helyes válasz esetén a gomb zöld színt kap, hibás válasz esetén pirosra vált, emellett a helyes megoldás is megjelenik, hogy segítse a tanulási folyamatot. Minden helyes válaszért pont jár, a pontszám pedig a kitöltés közben folyamatosan nyomon követhető.
 
-A rendszer időzítőt is tartalmaz, amely 40 másodpercet biztosít a kérdések megválaszolására. Ez fokozza a játék izgalmát, valamint a vizsgahelyzethez hasonló nyomást gyakorol a játékosra, ezzel felkészítve őt az éles vizsgára. A kvíz befejezése után az alkalmazás egy eredmény képernyőt jelenít meg, amely tartalmazza a felhasználó végső pontszámát, a helyesen megválaszolt kérdések számát, valamint egy toplistát, ahol a felhasználó megtekintheti a legjobban teljesítők helyi rangsorát.
+A rendszer időzítőt is tartalmaz, amely 40 másodpercet biztosít a kérdések megválaszolására. Ez fokozza a játék izgalmát, valamint a vizsgahelyzethez hasonló nyomást gyakorol a játékosra, ezzel felkészítve őt az éles vizsgára. A kvíz befejezése után az alkalmazás egy eredmény képernyőt jelenít meg, amely tartalmazza a felhasználó végső pontszámát, a helyesen megválaszolt kérdések számát, valamint egy ranglistát, ahol a felhasználó megtekintheti a legjobban teljesítők globális rangsorát.
 
-A toplista lehetővé teszi a felhasználók számára, hogy összehasonlítsák teljesítményüket és motivációt nyerjenek a további gyakorláshoz. Az összes funkció együttesen egy könnyen kezelhető és vizuálisan vonzó rendszert alkot, amely nagyban elősegíti a KRESZ-tanulás folyamatát.
+A ranglista lehetővé teszi a felhasználók számára, hogy összehasonlítsák teljesítményüket és motivációt nyerjenek a további gyakorláshoz. Az összes funkció együttesen egy könnyen kezelhető és vizuálisan vonzó rendszert alkot, amely nagyban elősegíti a KRESZ-tanulás folyamatát.
 
 ## Nem funkcionális követelmények és technológia
 
