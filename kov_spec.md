@@ -1,29 +1,26 @@
 # Követelmény Specifikáció
 
+## Áttekintés
 
+A projekt célja egy olyan webes kvízjáték létrehozása, amely segíti a felhasználókat a KRESZ szabályainak elsajátításában és gyakorlásában. A KRESZ ismerete minden forgalomban közlekedő számára elengedhetetlen, de a tanulási folyamat gyakran unalmas és nehezen követhető. A mi célunk egy olyan eszköz készítése, amely játékos formában nyújt lehetőséget a tudás fejlesztésére.  
 
+A választott platform a web, mivel ez a legkönnyebben elérhető mindenki számára. Nincs szükség telepítésre, elegendő egy böngésző, így a felhasználók gyorsan kipróbálhatják a játékot bármilyen nehézség elkerülésével. Ez különösen fontos, mert elsősorban a célközönség a fiatalság, amely jogosítványra készülő tanulókból és friss vezetőkből áll, akik már megszokták az online alkalmazások használatát.  
 
+A projekt jól illeszkedik egyetemi miniprojekt kereteibe, mert kellően kicsi ahhoz, hogy rövid idő alatt megvalósítható legyen, ugyanakkor elég összetett ahhoz, hogy több csapattag párhuzamosan tudjon rajta dolgozni. A játék tartalmaz adatkezelést (JSON kérdésbázis), interaktív felhasználói felületet (kérdés-válasz megjelenítés), valamint pontozási rendszert, ami elegendő komplexitást biztosít a projekt értékeléséhez.
 
+## Jelenlegi helyzet
 
+Jelenleg a KRESZ vizsgára való felkészülés már online felületen keresztül történik, viszont úgy érezzük, hogy más megoldásokat alkalmazva jobban és könnyebben tudnának tanulni az emberek. Ezek a weboldalak (mint az e-Titán) sokszor monotonok, nehezen motiválják a tanulókat, és nem adnak azonnali visszajelzést a teljesítményről. Nem nyújtanak játékélményt, inkább a vizsga környezetét próbálják szimulálni.  
 
+A hagyományos tesztelés nagy hátránya, hogy nem interaktív. A tanuló egyszerűen kiválasztja a választ, majd később ellenőrzi az eredményeket, ami nem annyira motiváló. Ráadásul a hibákból való tanulás is lassabb, hiszen nincs azonnali visszajelzés arról, hogy miért volt helytelen egy adott válasz. Ez csökkenti a tanulás hatékonyságát, és sokak számára fárasztóvá, sőt demotiválóvá teszi a felkészülést.
 
+## Vágyálom rendszer
 
+Az ideális rendszer egy olyan színes és interaktív webes alkalmazás, amely játékos formában tanítja a KRESZ szabályokat. A kérdések nem csupán szövegesek, hanem képekkel is kiegészíthetők, például közlekedési táblák vagy forgalmi szituációk illusztrációival. Ez jelentősen növeli a tanulás hatékonyságát, mert a vizuális elemek jobban rögzülnek a felhasználók memóriájában.  
 
+A játék tartalmazna ranglistát is, amely motivációt adna a felhasználóknak. A tanulók láthatnák saját eredményeiket, és összehasonlíthatnák más játékosokkal, ami egészséges versenyt szül. Az azonnali visszajelzés – például a helyes válasz zöld színnel, a hibás válasz pirossal – segíti a gyorsabb tanulást és a hibák elkerülését a jövőben.  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Az álomrendszer tehát nem csak egy kvíz lenne, hanem egy tanulási élmény. Egy olyan platform, ahol a felhasználó nem kényszerből tanul, hanem sokkal könnyebben és majdnem szórakozva sajátítja el a közlekedési szabályokat. Ezáltal a felkészülés hatékonyabb, gyorsabb és élvezetesebb lesz, ami végső soron jobb vizsgaeredményeket és biztonságosabb közlekedést eredményezhet.
 
 ## Funkcionális követelmények
 

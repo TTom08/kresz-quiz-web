@@ -1,48 +1,68 @@
 # Funkcionális Specifikáció
 
+## Felhasználói folyamatok --> User flow
 
+A rendszer célja, hogy a felhasználó egy egyszerű, átlátható és interaktív folyamat során sajátíthassa el a KRESZ szabályait. A következőkben bemutatjuk a játékhoz tartozó felhasználói folyamatokat a belépéstől a kilépésig, lépésről lépésre.
 
+### Használati esetek
 
+1. **Játék indítása**
 
+A felhasználó megnyitja a webalkalmazást a böngészőben. A kezdőképernyőn található egy mező, amelyben a saját nevét kell megadnia. Ez kötelező lépés, mivel a név a pontszámok mentéséhez és a toplistán való megjelenítéshez szükséges. A név beírása után a játékot elindító gomb aktívvá válik, és a felhasználó elindíthatja a kvízt.
 
+2. **Kvíz képernyő**
 
+A játék elindítása után megjelenik az első kérdés. A képernyő felső részén látható a kérdés szövege, valamint egy közlekedési tábla képe vagy egy rövid KRESZ-szabály. Az alatta elhelyezett négy gombon jelennek meg a válaszlehetőségek. A felhasználó ezek közül kattintással választ.
 
+3. **Válaszadás**
 
+Amikor a felhasználó rákattint egy válaszra, a rendszer azonnal visszajelzést ad:
 
+- helyes válasz esetén a gomb zöld színűvé válik,
 
+- hibás válasz esetén pirosra színeződik, és a helyes megoldás zöld színnel kerül kiemelésre.
 
+4. **Pontszámítás és időkorlát**
 
+A válaszadásra egy addott számú másodperc áll rendelkezésre. A pontszámot a rendszer automatikusan kiszámítja a válasz gyorsaságától függően: minél hamarabb adja meg a felhasználó a helyes választ, annál több pontot kap. A képernyő jobb felső részén látható a visszaszámláló, valamint az eddig elért pontszám.
 
+5. **Továbblépés a következő kérdésre**
 
+A visszajelzés megjelenítése után egy gomb segítségével léphetünk tovább a következő kérdésre. Ez ismételten tartalmaz egy rövid szöveget vagy képet, valamint a négy lehetséges választ. A folyamat mindaddig ismétlődik, amíg a felhasználó az összes kérdést meg nem válaszolta.
 
+6. **Játék vége és eredmények**
 
+Amikor a felhasználó az utolsó kérdésre is válaszolt, megjelenik az Eredmény képernyő. Itt látható a végső pontszám és a helyesen megválaszolt kérdések száma. Az eredmények automatikusan mentésre kerülnek a böngésző helyi tárhelyére, a felhasználó neve mellett.
 
+7. **Ranglista megtekintése**
 
+Az eredmény képernyőről, illetve a főmenüből elérhető a ranglista. Ez a helyi tárhelyben tárolt pontszámokat mutatja, csökkenő sorrendben.
 
+8. **Újraindítás vagy kilépés**
 
+Az eredmény képernyőről két lehetőség választható:
 
+- Újraindítás: a felhasználó új játékot kezdhet, új kérdésekkel.
 
+- Kilépés: a program bezárható, a ranglistán tárolt adatok megőrzésével.
 
+## Forgatókönyv
 
+- A felhasználó megnyitja a játékot, beírja a nevét és elindítja a kvízt.
 
+- Az első kérdés megjelenik, a felhasználó elolvassa, majd kiválasztja a helyesnek gondolt választ.
 
+- A rendszer azonnali színkódos visszajelzést ad.
 
+- A pontszám azonnal frissül, és a felhasználó továbblép a következő kérdésre.
 
+- A folyamat több kérdésen át ismétlődik, miközben a játékos figyeli az időzítőt és a pontszámát.
 
+- A kvíz végén a felhasználó látja a végső pontszámát és helyezését a toplistán.
 
+- Ezután újrakezdheti a játékot vagy kiléphet az alkalmazásból.
 
-
-
-
-
-
-
-
-
-
-
-
-
+Ez a felhasználói folyamat biztosítja, hogy a játék egyszerű, intuitív és motiváló legyen, miközben segíti a KRESZ-szabályok elsajátítását.
 
 ## Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
 
