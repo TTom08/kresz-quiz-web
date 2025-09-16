@@ -36,15 +36,15 @@ A toplista lehetővé teszi a felhasználók számára, hogy összehasonlítsák
 
 Ez a szakasz részletezi a kvíz alkalmazásunk technológiai döntéseit és nem funkcionális követelményeit. A célunk egy olyan termék létrehozása, amely hatékony, megbízható és felhasználóbarát.
 
-A felhasználói felület megvalósításához **HTML**, **CSS** és **JavaScript** nyelveket használunk. A kvíz kérdései és válaszai egy **statikus JSON**-fájlban vannak tárolva. Ez a megközelítés egyszerűsíti az adatkezelést, mivel nincs szükség adatbázisra vagy szerveroldali adatokra.
+A felhasználói felület megvalósításához frontendhez **HTML**, **CSS** és **JavaScript** nyelveket használunk, backendhez pedig **Pythont**, ezen belül **Flask** keretrendszert. A kvíz kérdései és válaszai egy **PostgreSQL**-adatbázisba vannak tárolva. A kvíz legvégén pedig rangsorolva lesznek a játékosok, melyeket ugyancsak egy **PostgreSQL**-adatbázisba tárolunk.
 
-**Teljesítmény**: Az alkalmazásnak **gyorsan be kell töltenie** a böngészőben, és gördülékenyen kell futnia a felhasználói interakciók során. A statikus JSON-fájl használata hozzájárul ehhez, mivel a böngészőnek nem kell szerveroldali kérésekre várnia.
+**Teljesítmény**: Az alkalmazásnak **gyorsan be kell töltenie** a böngészőben, és gördülékenyen kell futnia a felhasználói interakciók során. A **Python/Flask** backend gyorsan képes lekérdezni a kérdéseket a PostgreSQL adatbázisból, így biztosítva a zökkenőmentes élményt.
 
-**Megbízhatóság**: Az alkalmazásnak stabilnak kell lennie. Ez magában foglalja, hogy **ne fagyjon le** vagy **álljon le** a használat során, és minden kvízkérdés **elérhető** és **hibátlanul** megjelenjen.
+**Megbízhatóság**: Az alkalmazásnak **stabilnak** kell lennie, **nem szabad lefagynia** vagy **leállnia** a használat során. A **PostgreSQL** robusztus adatkezelése garantálja, hogy minden kvízkérdés és a felhasználói rangsor hibátlanul és megbízhatóan elérhető legyen.
 
-**Felhasználóbarát UI**: A felület intuitív és könnyen kezelhető.
+**Felhasználóbarát UI**: A felület intuitív és könnyen kezelhető. A **HTML**, **CSS** és **JavaScript** kombinációja biztosítja, hogy a design letisztult és a navigáció egyszerű legyen, a felhasználói élmény optimalizálása érdekében.
 
-**Korlátok**: Mivel minden adat a kliens böngészőjében van, a felhasználók eredményei vagy a kvíz állapota nem menthető el a munkamenetek között. A felhasználóknak minden alkalommal elölről kell kezdeniük a kvízt.
+**Korlátok**: Mivel a felhasználók **eredményeit** és **rangsorát PostgreSQL** adatbázisban tároljuk, az adatok tartósan megmaradnak, és a felhasználók visszatérő munkamenetek során is elérhetik a korábbi eredményeiket. A rendszer lehetővé teszi, hogy a játékosok ranglistája **folyamatosan frissüljön** és a legmagasabb pontszámokat tároljuk.
 
 
 ## Jelenlegi üzleti folyamatok modellje
@@ -65,12 +65,13 @@ Ez az alkalmazás tehát kiegészíti a meglévő online tanulási módszereket 
 
 | Modul ID | Név és Kifejtés |
 | :--- | :--- |
-| **K1** | **Adatkezelés**<br>A program képes a kérdéseket, válaszokat, a táblák képeit és a hozzájuk tartozó szabályokat egy **Json fájlból** beolvasni. Ha nem találja az adatokat, akkor hibaüzenetet küld, mert hibakezelést is szeretnénk belerakni. |
+| **K1** | **Adatkezelés**<br>A program a kvízkérdéseket, válaszokat, a táblák képeit és a hozzájuk tartozó szabályokat egy **PostgreSQL adatbázisból** olvassa be. Ha az adatok nem elérhetőek, a program hibakezeléssel reagál, és megfelelő hibaüzenetet küld. |
 | **K2** | **Kvíz Logika**<br>A program véletlenszerűen választ ki kérdéseket a betöltött adatok közül. A felhasználó válaszát összehasonlítja a helyes válasszal. Ha rossz választ ad a felhasználó, a program attól még kiírja mi volt a helyes. |
 | **K3** | **Pontszámítás**<br>Helyes válasz esetén pontot ad a felhasználónak. A pontszám a válaszadás **idejétől** is függ. |
-| **K4** | **Felhasználói Felület**<br>A felhasználó beírhatja a nevét, majd **megjeleníti** a kvíz elemeit: **közlekedési tábla képe vagy szöveges kresz szabály**, kérdés, válaszlehetőségek gombjai, pontszám. |
+| **K4** | **Felhasználói Felület**<br>A felhasználó beírhatja a nevét, majd **megjeleníti** a kvíz elemeit: **közlekedési tábla képe vagy szöveges KRESZ szabály**, kérdés, válaszlehetőségek gombjai, pontszám. |
 | **K5** | **Eredmény Képernyő**<br>A kvíz végén **megjeleníti** a végleges pontszámot, és lehetővé teszi a kvíz újraindítását vagy a kilépést. |
-| **K6** | **Helyi pontszám mentése**<br>A program a kvíz végén elmenti a felhasználó nevét és pontszámát a böngésző helyi tárhelyére (Local Storage).
-| **K7** | **Helyi Toplista**<br>A főmenüből megtekinthető a legjobban teljesítők helyi listája, amely a böngészőben van eltárolva.
+| **K6** | **Adatbázisba mentés**<br>A kvíz végén a program a felhasználó nevét és pontszámát elküldi a backendnek, amely az adatokat a **PostgreSQL adatbázisba** menti a tartós tárolás érdekében.
+| **K7** | **Globális Ranglista**<br>A főmenüből megtekinthető a legjobban teljesítők listája, amely a **PostgreSQL adatbázisból** kerül lekérésre, így az eredmények minden felhasználó számára elérhetőek.
 
-*Az alkalmazásunkkal a hagyományos tanulási folyamatot interaktívvá és dinamikussá tesszük. A diákok digitális felületen, játékos formában tesztelhetik tudásukat, azonnali visszajelzést kapva. A platform lehetőséget teremt az **önálló és egyéni tempójú tanulásra**, ami a hagyományos oktatásban sokszor nem valósul meg.*
+*Alkalmazásunkkal a hagyományos tanulási folyamatot egy interaktív és dinamikus online élménnyé tesszük. A diákok digitális felületen, játékos formában tesztelhetik tudásukat, és **azonnali visszajelzést** kapnak. A rendszerünk az adatok központosított, **adatbázisba** való mentésével lehetővé teszi a felhasználói rangsorok valós idejű, globális frissítését, ami motiváló versenyt hoz létre. A platform lehetőséget teremt az önálló és egyéni tempójú tanulásra, miközben egy közösségi elemet is beépít a ranglista funkción keresztül, ami a hagyományos oktatásban sokszor nem valósul meg.
+*
