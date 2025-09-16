@@ -101,8 +101,8 @@ A felhasználói felület és a különböző funkciók szoros kapcsolatban áll
     - A mező kitöltése után aktiválódik a **START** gomb.  
     - Üres mező esetén a gomb inaktív, ezzel biztosítva, hogy minden felhasználó nevét kötelezően rögzítsük.
   - Három fő gomb található itt, amelyek az alábbiakban láthatók felsorolva:
-    - **START**: elindítja a kvízt, betölti a kérdéseket a `questions.json` fájlból.
-    - **Toplista**: a felhasználó a legjobban teljesítők helyi rangsorát láthatja, amelyeket a helyi tárolóból (Local Storage) töltünk be.  
+    - **START**: elindítja a kvízt, betölti a kérdéseket az adatbázisból.
+    - **Ranglista**: a felhasználó a legjobban teljesítők rangsorát láthatja, amelyeket egy PostgreSQL adatbázisból töltünk be.  
     - **Kilépés**: az alkalmazás bezárására szolgál.
   - Letisztult, egyszerű elrendezés, hogy a felhasználó gyorsan eligazodjon.
   - A gombok színe és mérete a felhasználói élményt támogatja, jól láthatóak és könnyen kattinthatóak.
@@ -118,19 +118,19 @@ A felhasználói felület és a különböző funkciók szoros kapcsolatban áll
     - A hibás válasz: piros színnel kerül majd kiemelésre és ebben az esetben láthatjuk, hogy mi lett volna a helyes válasz is.
 - **Eredmény képernyő:**
   - Itt kerül megjelenítésre a felhasználó végső pontszáma és a helyes válaszok száma is.  
-  - Látható az aktuális toplista is, benne a legjobb eredményekkel, motiválva ezáltal a játékosokat, hogy minél jobban teljesítsenek és izgalmas legyen számukra a kvízjáték.
+  - Látható az aktuális ranglista is, benne a legjobb eredményekkel, motiválva ezáltal a játékosokat, hogy minél jobban teljesítsenek és izgalmas legyen számukra a kvízjáték.
   - **Újraindítás gomb**: lehetőséget biztosít a játék ismételt elindítására.  
   - **Kilépés gomb**: az alkalmazás bezárására szolgál.  
   - A pontszámok mellett rövid visszajelzés vagy értékelés is megjelenhet, mint például „Nagyszerű eredmény!” vagy „Gyakorlás javasolt”.
 
-- **Toplista képernyő:**
-  - A toplista a főmenüből érhető el.  
-  - Felsorolja a helyi rangsorban szereplő felhasználókat a legjobb pontszám szerint.  
-  - A lista dinamikusan frissül a JSON fájl vagy a Local Storage tartalma alapján (**K7**).    
+- **Ranglista képernyő:**
+  - A ranglista a főmenüből érhető el.  
+  - Felsorolja a globális rangsorban szereplő felhasználókat a legjobb pontszám szerint.  
+  - A lista dinamikusan frissül az adatbázisban lévő adatok alapján(**K7**).    
   - Segít a felhasználóknak a versengésben és a motiváció növelésében.  
   - A rangsor a legmagasabb pontszám szerint csökkenő sorrendben jelenik meg.  
-  - A felhasználó új pontszáma automatikusan bekerül a helyi listába a játék befejezése után.  
-  - A toplista frissítése valós időben történik, amikor a felhasználó végez egy kvízzel.  
+  - A felhasználó új pontszáma automatikusan bekerül az adatbázisba a játék befejezése után.  
+  - A ranglista frissítése valós időben történik, amikor a felhasználó végez egy kvízzel.  
   - A lista egyszerű, jól áttekinthető dizájnnal jelenik meg, hogy mindenki könnyen olvashassa.  
   - A nevek és pontszámok jól elkülönített oszlopokban láthatók.  
   - A lista lehetővé teszi a gyors visszajelzést a saját teljesítményről, ezzel ösztönözve a felhasználót, hogy minél többet gyakoroljon.
