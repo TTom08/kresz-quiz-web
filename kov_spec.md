@@ -36,15 +36,15 @@ A toplista lehetővé teszi a felhasználók számára, hogy összehasonlítsák
 
 Ez a szakasz részletezi a kvíz alkalmazásunk technológiai döntéseit és nem funkcionális követelményeit. A célunk egy olyan termék létrehozása, amely hatékony, megbízható és felhasználóbarát.
 
-A felhasználói felület megvalósításához **HTML**, **CSS** és **JavaScript** nyelveket használunk. A kvíz kérdései és válaszai egy **statikus JSON**-fájlban vannak tárolva. Ez a megközelítés egyszerűsíti az adatkezelést, mivel nincs szükség adatbázisra vagy szerveroldali adatokra.
+A felhasználói felület megvalósításához frontendhez **HTML**, **CSS** és **JavaScript** nyelveket használunk, backendhez pedig **Pythont**, ezen belül **Flask** keretrendszert. A kvíz kérdései és válaszai egy **PostgreSQL**-adatbázisba vannak tárolva. A kvíz legvégén pedig rangsorolva lesznek a játékosok, melyeket ugyancsak egy **PostgreSQL**-adatbázisba tárolunk.
 
-**Teljesítmény**: Az alkalmazásnak **gyorsan be kell töltenie** a böngészőben, és gördülékenyen kell futnia a felhasználói interakciók során. A statikus JSON-fájl használata hozzájárul ehhez, mivel a böngészőnek nem kell szerveroldali kérésekre várnia.
+**Teljesítmény**: Az alkalmazásnak **gyorsan be kell töltenie** a böngészőben, és gördülékenyen kell futnia a felhasználói interakciók során. A **Python/Flask** backend gyorsan képes lekérdezni a kérdéseket a PostgreSQL adatbázisból, így biztosítva a zökkenőmentes élményt.
 
-**Megbízhatóság**: Az alkalmazásnak stabilnak kell lennie. Ez magában foglalja, hogy **ne fagyjon le** vagy **álljon le** a használat során, és minden kvízkérdés **elérhető** és **hibátlanul** megjelenjen.
+**Megbízhatóság**: Az alkalmazásnak **stabilnak** kell lennie, **nem szabad lefagynia** vagy **leállnia** a használat során. A **PostgreSQL** robusztus adatkezelése garantálja, hogy minden kvízkérdés és a felhasználói rangsor hibátlanul és megbízhatóan elérhető legyen.
 
-**Felhasználóbarát UI**: A felület intuitív és könnyen kezelhető.
+**Felhasználóbarát UI**: A felület intuitív és könnyen kezelhető. A **HTML**, **CSS** és **JavaScript** kombinációja biztosítja, hogy a design letisztult és a navigáció egyszerű legyen, a felhasználói élmény optimalizálása érdekében.
 
-**Korlátok**: Mivel minden adat a kliens böngészőjében van, a felhasználók eredményei vagy a kvíz állapota nem menthető el a munkamenetek között. A felhasználóknak minden alkalommal elölről kell kezdeniük a kvízt.
+**Korlátok**: Mivel a felhasználók **eredményeit** és **rangsorát PostgreSQL** adatbázisban tároljuk, az adatok tartósan megmaradnak, és a felhasználók visszatérő munkamenetek során is elérhetik a korábbi eredményeiket. A rendszer lehetővé teszi, hogy a játékosok ranglistája **folyamatosan frissüljön** és a legmagasabb pontszámokat tároljuk.
 
 
 ## Jelenlegi üzleti folyamatok modellje
