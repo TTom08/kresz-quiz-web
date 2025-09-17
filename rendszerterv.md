@@ -109,7 +109,7 @@ Az alkalmazás menüstruktúrája egyszerű és könnyen átlátható, egyértel
   <li><b>Kilépés</b>: Ez a funkció bezárja az alkalmazást.</li>
 </ul>
 
-# 6. Fizikai környezet
+# Fizikai környezet
 
 A projekt egy webes alkalmazás formájában valósul meg, amely a felhasználó böngészőjében fut. A rendszer telepítést nem igényel, minden a webes környezeten keresztül történik.
 
@@ -121,4 +121,13 @@ A projekt egy webes alkalmazás formájában valósul meg, amely a felhasználó
     * **Kódszerkesztő:** Visual Studio Code és PyCharm.
     * **Adatbázis kezelő:** pgAdmin.
     * **Verziókezelés:** Git és GitHub.
+
+# Absztrakt domain modell
+
+Az absztrakt domain modell a rendszer fő entitásait és a köztük lévő kapcsolatokat írja le, segítve a rendszer logikai felépítésének megértését.
+
+* **Játékos:** A felhasználó, akinek a neve és a pontszáma tárolásra kerül. Ez az entitás tartalmazza a **Játékos ID-t**, a **Nevet**, és a **Pontszámot**.
+* **Kérdés:** Egy kvízkérdés, amely több válaszlehetőséggel rendelkezik. Tartalmazza a **Kérdés szövegét**, az opcionális **Kép elérési útját** és a **Helyes válasz ID-t**.
+* **Válaszlehetőség:** A Kérdéshez tartozó lehetséges válaszok. Minden válaszlehetőségnek van egy egyedi **Válasz ID-je** és egy **Szövege**.
+* **Ranglista:** A legjobb pontszámokat tároló lista. Ez az entitás a **Játékos nevével** és a hozzá tartozó **Pontszámmal** kapcsolódik a Játékos entitáshoz.
 
