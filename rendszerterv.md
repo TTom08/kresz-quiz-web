@@ -122,7 +122,7 @@ A projekt egy webes alkalmazás formájában valósul meg, amely a felhasználó
     * **Adatbázis kezelő:** pgAdmin.
     * **Verziókezelés:** Git és GitHub.
 
-![Menu hierarchy](images/MenuHierarchy.png)
+![Menu hierarchy](images/MenuHierarchy.drawio.png)
 
 # Absztrakt domain modell
 
