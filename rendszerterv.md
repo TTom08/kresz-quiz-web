@@ -161,4 +161,5 @@ A rendszer adatainak központi tárolóhelye.
 
 * **Technológia:** A kvízkérdéseket és a ranglistát egy **PostgreSQL** relációs adatbázisban tároljuk, ami garantálja az adatok megbízható és tartós elérhetőségét.
 
+![Architekturális terv](images/ArchitekturalisAbra.png)
 
