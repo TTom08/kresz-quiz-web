@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Rendszerterv: KRESZ Kvízjáték
 
 ## A rendszer célja
@@ -105,3 +106,275 @@ Minden válasz beküldésekor a kliens elküldi az adatokat a szervernek, amely 
 Ez a folyamat biztosítja a tanulás mellett a játékélményt is és versenyhelyzetet teremt, amely motiválja a felhasználókat a folyamatos gyakorlásra.
 
 ![Üzleti folyamatok modellje](images/Uzleti_folyamatok_modell.jpg)
+
+# Követelmények
+
+A rendszer követelményei két nagy csoportra oszthatók: **funkcionális** és **nem funkcionális követelmények**.
+
+## Funkcionális követelmények
+
+- **Kérdéskezelés:**  
+  Kérdések véletlenszerű és ismétlés nélküli kiválasztása az adatbázisból.
+
+- **Válaszellenőrzés:**  
+  Válaszok szerveroldali ellenőrzése.
+
+- **Pontszámítás:**  
+  Pontszámítás időalapú algoritmussal, a pontérték az eltelt idő függvényében csökkenhet.
+
+- **Eredmények kezelése:**  
+  Eredmények mentése az adatbázisba és ranglista frissítése, megjelenítése.
+
+- **Felhasználói név megadása:** a játékos megadja a nevét a játék kezdete előtt, az eredménye mentésre kerül az adatbázisba.
+
+## Nem funkcionális követelmények
+
+- **Teljesítmény:**  
+  Gyors és stabil válaszidő.
+
+- **Felhasználói felület:**  
+  Minimalista, könnyen kezelhető, reszponzív felhasználói felület.
+
+- **Kompatibilitás:**  
+  Stabil működés modern böngészőkben.
+
+- **Hibakezelés:**  
+  Hibák megfelelő kezelése és visszajelzése.
+
+- **Adatbiztonság:**  
+  Adatbiztonság és konzisztencia az adatbázisban.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Funkcionális terv
+A rendszer célja egy interaktív és játékos webes alkalmazás létrehozása, amely segíti a felhasználókat a **KRESZ szabályok** és közlekedési táblák elsajátításában. A felhasználó pontszámokat kap arról, hogyan sikerült megoldania a feladatokat. A rendszer egyszerű és letisztult felhasználói felülettel rendelkezik, hogy a tanulás zökkenőmentes legyen. A program főszereplője a **Játékos** nevű felhasználó.
+
+## Rendszerszereplők:
+<ul>
+  <li><b>Játékos</b>: Az a felhasználó, aki a kvízt kitölti, megtekinti az eredményeit és a ranglistát.</li>
+</ul>
+
+## Rendszerhasználati esetek és lefutásaik
+<ul>
+  <li><b>Kvíz indítása</b><br>A Játékos a főmenüből elindíthatja a kvízt. A rendszer véletlenszerűen választ ki kérdéseket az adatbázisból, minden kérdésre 40 másodperces időlimitet szabva.</li>
+  <li><b>Válaszadás</b><br>A Játékos a megjelenő kérdésre a megadott válaszlehetőségek közül kattintással adhat választ. A rendszer azonnal visszajelzést ad: a helyes válasz zöld, a helytelen piros színű lesz. Ha a Játékos rossz választ ad, a helyes megoldás is megjelenik, segítve a tanulást.</li>
+  <li><b>Pontszámítás</b><br>Minden helyes válaszért a Játékos pontot kap, és a rendszer folyamatosan mutatja az aktuális pontszámot.</li>
+  <li><b>Eredmény képernyő</b><br>A kvíz befejezése után egy képernyő jelenik meg, amelyen a Játékos megtekintheti a végső pontszámát, és elmentheti a nevét, valamint a pontszámát a ranglistára.</li>
+  <li><b>Ranglista megtekintése</b><br>A Játékos a főmenüből bármikor elérheti a ranglistát, ahol láthatja a legjobb eredményeket elért játékosokat.</li>
+  <li><b>Navigáció</b><br>A Játékos a főmenüben navigálhat a Játék indítása, a Ranglista megtekintése és a Kilépés funkciók között.</li>
+</ul>
+
+## Menü-hierarchia
+Az alkalmazás menüstruktúrája egyszerű és könnyen átlátható, egyértelmű navigációt biztosítva a felhasználónak. A főmenüben a játékos a legfontosabb funkciók közül választhat.
+<ul>
+  <li><b>Játék indítása</b>: Ezzel a gombbal indíthatja el a felhasználó a KRESZ kvízt.</li>
+  <li><b>Ranglista</b>: Ide kattintva megtekintheti a legjobb pontszámokat elért játékosok listáját.</li>
+  <li><b>Kilépés</b>: Ez a funkció bezárja az alkalmazást.</li>
+</ul>
+
+# Fizikai környezet
+
+A projekt egy webes alkalmazás formájában valósul meg, amely a felhasználó böngészőjében fut. A rendszer telepítést nem igényel, minden a webes környezeten keresztül történik.
+
+* **Platform:** Az alkalmazás bármilyen eszközön (asztali számítógép, laptop, táblagép, valamint esetlegesen kisebb képernyő méretek) futtatható, amely rendelkezik modern webböngészővel, mint például a Google Chrome, Mozilla Firefox, vagy Microsoft Edge.
+* **Hálózat:** A webalkalmazás a kliens (böngésző) és a szerver (backend) között kommunikál az interneten keresztül.
+* **Fejlesztői eszközök:**
+    * **Backend:** Python, Flask keretrendszer, PostgreSQL adatbázis.
+    * **Frontend:** HTML, CSS, JavaScript.
+    * **Kódszerkesztő:** Visual Studio Code és PyCharm.
+    * **Adatbázis kezelő:** pgAdmin.
+    * **Verziókezelés:** Git és GitHub.
+
+![Menu hierarchy](images/MenuHierarchy.drawio.png)
+
+# Absztrakt domain modell
+
+Az absztrakt domain modell a rendszer fő entitásait és a köztük lévő kapcsolatokat írja le, segítve a rendszer logikai felépítésének megértését.
+
+* **Játékos:** A felhasználó, akinek a neve és a pontszáma tárolásra kerül. Ez az entitás tartalmazza a **Játékos ID-t**, a **Nevet**, és a **Pontszámot**.
+* **Kérdés:** Egy kvízkérdés, amely több válaszlehetőséggel rendelkezik. Tartalmazza a **Kérdés szövegét**, az opcionális **Kép elérési útját** és a **Helyes válasz ID-t**.
+* **Válaszlehetőség:** A Kérdéshez tartozó lehetséges válaszok. Minden válaszlehetőségnek van egy egyedi **Válasz ID-je** és egy **Szövege**.
+* **Ranglista:** A legjobb pontszámokat tároló lista. Ez az entitás a **Játékos nevével** és a hozzá tartozó **Pontszámmal** kapcsolódik a Játékos entitáshoz.
+
+# Architekturális terv
+
+A rendszer egy többrétegű **kliens-szerver architektúrát** követ, ahol a felhasználói felület (**frontend**) és az üzleti logika (**backend**) különálló komponensek. A kliens HTTP kérésekkel kommunikál a szerverrel, a szerver pedig az adatbázissal. Ez a felépítés garantálja a rugalmasságot és a skálázhatóságot.
+
+## Backend
+
+A rendszer "hátsó része" egy Python-alapú szerver, ami a kvíz logikájáért és az adatkezelésért felel.
+
+* **Technológia:** A szerver a **Python** programozási nyelven, a **Flask** mikrokerekeretrendszerrel valósul meg.
+* **Feladatok:**
+    * **Adatbázis-kezelés:** Fogadja a kliens kéréseit, és kezeli az adatokat a **PostgreSQL** adatbázisban.
+    * **API:** Egy **RESTful API**-n keresztül kommunikál a frontendel, JSON formátumban. Például a `/quiz/start` végpont indítja a kvízt, a `/quiz/submit` fogadja a válaszokat, a `/leaderboard` pedig a ranglistát adja vissza.
+    * **Üzleti logika:** Ez a réteg felelős a **véletlenszerű kérdésválasztásért** és a **pontszámításért**.
+
+
+## Frontend
+
+A rendszer felhasználói felülete, ami a kliens oldalán, a böngészőben fut.
+
+* **Technológia:** A felület megvalósításához **HTML**, **CSS** és **JavaScript** nyelveket használunk.
+* **Feladatok:**
+    * **Felhasználói felület (UI):** Megjeleníti a főmenüt, a kvíz felületét (kérdések, válaszok, időzítő) és az eredményeket.
+    * **Kommunikáció:** **JavaScript** segítségével HTTP kéréseket küld a backend API-jának, és feldolgozza a kapott JSON adatokat.
+
+#### Adatbázis
+
+A rendszer adatainak központi tárolóhelye.
+
+* **Technológia:** A kvízkérdéseket és a ranglistát egy **PostgreSQL** relációs adatbázisban tároljuk, ami garantálja az adatok megbízható és tartós elérhetőségét.
+
+![Architekturális terv](images/ArchitekturalisAbra.png) 
+
+
