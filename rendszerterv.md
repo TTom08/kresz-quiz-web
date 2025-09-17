@@ -122,6 +122,8 @@ A projekt egy webes alkalmazás formájában valósul meg, amely a felhasználó
     * **Adatbázis kezelő:** pgAdmin.
     * **Verziókezelés:** Git és GitHub.
 
+![Menu hierarchy](images/MenuHierarchy.png)
+
 # Absztrakt domain modell
 
 Az absztrakt domain modell a rendszer fő entitásait és a köztük lévő kapcsolatokat írja le, segítve a rendszer logikai felépítésének megértését.
@@ -161,5 +163,5 @@ A rendszer adatainak központi tárolóhelye.
 
 * **Technológia:** A kvízkérdéseket és a ranglistát egy **PostgreSQL** relációs adatbázisban tároljuk, ami garantálja az adatok megbízható és tartós elérhetőségét.
 
-![Architekturális terv](images/ArchitekturalisAbra.png)
+![Architekturális terv](images/ArchitekturalisAbra.png) 
 
