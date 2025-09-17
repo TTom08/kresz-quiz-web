@@ -94,3 +94,12 @@ A fejlesztést egy háromfős csapat végzi. A feladatok felosztása úgy lett k
 - A frontend és a backend össze van kötve, a játék futtatható.
 
 - Teljes tesztelés és végleges verzió átadása.
+
+
+# Üzleti folyamatok modellje
+
+A rendszer működésének középpontjában a kvíz kitöltése áll. A felhasználó megnyitja az alkalmazást, beírja a nevét, majd elindítja a kvízt. A rendszer véletlenszerűen kérdéssort generál az adatbázisból, amelyet a játékos sorban megválaszol.
+
+Minden válasz beküldésekor a kliens elküldi az adatokat a szervernek, amely kiértékeli azokat, visszajelzést ad a helyességről és visszaküldi az eredményt. Ha a válasz helyes, a játékos pontot kap, a pontérték pedig az eltelt idő függvényében csökkenhet. A kvíz végén a rendszer összesíti a pontszámokat, eltárolja azokat az adatbázisban, majd megjeleníti a ranglistát.
+
+Ez a folyamat biztosítja a tanulás mellett a játékélményt is és versenyhelyzetet teremt, amely motiválja a felhasználókat a folyamatos gyakorlásra.
