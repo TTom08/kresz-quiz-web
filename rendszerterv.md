@@ -133,7 +133,7 @@ A rendszer követelményei két nagy csoportra oszthatók: **funkcionális** és
   Gyors és stabil válaszidő.
 
 - **Felhasználói felület:**  
-  Minimalista, könnyen kezelhető, reszponzív felhasználói felület.
+  Minimalista, egyszerű, könnyen kezelhető, reszponzív felhasználói felület.
 
 - **Kompatibilitás:**  
   Stabil működés modern böngészőkben.
