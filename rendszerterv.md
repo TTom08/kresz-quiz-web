@@ -131,3 +131,34 @@ Az absztrakt domain modell a rendszer fő entitásait és a köztük lévő kapc
 * **Válaszlehetőség:** A Kérdéshez tartozó lehetséges válaszok. Minden válaszlehetőségnek van egy egyedi **Válasz ID-je** és egy **Szövege**.
 * **Ranglista:** A legjobb pontszámokat tároló lista. Ez az entitás a **Játékos nevével** és a hozzá tartozó **Pontszámmal** kapcsolódik a Játékos entitáshoz.
 
+# Architekturális terv
+
+A rendszer egy többrétegű **kliens-szerver architektúrát** követ, ahol a felhasználói felület (**frontend**) és az üzleti logika (**backend**) különálló komponensek. A kliens HTTP kérésekkel kommunikál a szerverrel, a szerver pedig az adatbázissal. Ez a felépítés garantálja a rugalmasságot és a skálázhatóságot.
+
+## Backend
+
+A rendszer "hátsó része" egy Python-alapú szerver, ami a kvíz logikájáért és az adatkezelésért felel.
+
+* **Technológia:** A szerver a **Python** programozási nyelven, a **Flask** mikrokerekeretrendszerrel valósul meg.
+* **Feladatok:**
+    * **Adatbázis-kezelés:** Fogadja a kliens kéréseit, és kezeli az adatokat a **PostgreSQL** adatbázisban.
+    * **API:** Egy **RESTful API**-n keresztül kommunikál a frontendel, JSON formátumban. Például a `/quiz/start` végpont indítja a kvízt, a `/quiz/submit` fogadja a válaszokat, a `/leaderboard` pedig a ranglistát adja vissza.
+    * **Üzleti logika:** Ez a réteg felelős a **véletlenszerű kérdésválasztásért** és a **pontszámításért**.
+
+
+## Frontend
+
+A rendszer felhasználói felülete, ami a kliens oldalán, a böngészőben fut.
+
+* **Technológia:** A felület megvalósításához **HTML**, **CSS** és **JavaScript** nyelveket használunk.
+* **Feladatok:**
+    * **Felhasználói felület (UI):** Megjeleníti a főmenüt, a kvíz felületét (kérdések, válaszok, időzítő) és az eredményeket.
+    * **Kommunikáció:** **JavaScript** segítségével HTTP kéréseket küld a backend API-jának, és feldolgozza a kapott JSON adatokat.
+
+#### Adatbázis
+
+A rendszer adatainak központi tárolóhelye.
+
+* **Technológia:** A kvízkérdéseket és a ranglistát egy **PostgreSQL** relációs adatbázisban tároljuk, ami garantálja az adatok megbízható és tartós elérhetőségét.
+
+
