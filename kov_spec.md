@@ -6,7 +6,7 @@ A projekt célja egy olyan webes kvízjáték létrehozása, amely segíti a fel
 
 A választott platform a web, mivel ez a legkönnyebben elérhető mindenki számára. Nincs szükség telepítésre, elegendő egy böngésző, így a felhasználók gyorsan kipróbálhatják a játékot bármilyen nehézség elkerülésével. Ez különösen fontos, mert elsősorban a célközönség a fiatalság, amely jogosítványra készülő tanulókból és friss vezetőkből áll, akik már megszokták az online alkalmazások használatát.  
 
-A projekt jól illeszkedik egyetemi miniprojekt kereteibe, mert kellően kicsi ahhoz, hogy rövid idő alatt megvalósítható legyen, ugyanakkor elég összetett ahhoz, hogy több csapattag párhuzamosan tudjon rajta dolgozni. A játék tartalmaz adatkezelést (JSON kérdésbázis), interaktív felhasználói felületet (kérdés-válasz megjelenítés), valamint pontozási rendszert, ami elegendő komplexitást biztosít a projekt értékeléséhez.
+A projekt jól illeszkedik egyetemi miniprojekt kereteibe, mert kellően kicsi ahhoz, hogy rövid idő alatt megvalósítható legyen, ugyanakkor elég összetett ahhoz, hogy több csapattag párhuzamosan tudjon rajta dolgozni. A játék tartalmaz adatkezelést (PostgreSQL adatbázis), interaktív felhasználói felületet (kérdés-válasz megjelenítés), valamint pontozási rendszert, ami elegendő komplexitást biztosít a projekt értékeléséhez.
 
 ## Jelenlegi helyzet
 
