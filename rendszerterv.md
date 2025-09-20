@@ -261,3 +261,33 @@ Az adatbázis idegen kulcsokat használ a táblák összekapcsolására (pl. ans
 Az SQL-sémát migrációs eszközzel (Flask-Migrate) kezeljük, így a későbbi bővítések és módosítások egyszerűen követhetők.
 
 ![UML-diagram az adatbázishoz](images/db_uml.png)
+
+# Implementációs terv
+
+#### A projekt kliens–szerver architektúrát követ:
+
+- Frontend: HTML, CSS és JavaScript alapú reszponzív felület, amely AJAX-hívásokkal kapcsolódik a szerverhez.
+
+- Backend: Flask keretrendszer (Python), amely REST API-kat biztosít a kliensnek. Az API végpontjai felelősek a kérdések lekéréséért, a válaszok ellenőrzéséért és a pontszámok adatbázisba mentéséért.
+
+- Adatbázis: PostgreSQL, amely minden tartós adatot tárol. Az SQLAlchemy ORM segítségével érjük el az adatokat.
+
+#### A fájlstruktúra:
+
+- **app.py**: Flask indító fájl és fő konfiguráció.
+
+- **models.py**: az SQLAlchemy modellek definíciói.
+
+- **routes.py**: API végpontok.
+
+- **templates/**: HTML sablonok.
+
+- **static/**: CSS, JS, képek.
+
+#### A választott technológiák előnyei:
+
+Flask --> könnyen tanulható, rugalmas, Python nyelv.
+
+PostgreSQL --> megbízható, jól kezeli a relációkat és a skálázást.
+
+SQLAlchemy --> egyszerűsíti az adatbázis műveleteket.
