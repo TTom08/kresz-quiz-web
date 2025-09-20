@@ -309,3 +309,5 @@ A tesztelés célja a rendszer stabilitásának, funkcionalitásának és teljes
 - Teljesítmény teszt: a rendszer egyszerre több kliens kiszolgálására való képességének ellenőrzése.
 
 A hibákat a fejlesztők dokumentálják és javítják, szükség esetén újabb tesztkört indítanak.
+
+![Tesztelési folyamat folyamatábrája](images/test_plan_flowchart.png)
