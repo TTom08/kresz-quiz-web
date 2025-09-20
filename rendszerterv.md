@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Rendszerterv: KRESZ Kvízjáték
 
 ## A rendszer célja
