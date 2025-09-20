@@ -291,3 +291,21 @@ Flask --> könnyen tanulható, rugalmas, Python nyelv.
 PostgreSQL --> megbízható, jól kezeli a relációkat és a skálázást.
 
 SQLAlchemy --> egyszerűsíti az adatbázis műveleteket.
+
+# Tesztterv
+
+A tesztelés célja a rendszer stabilitásának, funkcionalitásának és teljesítményének vizsgálata.
+
+#### Tesztelési eljárások:
+
+- Unit teszt: a Flask backend függvényeinek és API végpontjainak ellenőrzése (PyTest segítségével).
+
+- Integrációs teszt: a kliens és a szerver közötti kommunikáció helyes működésének vizsgálata (pl. kérdések lekérése, pontszám mentése).
+
+- Adatbázis teszt: ellenőrizni, hogy a PostgreSQL táblák helyesen mentik és szolgáltatják az adatokat.
+
+- Kompatibilitási teszt: több böngészőben (Chrome, Firefox, Opera, Safari) történő működés vizsgálata.
+
+- Teljesítmény teszt: a rendszer egyszerre több kliens kiszolgálására való képességének ellenőrzése.
+
+A hibákat a fejlesztők dokumentálják és javítják, szükség esetén újabb tesztkört indítanak.
