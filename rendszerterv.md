@@ -311,3 +311,25 @@ A tesztelés célja a rendszer stabilitásának, funkcionalitásának és teljes
 A hibákat a fejlesztők dokumentálják és javítják, szükség esetén újabb tesztkört indítanak.
 
 ![Tesztelési folyamat folyamatábrája](images/test_plan_flowchart.png)
+
+# Telepítési terv
+
+A rendszer több komponensből áll, telepítése a következőképpen történik:
+
+#### Szerveroldal (backend + adatbázis):
+
+1. PostgreSQL telepítése és az adatbázis sémájának létrehozása migrációval.
+
+2. A Flask alkalmazás konfigurálása (adatbázis URL, titkos kulcsok, környezeti változók).
+
+3. Függőségek telepítése pip install -r requirements.txt paranccsal.
+
+4. A Flask alkalmazás futtatása.
+
+#### Kliensoldal (frontend):
+
+- A felhasználóknak csak egy modern böngészőre van szükségük.
+
+- A webes felület automatikusan elérhető a szerverre telepített Flask alkalmazáson keresztül.
+
+Ez a megoldás biztosítja, hogy a frissítések központilag telepíthetők, a felhasználóknak nem kell külön letölteniük vagy frissíteniük semmit.
