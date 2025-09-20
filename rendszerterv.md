@@ -259,3 +259,5 @@ A rendszer PostgreSQL relációs adatbázist használ, amely megbízható, skál
 Az adatbázis idegen kulcsokat használ a táblák összekapcsolására (pl. answers --> questions, scores --> users).
 
 Az SQL-sémát migrációs eszközzel (Flask-Migrate) kezeljük, így a későbbi bővítések és módosítások egyszerűen követhetők.
+
+![UML-diagram az adatbázishoz](images/db_uml.png)
