@@ -70,7 +70,7 @@ A felhasználói felület és a különböző funkciók szoros kapcsolatban áll
 
 - **Felhasználói Felület ( K4 ):** 
     - A főképernyőn a felhasználó először megadja a nevét, amely lehetővé teszi az egyéni eredmények nyomon követését, majd a **START** gombbal elindíthatja a kvízt. Ezután megjelennek a kérdések és a válaszok, kiegészítve a pontszám és az idő kijelzésével.  
-    - A **Toplista** gomb segítségével megtekinthető a toplista, ahol a felhasználó láthatja a legjobban teljesítők helyi listáját és ezek eredményeit. 
+    - A **Ranglista** gomb segítségével megtekinthető a ranglista, ahol a felhasználó láthatja a legjobban teljesítők listáját és ezek eredményeit. 
     - A **Kilépés** gomb a program lezárását teszi lehetővé, felhasználói vezérlést biztosítva.
 
 - **Kvíz képernyő kinézete:**  
@@ -87,10 +87,10 @@ A felhasználói felület és a különböző funkciók szoros kapcsolatban áll
 - **Pontszám kijelzés közben és a végén:**  
   - A felhasználó minden helyes válaszért pontot kap, amely a válaszadás gyorsaságától is függ(**K3**). A pontszám dinamikusan frissül minden kérdés után.  
   - A kvíz befejezésekor a végső eredmény az **Eredmény** képernyőn jelenik meg (**K5**).  
-  - Ez tartalmazza a helyesen megválaszolt kérdések számát, az összesített pontszámot és a toplista helyezettjeit (**K5, K7**).
+  - Ez tartalmazza a helyesen megválaszolt kérdések számát, az összesített pontszámot és a ranglista helyezettjeit (**K5, K7**).
 
-- **Toplista:**  
-  - A toplista a főmenüből érhető el, ahol a felhasználó megtekintheti a legjobban teljesítők helyi rangsorát. A pontszámok a böngésző helyi tárhelyében (Local Storage) kerülnek mentésre, így a rangsor a következő játék alkalmával is elérhető marad (**K7**).  
+- **Ranglista:**  
+  - A ranglista a főmenüből érhető el, ahol a felhasználó megtekintheti a globális ranglistát, amely az összes játékos teljesítményét tartalmazza, a pontszámok pedig egy PostgreSQL adatbázisban kerülnek tárolásra (**K7**).  
   - Ez motivációt nyújt a tanulóknak, hogy újra és újra próbálkozzanak a jobb eredmény eléréséért.  
   - A kérdésekhez használt közlekedési táblák képei segítik a vizuális tanulást és a valós helyzetek felismerését (**K4**).  
 
@@ -101,8 +101,8 @@ A felhasználói felület és a különböző funkciók szoros kapcsolatban áll
     - A mező kitöltése után aktiválódik a **START** gomb.  
     - Üres mező esetén a gomb inaktív, ezzel biztosítva, hogy minden felhasználó nevét kötelezően rögzítsük.
   - Három fő gomb található itt, amelyek az alábbiakban láthatók felsorolva:
-    - **START**: elindítja a kvízt, betölti a kérdéseket a `questions.json` fájlból.
-    - **Toplista**: a felhasználó a legjobban teljesítők helyi rangsorát láthatja, amelyeket a helyi tárolóból (Local Storage) töltünk be.  
+    - **START**: elindítja a kvízt, betölti a kérdéseket az adatbázisból.
+    - **Ranglista**: a felhasználó a legjobban teljesítők rangsorát láthatja, amelyeket egy PostgreSQL adatbázisból töltünk be.  
     - **Kilépés**: az alkalmazás bezárására szolgál.
   - Letisztult, egyszerű elrendezés, hogy a felhasználó gyorsan eligazodjon.
   - A gombok színe és mérete a felhasználói élményt támogatja, jól láthatóak és könnyen kattinthatóak.
@@ -118,19 +118,19 @@ A felhasználói felület és a különböző funkciók szoros kapcsolatban áll
     - A hibás válasz: piros színnel kerül majd kiemelésre és ebben az esetben láthatjuk, hogy mi lett volna a helyes válasz is.
 - **Eredmény képernyő:**
   - Itt kerül megjelenítésre a felhasználó végső pontszáma és a helyes válaszok száma is.  
-  - Látható az aktuális toplista is, benne a legjobb eredményekkel, motiválva ezáltal a játékosokat, hogy minél jobban teljesítsenek és izgalmas legyen számukra a kvízjáték.
+  - Látható az aktuális ranglista is, benne a legjobb eredményekkel, motiválva ezáltal a játékosokat, hogy minél jobban teljesítsenek és izgalmas legyen számukra a kvízjáték.
   - **Újraindítás gomb**: lehetőséget biztosít a játék ismételt elindítására.  
   - **Kilépés gomb**: az alkalmazás bezárására szolgál.  
   - A pontszámok mellett rövid visszajelzés vagy értékelés is megjelenhet, mint például „Nagyszerű eredmény!” vagy „Gyakorlás javasolt”.
 
-- **Toplista képernyő:**
-  - A toplista a főmenüből érhető el.  
-  - Felsorolja a helyi rangsorban szereplő felhasználókat a legjobb pontszám szerint.  
-  - A lista dinamikusan frissül a JSON fájl vagy a Local Storage tartalma alapján (**K7**).    
+- **Ranglista képernyő:**
+  - A ranglista a főmenüből érhető el.  
+  - Felsorolja a globális rangsorban szereplő felhasználókat a legjobb pontszám szerint.  
+  - A lista dinamikusan frissül az adatbázisban lévő adatok alapján(**K7**).    
   - Segít a felhasználóknak a versengésben és a motiváció növelésében.  
   - A rangsor a legmagasabb pontszám szerint csökkenő sorrendben jelenik meg.  
-  - A felhasználó új pontszáma automatikusan bekerül a helyi listába a játék befejezése után.  
-  - A toplista frissítése valós időben történik, amikor a felhasználó végez egy kvízzel.  
+  - A felhasználó új pontszáma automatikusan bekerül az adatbázisba a játék befejezése után.  
+  - A ranglista frissítése valós időben történik, amikor a felhasználó végez egy kvízzel.  
   - A lista egyszerű, jól áttekinthető dizájnnal jelenik meg, hogy mindenki könnyen olvashassa.  
   - A nevek és pontszámok jól elkülönített oszlopokban láthatók.  
   - A lista lehetővé teszi a gyors visszajelzést a saját teljesítményről, ezzel ösztönözve a felhasználót, hogy minél többet gyakoroljon.
@@ -147,10 +147,10 @@ A játék motorja a következő funkciókat valósítja meg, amelyek biztosítj�
 
   | Modul ID | Név és Kifejtés |
 | :--- | :--- |
-| **K1** | **Adatkezelés**<br>A program képes a kérdéseket, válaszokat, a táblák képeit és a hozzájuk tartozó szabályokat egy külön **JSON** fájlból beolvasni, amely a projekt struktúrájában található. A JavaScript a fetch() API segítségével aszinkron módon olvassa be a fájlt a weboldal betöltésekor. Ha a fájl nem található, vagy a beolvasás sikertelen, a program hibaüzenetet küld a konzolra. |
-| **K2** | **Kvíz Logika**<br>A rendszer véletlenszerűen, **ismétlés nélkül** választ kérdéseket. Összehasonlítja a felhasználó válaszát a helyes válasszal, és **azonnali vizuális visszajelzést** ad. Helyes válasz esetén zöld jelölés, helytelen esetén piros, ekkor a helyes válasz is zöld színnel kiemelt. |
+| **K1** | **Adatkezelés**<br>A program a kvízkérdéseket, a válaszokat, a táblák képeit és a hozzájuk tartozó szabályokat egy **PostgreSQL adatbázisból** kéri le a backend segítségével. A frontend a **fetch() API**-n keresztül aszinkron módon kommunikál a **Flask backenddel**, amely feldolgozza a lekéréseket.Ha a fájl nem található, vagy a beolvasás sikertelen, a program hibaüzenetet küld a konzolra. |
+| **K2** | **Kvíz Logika**<br>A rendszer véletlenszerűen, ismétlés nélkül választ kérdéseket az **adatbázisból**. A felhasználó válaszát a backend ellenőrzi, majd a frontend azonnali vizuális visszajelzést ad. Helyes válasz esetén zöld jelölés, helytelen esetén piros, ekkor a helyes válasz is zöld színnel kiemelt. |
 | **K3** | **Pontszámítás**<br>Minden kérdésre **legfeljebb 100 pont** adható. A helyes válasz pontszáma a válaszadásra fordított időtől függ, a következő képlet szerint: **Pontszám = min(100, 100 * ((40 - eltelt idő) / 40))**. Hibás válasz vagy időtúllépés esetén a pontszám 0. A végleges pontszám az összesített pontok összege. <br>**Példák a pontszámításra:**<ul><li>Ha 5 másodperc alatt válaszol a játékos: Pontszám = min(100, 100 * ((40-5)/40)) = min(100, 87.5) = 87.5 pont.</li><li>Ha 30 másodperc alatt válaszol: Pontszám = min(100, 100 * ((40-30)/40)) = min(100, 25) = 25 pont.</li><li>Ha 40 másodperc vagy több telik el: Pontszám = 0.</li></ul> |
 | **K4** | **Felhasználói Felület**<br>**Főmenü:** név megadása. <br>**Kvíz felület:** forgalmi tábla képe, kérdés szövege, 4 válaszlehetőség (gombok), pillanatnyi pontszám, 40 másodperces visszaszámláló. **Modern, intuitív UX/UI**, elsősorban **asztali gépen/laptopon** való használatra optimalizálva. |
 | **K5** | **Eredmény Képernyő**<br>A kvíz végén megjelenik a végső pontszám, a helyes válaszok száma. Gombokkal újraindítható a kvíz vagy kiléphető a programból. |
-| **K6** | **Helyi pontszám mentése**<br>A program a kvíz végén elmenti a felhasználó nevét és pontszámát a böngésző helyi tárhelyére (Local Storage).
-| **K7** | **Helyi Toplista**<br>A főmenüből megtekinthető a legjobban teljesítők helyi listája, amely a böngészőben van eltárolva.
+| **K6** | **Globális pontszám mentése**<br>A kvíz végén a program a felhasználó nevét és pontszámát elküldi a backendnek, amely az adatokat **PostgreSQL adatbázisba** menti, biztosítva a pontszámok tartós és központosított tárolását.
+| **K7** | **Globális Ranglista**<br>A főmenüből megtekinthető a legjobban teljesítők globális listája, amely a backendről, a **PostgreSQL adatbázisból** kerül lekérésre, így az minden felhasználó számára egységes és naprakész.
