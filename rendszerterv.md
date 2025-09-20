@@ -333,3 +333,17 @@ A rendszer több komponensből áll, telepítése a következőképpen történi
 - A webes felület automatikusan elérhető a szerverre telepített Flask alkalmazáson keresztül.
 
 Ez a megoldás biztosítja, hogy a frissítések központilag telepíthetők, a felhasználóknak nem kell külön letölteniük vagy frissíteniük semmit.
+
+# Karbantartási terv
+
+#### A rendszer karbantartása négy fő területre oszlik:
+
+- **Corrective Maintenance** (hibajavítás): észrevételeink alapján javítjuk a hibás kérdéseket, nem működő API végpontokat vagy adatbázis inkonzisztenciákat.
+
+- **Adaptive Maintenance** (alkalmazkodás): új PostgreSQL verziók, Flask frissítések vagy böngészőváltozások esetén a rendszer naprakész tartása.
+
+- **Perfective Maintenance** (fejlesztés): új funkciók (pl. többjátékos mód, ranglista bővítése, nehézségi szintek), valamint a teljesítmény és felhasználói élmény folyamatos javítása.
+
+- **Preventive Maintenance** (megelőző karbantartás): rendszeres adatbázis mentés, biztonsági rések megelőzése, kódellenőrzések és optimalizálások.
+
+A karbantartás célja a hosszú távú stabilitás biztosítása, a tanulói motiváció fenntartása és a folyamatos fejleszthetőség.
