@@ -229,4 +229,33 @@ A rendszer adatainak központi tárolóhelye.
 
 ![Architekturális terv](images/ArchitekturalisAbra.png) 
 
+# Adatbázis terv
 
+A rendszer PostgreSQL relációs adatbázist használ, amely megbízható, skálázható és széles körben támogatott technológia. Az adatbázis a kvíz működéséhez szükséges összes információt tárolja.
+
+#### Főbb táblák:
+
+- users: a regisztrált felhasználók adatait tartalmazza: 
+  - id, 
+  - felhasználónév
+
+- questions: a kvíz kérdéseit tárolja:
+  - id, 
+  - kérdés szövege, 
+  - opcionális kép
+
+- answers: a kérdésekhez tartozó válaszlehetőségeket tartalmazza:
+  - id, 
+  - kérdés_id, 
+  - válasz szöveg, 
+  - helyes-e
+
+- scores: a felhasználók által elért pontszámokat és eredményeket tárolja:
+  - id, 
+  - user_id, 
+  - pontszám, 
+  - időbélyeg
+
+Az adatbázis idegen kulcsokat használ a táblák összekapcsolására (pl. answers --> questions, scores --> users).
+
+Az SQL-sémát migrációs eszközzel (Flask-Migrate) kezeljük, így a későbbi bővítések és módosítások egyszerűen követhetők.
