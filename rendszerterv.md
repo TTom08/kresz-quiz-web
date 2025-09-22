@@ -14,61 +14,63 @@ A fejlesztést egy háromfős csapat végzi. A feladatok felosztása úgy lett k
 
 ## Projektszerepkörök és felelősségek
 
-### Csapattag 1: Adatkezelés és felhasználói adatfolyamok
+### Csapattag 1: Adatbázis és UI alapok
 
 **Backend:**
-- PostgreSQL adatbázis tervezése és implementálása.
-- Felhasználónév megadása a játék előtt.
-- API végpont fejlesztése a felhasználónév mentésére.
-- Hibakezelés érvénytelen vagy hiányzó név esetén.
+- PostgreSQL adatbázis séma tervezése.
+- Adatbázis migrációk beállítása (Flask-Migrate).
+- SQLAlchemy modellek implementálása.
 
 **Frontend:**
-- Felhasználónév megadása a játék indítása előtt.
-- Hibajelzések a név mezőhöz (pl. üres név).
+- Alap UI és navigáció (Játék indítása, Ranglista, Kilépés).
+- Reszponzív dizájn HTML és CSS segítségével.
 
 **Tesztelés:**
-- Felhasználónév mentésének és visszaolvasásának ellenőrzése.
-- Adatbázis műveletek és hibakezelés ellenőrzése.
+- Unit: CRUD műveletek és UI komponensek tesztelése.
+- Integrációs: migrációk + API adatmentés, UI ↔ többi felület.
+- Kompatibilitás: PostgreSQL verziók és böngészők (Chrome, Firefox, Safari, Opera).
+- Teljesítmény: adatbázis betöltés, UI betöltési sebesség.
 
 ---
 
-### Csapattag 2: Kvízlogika és pontszámítás
+### Csapattag 2: API és kvízfelület
 
 **Backend:**
-- Kvízkérdések kezelése és kiszolgálása az API-n keresztül.
-- Pontszámítási algoritmus megvalósítása.
-- Hibakezelés, ha nincs kérdés vagy érvénytelen választ kap a rendszer.
+- REST API végpontok fejlesztése (/quiz/start, /quiz/submit, /leaderboard).
+- Felhasználónév kezelés és pontszám mentés.
+- API dokumentálás.
 
 **Frontend:**
-- Kérdés–válasz modul fejlesztése.
-- Dinamikus elemek (pl. visszaszámláló, pontszám kijelzés).
-- Hibajelzések a játék közben (pl. „Nincs több kérdés”).
+- Kérdések dinamikus betöltése és megjelenítése (JavaScript).
+- Válaszlogika és időzítő kezelése.
+- Animációk és visszajelzések beépítése.
 
 **Tesztelés:**
-- Játéklogika és pontszámítás ellenőrzése.
-- Hibakezelés ellenőrzése.
+- Unit: API válaszok, input validáció, válaszellenőrzés, időzítő működése.
+- Integrációs: API ↔ adatbázis + frontend kvízfelület.
+- Kompatibilitás: AJAX hívások, JavaScript működése különböző böngészőkben.
+- Teljesítmény: API válaszidő, nagy számú kérdés gyors betöltése.
 
 ---
 
-### Csapattag 3: Játékállapot és felhasználói élmény
+### Csapattag 3: Kvízlogika, eredmények és ranglista
 
 **Backend:**
-- Játékállapot kezelése: új játék indítása, játék vége, pontok mentése.
-- Ranglista kezelése (pontszámok mentése, rangsorolás név alapján).
-- API stabilitás és naplózás biztosítása.
-- Hibakezelés a játékfolyamathoz kapcsolódva (pl. ha nem található játék session).
+- Kvízkérdések véletlenszerű kiválasztása.
+- Pontszámítás az idő függvényében.
+- Eredmények mentése, ranglista kezelése (név alapján).
+- Hibakezelés és eredmények visszajelzése az API-n keresztül.
 
 **Frontend:**
-- Reszponzív játékfelület és navigáció (asztali nézet támogatása, alkalmazkodás kisebb képernyőméretekhez is).
-- Toplista megjelenítése a játék után.
-- Állapot-visszajelzések: „Játék indult”, „Játék véget ért”.
-- Egységes hibajelző és visszajelző komponens (piros/zöld üzenetek).
+- Eredmény megjelenítése a kvíz végén.
+- Ranglista kirajzolása az API adatok alapján.
+- Felhasználói élmény optimalizálása.
 
 **Tesztelés:**
-- Játékindítás és játék lezárás folyamatainak tesztelése.
-- Toplista frissítésének és megjelenítésének ellenőrzése.
-- Reszponzivitás és felhasználói élmény ellenőrzése.
-- Hibakezelés kipróbálása (pl. játék indítása nem létező session-nel).
+- Unit: kérdéskiválasztó algoritmus, pontszámítás, ranglista renderelés.
+- Integrációs: logika ↔ API ↔ frontend eredményfelület.
+- Kompatibilitás: különböző kérdéstípusok, adatok megjelenítése különböző böngészőkben.
+- Teljesítmény: sok játékos egyidejű pontszámítása, ranglista gyors frissítése.
 
 ## Ütemterv
 
