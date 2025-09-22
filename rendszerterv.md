@@ -1,152 +1,153 @@
+# Rendszerterv: KRESZ Kvízjáték
 
+## A rendszer célja
 
+A rendszer célja egy olyan webes alkalmazás megvalósítása, amely játékos formában segít a felhasználóknak a KRESZ-szabályok és a közlekedési táblák megismerésében. A felhasználók egy interaktív kvíz keretein belül mérhetik fel tudásukat, azonnali visszajelzést kapnak a helyes és helytelen válaszokról, valamint pontszámokat gyűjthetnek a teljesítményük alapján. Az interaktivitás biztosítása érdekében a rendszer nem pusztán egy statikus tesztfelület, hanem játékos elemeket is tartalmaz: a pontszámítás az eltelt idő függvényében történik, így a gyors válaszadás előnyt jelent. A felhasználó teljesítménye rögzítésre kerül az adatbázisban, és összehasonlítható más játékosok eredményeivel egy ranglista segítségével. Ez versenyhelyzetet teremt, amely motiválja a felhasználókat a jobb eredmény elérésére és a gyakorlás folytatására.
 
+Mivel a kvízjáték webes felületen keresztül érhető el, a cél, hogy egyszerűen futtatható legyen bármely modern böngészőben asztali számítógépen vagy laptopon. A reszponzivitás biztosítása érdekében a rendszer esetleg részlegesen alkalmazkodhat más képernyőméretekhez, például tabletekhez vagy kisebb kijelzőkhöz is. A központi adatbázis biztosítja az adatok konzisztens és biztonságos tárolását.
 
+Összességében a rendszer célja egy olyan tanulást támogató játékos környezet létrehozása, amely a KRESZ-vizsgára való felkészülést könnyíti meg, mindezt szórakoztató, interaktív módon.
 
+# Projektterv
 
+A fejlesztést egy háromfős csapat végzi. A feladatok felosztása úgy lett kialakítva, hogy minden tag részt vegyen frontend és backend fejlesztésben, valamint a tesztelési folyamatokban is. Ez a struktúra biztosítja, hogy a csapattagok átfogó rálátással rendelkezzenek a teljes rendszerről, és a végtermék minden szempontból kiegyensúlyozott legyen.
 
+## Projektszerepkörök és felelősségek
 
+### Csapattag 1: Adatbázis és UI alapok
 
+**Backend:**
+- PostgreSQL adatbázis séma tervezése.
+- Adatbázis migrációk beállítása (Flask-Migrate).
+- SQLAlchemy modellek implementálása.
 
+**Frontend:**
+- Alap UI és navigáció (Játék indítása, Ranglista, Kilépés).
+- Reszponzív dizájn HTML és CSS segítségével.
 
+**Tesztelés:**
+- Unit: CRUD műveletek és UI komponensek tesztelése.
+- Integrációs: migrációk + API adatmentés, UI ↔ többi felület.
+- Kompatibilitás: PostgreSQL verziók és böngészők (Chrome, Firefox, Safari, Opera).
+- Teljesítmény: adatbázis betöltés, UI betöltési sebesség.
 
+---
 
+### Csapattag 2: API és kvízfelület
 
+**Backend:**
+- REST API végpontok fejlesztése (/quiz/start, /quiz/submit, /leaderboard).
+- Felhasználónév kezelés és pontszám mentés.
+- API dokumentálás.
 
+**Frontend:**
+- Kérdések dinamikus betöltése és megjelenítése (JavaScript).
+- Válaszlogika és időzítő kezelése.
+- Animációk és visszajelzések beépítése.
 
+**Tesztelés:**
+- Unit: API válaszok, input validáció, válaszellenőrzés, időzítő működése.
+- Integrációs: API ↔ adatbázis + frontend kvízfelület.
+- Kompatibilitás: AJAX hívások, JavaScript működése különböző böngészőkben.
+- Teljesítmény: API válaszidő, nagy számú kérdés gyors betöltése.
 
+---
 
+### Csapattag 3: Kvízlogika, eredmények és ranglista
 
+**Backend:**
+- Kvízkérdések véletlenszerű kiválasztása.
+- Pontszámítás az idő függvényében.
+- Eredmények mentése, ranglista kezelése (név alapján).
+- Hibakezelés és eredmények visszajelzése az API-n keresztül.
 
+**Frontend:**
+- Eredmény megjelenítése a kvíz végén.
+- Ranglista kirajzolása az API adatok alapján.
+- Felhasználói élmény optimalizálása.
 
+**Tesztelés:**
+- Unit: kérdéskiválasztó algoritmus, pontszámítás, ranglista renderelés.
+- Integrációs: logika ↔ API ↔ frontend eredményfelület.
+- Kompatibilitás: különböző kérdéstípusok, adatok megjelenítése különböző böngészőkben.
+- Teljesítmény: sok játékos egyidejű pontszámítása, ranglista gyors frissítése.
 
+## Ütemterv
 
+| Feladat / Task | Prioritás | Becslés (óra) | Aktuális becslés (óra) | Eltelt idő (óra) | Hátralévő idő (óra) |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Követelmény specifikáció | 0 | 4 | 4 | 4 | 0 |
+| Funkcionális specifikáció | 0 | 4 | 4 | 4 | 0 |
+| Rendszerterv | 0 | 8 | 8 | 8 | 0 |
+| Adatbázis séma és kapcsolatok tervezése | 1 | 8 | 0 | 0 | 8 |
+| Flask API fejlesztése (felhasználónév kezelése) | 1 | 10 | 0 | 0 | 10 |
+| Kvízlogika és pontszámítás implementálása | 1 | 12 | 0 | 0 | 12 |
+| Frontend felület (kvíz, ranglista) | 1 | 14 | 0 | 0 | 14 |
+| Kommunikáció a frontend és backend között | 1 | 10 | 0 | 0 | 10 |
+| Funkcionális tesztelés | 2 | 6 | 0 | 0 | 6 |
+| Telepítési és karbantartási terv | 3 | 4 | 0 | 0 | 4 |
 
+## Mérföldkövek
 
+- A PostgreSQL adatbázis és az alap API működőképes.
 
+- A kvízlogika és pontszámítás implementálva van.
 
+- A frontend és a backend össze van kötve, a játék futtatható.
 
+- Teljes tesztelés és végleges verzió átadása.
 
 
+# Üzleti folyamatok modellje
 
+A rendszer működésének középpontjában a kvíz kitöltése áll. A felhasználó megnyitja az alkalmazást, beírja a nevét, majd elindítja a kvízt. A rendszer véletlenszerűen kérdéssort generál az adatbázisból, amelyet a játékos sorban megválaszol.
 
+Minden válasz beküldésekor a kliens elküldi az adatokat a szervernek, amely kiértékeli azokat, visszajelzést ad a helyességről és visszaküldi az eredményt. Ha a válasz helyes, a játékos pontot kap, a pontérték pedig az eltelt idő függvényében csökkenhet. A kvíz végén a rendszer összesíti a pontszámokat, eltárolja azokat az adatbázisban, majd megjeleníti a ranglistát.
 
+Ez a folyamat biztosítja a tanulás mellett a játékélményt is és versenyhelyzetet teremt, amely motiválja a felhasználókat a folyamatos gyakorlásra.
 
+![Üzleti folyamatok modellje](images/Uzleti_folyamatok_modell.jpg)
 
+# Követelmények
 
+A rendszer követelményei két nagy csoportra oszthatók: **funkcionális** és **nem funkcionális követelmények**.
 
+## Funkcionális követelmények
 
+- **Kérdéskezelés:**  
+  Kérdések véletlenszerű és ismétlés nélküli kiválasztása az adatbázisból.
 
+- **Válaszellenőrzés:**  
+  Válaszok szerveroldali ellenőrzése.
 
+- **Pontszámítás:**  
+  Pontszámítás időalapú algoritmussal, a pontérték az eltelt idő függvényében csökkenhet.
 
+- **Eredmények kezelése:**  
+  Eredmények mentése az adatbázisba és ranglista frissítése, megjelenítése.
 
+- **Felhasználói név megadása:** a játékos megadja a nevét a játék kezdete előtt, az eredménye mentésre kerül az adatbázisba.
 
+## Nem funkcionális követelmények
 
+- **Teljesítmény:**  
+  Gyors és stabil válaszidő.
 
+- **Felhasználói felület:**  
+  Minimalista, egyszerű, könnyen kezelhető, reszponzív felhasználói felület.
 
+- **Kompatibilitás:**  
+  Stabil működés modern böngészőkben.
 
+- **Hibakezelés:**  
+  Hibák megfelelő kezelése és visszajelzése.
 
+- **Adatbiztonság:**  
+  Adatbiztonság és konzisztencia az adatbázisban.
 
+![Use Case diagram](images/Use_Case_diagram.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Ez a diagram vizuálisan foglalja össze a rendszer funkcionális követelményeit a felhasználó, vagyis a Játékos szemszögéből. Az ábra megmutatja, milyen főbb funkciókat használhat a játékos a rendszerrel való interakció során.
 
 # Funkcionális terv
 A rendszer célja egy interaktív és játékos webes alkalmazás létrehozása, amely segíti a felhasználókat a **KRESZ szabályok** és közlekedési táblák elsajátításában. A felhasználó pontszámokat kap arról, hogyan sikerült megoldania a feladatokat. A rendszer egyszerű és letisztult felhasználói felülettel rendelkezik, hogy a tanulás zökkenőmentes legyen. A program főszereplője a **Játékos** nevű felhasználó.
@@ -230,3 +231,121 @@ A rendszer adatainak központi tárolóhelye.
 
 ![Architekturális terv](images/ArchitekturalisAbra.png) 
 
+# Adatbázis terv
+
+A rendszer PostgreSQL relációs adatbázist használ, amely megbízható, skálázható és széles körben támogatott technológia. Az adatbázis a kvíz működéséhez szükséges összes információt tárolja.
+
+#### Főbb táblák:
+
+- users: a regisztrált felhasználók adatait tartalmazza: 
+  - id, 
+  - felhasználónév
+
+- questions: a kvíz kérdéseit tárolja:
+  - id, 
+  - kérdés szövege, 
+  - opcionális kép
+
+- answers: a kérdésekhez tartozó válaszlehetőségeket tartalmazza:
+  - id, 
+  - kérdés_id, 
+  - válasz szöveg, 
+  - helyes-e
+
+- scores: a felhasználók által elért pontszámokat és eredményeket tárolja:
+  - id, 
+  - user_id, 
+  - pontszám, 
+  - időbélyeg
+
+Az adatbázis idegen kulcsokat használ a táblák összekapcsolására (pl. answers --> questions, scores --> users).
+
+Az SQL-sémát migrációs eszközzel (Flask-Migrate) kezeljük, így a későbbi bővítések és módosítások egyszerűen követhetők.
+
+![UML-diagram az adatbázishoz](images/db_uml.png)
+
+# Implementációs terv
+
+#### A projekt kliens–szerver architektúrát követ:
+
+- Frontend: HTML, CSS és JavaScript alapú reszponzív felület, amely AJAX-hívásokkal kapcsolódik a szerverhez.
+
+- Backend: Flask keretrendszer (Python), amely REST API-kat biztosít a kliensnek. Az API végpontjai felelősek a kérdések lekéréséért, a válaszok ellenőrzéséért és a pontszámok adatbázisba mentéséért.
+
+- Adatbázis: PostgreSQL, amely minden tartós adatot tárol. Az SQLAlchemy ORM segítségével érjük el az adatokat.
+
+#### A fájlstruktúra:
+
+- **app.py**: Flask indító fájl és fő konfiguráció.
+
+- **models.py**: az SQLAlchemy modellek definíciói.
+
+- **routes.py**: API végpontok.
+
+- **templates/**: HTML sablonok.
+
+- **static/**: CSS, JS, képek.
+
+#### A választott technológiák előnyei:
+
+Flask --> könnyen tanulható, rugalmas, Python nyelv.
+
+PostgreSQL --> megbízható, jól kezeli a relációkat és a skálázást.
+
+SQLAlchemy --> egyszerűsíti az adatbázis műveleteket.
+
+# Tesztterv
+
+A tesztelés célja a rendszer stabilitásának, funkcionalitásának és teljesítményének vizsgálata.
+
+#### Tesztelési eljárások:
+
+- Unit teszt: a Flask backend függvényeinek és API végpontjainak ellenőrzése (PyTest segítségével).
+
+- Integrációs teszt: a kliens és a szerver közötti kommunikáció helyes működésének vizsgálata (pl. kérdések lekérése, pontszám mentése).
+
+- Adatbázis teszt: ellenőrizni, hogy a PostgreSQL táblák helyesen mentik és szolgáltatják az adatokat.
+
+- Kompatibilitási teszt: több böngészőben (Chrome, Firefox, Opera, Safari) történő működés vizsgálata.
+
+- Teljesítmény teszt: a rendszer egyszerre több kliens kiszolgálására való képességének ellenőrzése.
+
+A hibákat a fejlesztők dokumentálják és javítják, szükség esetén újabb tesztkört indítanak.
+
+![Tesztelési folyamat folyamatábrája](images/test_plan_flowchart.png)
+
+# Telepítési terv
+
+A rendszer több komponensből áll, telepítése a következőképpen történik:
+
+#### Szerveroldal (backend + adatbázis):
+
+1. PostgreSQL telepítése és az adatbázis sémájának létrehozása migrációval.
+
+2. A Flask alkalmazás konfigurálása (adatbázis URL, titkos kulcsok, környezeti változók).
+
+3. Függőségek telepítése pip install -r requirements.txt paranccsal.
+
+4. A Flask alkalmazás futtatása.
+
+#### Kliensoldal (frontend):
+
+- A felhasználóknak csak egy modern böngészőre van szükségük.
+
+- A webes felület automatikusan elérhető a szerverre telepített Flask alkalmazáson keresztül.
+
+Ez a megoldás biztosítja, hogy a frissítések központilag telepíthetők, a felhasználóknak nem kell külön letölteniük vagy frissíteniük semmit.
+
+# Karbantartási terv
+
+#### A rendszer karbantartása négy fő területre oszlik:
+
+- **Corrective Maintenance** (hibajavítás): észrevételeink alapján javítjuk a hibás kérdéseket, nem működő API végpontokat vagy adatbázis inkonzisztenciákat.
+
+- **Adaptive Maintenance** (alkalmazkodás): új PostgreSQL verziók, Flask frissítések vagy böngészőváltozások esetén a rendszer naprakész tartása.
+
+- **Perfective Maintenance** (fejlesztés): új funkciók (pl. többjátékos mód, ranglista bővítése, nehézségi szintek), valamint a teljesítmény és felhasználói élmény folyamatos javítása.
+
+- **Preventive Maintenance** (megelőző karbantartás): rendszeres adatbázis mentés, biztonsági rések megelőzése, kódellenőrzések és optimalizálások.
+
+A karbantartás célja a hosszú távú stabilitás biztosítása, a tanulói motiváció fenntartása és a folyamatos fejleszthetőség.

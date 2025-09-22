@@ -6,7 +6,7 @@ A projekt célja egy olyan webes kvízjáték létrehozása, amely segíti a fel
 
 A választott platform a web, mivel ez a legkönnyebben elérhető mindenki számára. Nincs szükség telepítésre, elegendő egy böngésző, így a felhasználók gyorsan kipróbálhatják a játékot bármilyen nehézség elkerülésével. Ez különösen fontos, mert elsősorban a célközönség a fiatalság, amely jogosítványra készülő tanulókból és friss vezetőkből áll, akik már megszokták az online alkalmazások használatát.  
 
-A projekt jól illeszkedik egyetemi miniprojekt kereteibe, mert kellően kicsi ahhoz, hogy rövid idő alatt megvalósítható legyen, ugyanakkor elég összetett ahhoz, hogy több csapattag párhuzamosan tudjon rajta dolgozni. A játék tartalmaz adatkezelést (JSON kérdésbázis), interaktív felhasználói felületet (kérdés-válasz megjelenítés), valamint pontozási rendszert, ami elegendő komplexitást biztosít a projekt értékeléséhez.
+A projekt jól illeszkedik egyetemi miniprojekt kereteibe, mert kellően kicsi ahhoz, hogy rövid idő alatt megvalósítható legyen, ugyanakkor elég összetett ahhoz, hogy több csapattag párhuzamosan tudjon rajta dolgozni. A játék tartalmaz adatkezelést (PostgreSQL adatbázis), interaktív felhasználói felületet (kérdés-válasz megjelenítés), valamint pontozási rendszert, ami elegendő komplexitást biztosít a projekt értékeléséhez.
 
 ## Jelenlegi helyzet
 
@@ -16,9 +16,9 @@ A hagyományos tesztelés nagy hátránya, hogy nem interaktív. A tanuló egysz
 
 ## Vágyálom rendszer
 
-Az ideális rendszer egy olyan színes és interaktív webes alkalmazás, amely játékos formában tanítja a KRESZ szabályokat. A kérdések nem csupán szövegesek, hanem képekkel is kiegészíthetők, például közlekedési táblák vagy forgalmi szituációk illusztrációival. Ez jelentősen növeli a tanulás hatékonyságát, mert a vizuális elemek jobban rögzülnek a felhasználók memóriájában.  
+Az ideális rendszer egy olyan színes és interaktív webes alkalmazás, amely játékos formában tanítja a KRESZ szabályokat. A kérdések nem csupán szövegesek, hanem képekkel is kiegészíthetők, például közlekedési táblák vagy forgalmi szituációk illusztrációival. Ez jelentősen növeli a tanulás hatékonyságát, mert a vizuális elemek jobban rögzülnek a felhasználók memóriájában.
 
-A játék tartalmazna ranglistát is, amely motivációt adna a felhasználóknak. A tanulók láthatnák saját eredményeiket, és összehasonlíthatnák más játékosokkal, ami egészséges versenyt szül. Az azonnali visszajelzés – például a helyes válasz zöld színnel, a hibás válasz pirossal – segíti a gyorsabb tanulást és a hibák elkerülését a jövőben.  
+A játék tartalmazna ranglistát is, amely motivációt adna a felhasználóknak. A tanulók láthatnák saját eredményeiket, és összehasonlíthatnák más játékosokkal. Az azonnali visszajelzés (például a helyes válasz zöld színnel, a hibás válasz pirossal) segíti a gyorsabb tanulást és a hibák elkerülését a jövőben.
 
 Az álomrendszer tehát nem csak egy kvíz lenne, hanem egy tanulási élmény. Egy olyan platform, ahol a felhasználó nem kényszerből tanul, hanem sokkal könnyebben és majdnem szórakozva sajátítja el a közlekedési szabályokat. Ezáltal a felkészülés hatékonyabb, gyorsabb és élvezetesebb lesz, ami végső soron jobb vizsgaeredményeket és biztonságosabb közlekedést eredményezhet.
 
