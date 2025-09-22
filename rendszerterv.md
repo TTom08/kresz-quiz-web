@@ -78,7 +78,7 @@ A fejlesztést egy háromfős csapat végzi. A feladatok felosztása úgy lett k
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | Követelmény specifikáció | 0 | 4 | 4 | 4 | 0 |
 | Funkcionális specifikáció | 0 | 4 | 4 | 4 | 0 |
-| Rendszerterv | 0 | 8 | 8 | 4 | 4 |
+| Rendszerterv | 0 | 8 | 8 | 8 | 0 |
 | Adatbázis séma és kapcsolatok tervezése | 1 | 8 | 0 | 0 | 8 |
 | Flask API fejlesztése (felhasználónév kezelése) | 1 | 10 | 0 | 0 | 10 |
 | Kvízlogika és pontszámítás implementálása | 1 | 12 | 0 | 0 | 12 |
