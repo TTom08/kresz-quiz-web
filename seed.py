@@ -128,100 +128,100 @@ with app.app_context():
             "text": "Melyik jelzés a 'Megállni tilos'?",
             "image_path": None,
             "answers": [
-                {"text": None, "is_correct": True, "image_path": "/static/images/tablak/Megallni_tilos.jpg"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/kotelezo-haladasi-kikerulesi-irany-egy-iranyba.jpg"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/Kotelezo_haladasi_irany_egyenesen_es_balra.jpg"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/mindket_iranybol_behajtani_tilos.png"}
+                {"text": None, "is_correct": True, "image_path": "/static/Kresz_images/Megallni_tilos.jpg"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/kotelezo-haladasi-kikerulesi-irany-egy-iranyba.jpg"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/Kotelezo_haladasi_irany_egyenesen_es_balra.jpg"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/mindket_iranybol_behajtani_tilos.png"}
             ]
         },
         {
             "text": "Melyik jelzés a 'Kötelező haladási irány' tábla?",
             "image_path": None,
             "answers": [
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/jobbra_kanyarodni_tilos.png"},
-                {"text": None, "is_correct": True, "image_path": "/static/images/tablak/kotelezo-haladasi-kikerulesi-irany-egy-iranyba.jpg"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/autobusz_megallohely.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/korforgalom.png"}
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/jobbra_kanyarodni_tilos.png"},
+                {"text": None, "is_correct": True, "image_path": "/static/Kresz_imagess/kotelezo-haladasi-kikerulesi-irany-egy-iranyba.jpg"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/autobusz_megallohely.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/korforgalom.png"}
             ]
         },
         {
             "text": "Melyik jelzés a 'Vigyázat, gyermekek'?",
             "image_path": None,
             "answers": [
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/stop.png"},
-                {"text": None, "is_correct": True, "image_path": "/static/images/tablak/gyermekek_tabla.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/varakozni_tilos.jpg"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/gyalogosok_atkelohelye.png"}
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/stop.png"},
+                {"text": None, "is_correct": True, "image_path": "/static/Kresz_images/gyermekek_tabla.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/varakozni_tilos.jpg"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/gyalogosok_atkelohelye.png"}
             ]
         },
         {
             "text": "Melyik jelzés a 'Főútvonal vége' tábla?",
             "image_path": None,
             "answers": [
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/foutvonal_vonalvezetese.png"},
-                {"text": None, "is_correct": True, "image_path": "/static/images/tablak/foutvonal_vege.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/kerekparsav.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/korforgalom_elorejelzes.png"}
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/foutvonal_vonalvezetese.png"},
+                {"text": None, "is_correct": True, "image_path": "/static/Kresz_images/foutvonal_vege.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/kerekparsav.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/korforgalom_elorejelzes.png"}
             ]
         },
         {
             "text": "Melyik jelzés a 'Kikerülési irány'?",
             "image_path": None,
             "answers": [
-                {"text": None, "is_correct": True, "image_path": "/static/images/tablak/kikerulesi_irany.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/ketiranyu_forgalom.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/behajtani_tilos.jpg"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/Megallni_tilos.jpg"}
+                {"text": None, "is_correct": True, "image_path": "/static/Kresz_images/kikerulesi_irany.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/ketiranyu_forgalom.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/behajtani_tilos.jpg"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/Megallni_tilos.jpg"}
             ]
         },
         {
             "text": "Melyik jelzés a 'Vigyázat, vasúti átjáró sorompóval'?",
             "image_path": None,
             "answers": [
-                {"text": None, "is_correct": True, "image_path": "/static/images/tablak/sorompoval_biztositott_vasuti_atjaro.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/Kotelezo_haladasi_irany_egyenesen_es_balra.jpg"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/kerekparsav.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/gyalogosok_atkelohelye.png"}
+                {"text": None, "is_correct": True, "image_path": "/static/Kresz_images/sorompoval_biztositott_vasuti_atjaro.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/Kotelezo_haladasi_irany_egyenesen_es_balra.jpg"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/kerekparsav.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/gyalogosok_atkelohelye.png"}
             ]
         },
         {
             "text": "Melyik jelzés a 'Kétirányú forgalom'?",
             "image_path": None,
             "answers": [
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/kikerulesi_irany.png"},
-                {"text": None, "is_correct": True, "image_path": "/static/images/tablak/ketiranyu_forgalom.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/egyiranyu_forgalom.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/kerulo_utiranyt_jelzo_tabla.png"}
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/kikerulesi_irany.png"},
+                {"text": None, "is_correct": True, "image_path": "/static/Kresz_images/ketiranyu_forgalom.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/egyiranyu_forgalom.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/kerulo_utiranyt_jelzo_tabla.png"}
             ]
         },
         {
             "text": "Melyik jelzés a 'Jobbra kanyarodni tilos'?",
             "image_path": None,
             "answers": [
-                {"text": None, "is_correct": True, "image_path": "/static/images/tablak/jobbra_kanyarodni_tilos.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/kerekpar_ut.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/csuszos_uttest.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/egymas_utani_veszelyes_utkanyarulatok.png"}
+                {"text": None, "is_correct": True, "image_path": "/static/Kresz_images/jobbra_kanyarodni_tilos.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/kerekpar_ut.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/csuszos_uttest.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/egymas_utani_veszelyes_utkanyarulatok.png"}
             ]
         },
         {
             "text": "Melyik jelzés a 'Kerékpár út'?",
             "image_path": None,
             "answers": [
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/kerekparsav.png"},
-                {"text": None, "is_correct": True, "image_path": "/static/images/tablak/kerekpar_ut.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/korforgalom.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/gyermekek_tabla.png"}
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/kerekparsav.png"},
+                {"text": None, "is_correct": True, "image_path": "/static/Kresz_images/kerekpar_ut.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/korforgalom.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/gyermekek_tabla.png"}
             ]
         },
         {
             "text": "Melyik jelzés a 'Stop'?",
             "image_path": None,
             "answers": [
-                {"text": None, "is_correct": True, "image_path": "/static/images/tablak/stop.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/szukulo_ut.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/varakozni_tilos.jpg"},
-                {"text": None, "is_correct": False, "image_path": "/static/images/tablak/gyalogosok_atkelohelye.png"}
+                {"text": None, "is_correct": True, "image_path": "/static/Kresz_images/stop.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/szukulo_ut.png"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/varakozni_tilos.jpg"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/gyalogosok_atkelohelye.png"}
             ]
         }
     ]
