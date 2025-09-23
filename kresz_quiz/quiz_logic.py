@@ -37,7 +37,7 @@ def get_leaderboard():
 
     if not isinstance(leaderboard, list):
         raise ValueError("Leaderboard must be a list")
-       
+
     if not leaderboard:
         return []
     return sorted(leaderboard, key=lambda x: x["score"], reverse=True)
