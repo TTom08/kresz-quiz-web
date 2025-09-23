@@ -10,14 +10,15 @@ class User(db.Model):
 class Question(db.Model):
     __tablename__ = 'questions'
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(200), nullable=False)
+    text = db.Column(db.String(200), nullable=True)
     image_path = db.Column(db.String(100), nullable=True)
     answers = db.relationship('Answer', backref='question', lazy=True)
 
 class Answer(db.Model):
     __tablename__ = 'answers'
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(100), nullable=False)
+    text = db.Column(db.String(500), nullable=True)
+    image_path = db.Column(db.String(100), nullable=True)
     is_correct = db.Column(db.Boolean, nullable=False)
     question_id = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=False)
 
