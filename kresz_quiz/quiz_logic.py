@@ -29,8 +29,16 @@ def add_score(username, score):
         raise ValueError("Username must be a non-empty string")
     if not isinstance(score, (int, float)):
         raise ValueError("Score must be a number")
+    if score < 0 or score > MAX_POINTS:
+        raise ValueError(f"Score must be between 0 and {MAX_POINTS}")
     leaderboard.append({"username": username, "score": score})
 
 def get_leaderboard():
-  
+
+    if not isinstance(leaderboard, list):
+        raise ValueError("Leaderboard must be a list")
+       
+    if not leaderboard:
+        return []
     return sorted(leaderboard, key=lambda x: x["score"], reverse=True)
+
