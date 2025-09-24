@@ -75,7 +75,7 @@ def test_calculate_score_time_exceeded():
 
 def test_calculate_score_normal():
     score = calculate_score(20, correct=True)
-    assert score == 5  # MAX_POINTS=10, TIME_LIMIT=40
+    assert score == 5
 
 
 def test_add_score_non_existing_user(test_app):
