@@ -1,7 +1,7 @@
 import pytest
 from app import app, db
 from models import User, Score, Question, Answer
-from quiz_logic import choose_questions, calculate_score, add_score, get_leaderboard
+from kresz_quiz.quiz_logic import choose_questions, calculate_score, add_score, get_leaderboard
 
 
 @pytest.fixture(scope="function")
