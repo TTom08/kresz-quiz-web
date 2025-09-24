@@ -34,21 +34,18 @@ def add_score(username, score):
     if score < 0 or score > MAX_POINTS:
         raise ValueError(f"Score must be between 0 and {MAX_POINTS}")
 
+    user = User.query.filter_by(username=username).first()
+    if not user:
+        raise ValueError(f"User '{username}' does not exist. Create user at game start.")
 
     try:
-        user = User.query.filter_by(username=username).first()
-        if not user:
-            user = User(username=username)
-            db.session.add(user)
-            db.session.flush()
-
         new_score = Score(user_id=user.id, score=score)
         db.session.add(new_score)
         db.session.commit()
-
     except Exception as e:
         db.session.rollback()
         raise RuntimeError(f"Failed to add score for {username}: {e}")
+
 
 
 def get_leaderboard(limit=10):
