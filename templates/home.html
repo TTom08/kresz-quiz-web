@@ -2,9 +2,24 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <title>Flask Teszt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kresz-quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Szia, ez egy ideiglenes tesztoldal!</h1>
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Készülj a vizsgára, teszteld a tudásodat!</h1>
+                <p>Mérd fel KRESZ-ismereteidet, és nézd meg, hogy a ranglistán hányadik helyen végzel!</p>
+                
+                <div class="button-container">
+                    <a href="#" class="cta-button">Játék indítása</a>
+                    <a href="#" class="secondary-button">Ranglista</a>
+                    <a href="#" class="secondary-button">Kilépés</a>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
