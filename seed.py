@@ -123,14 +123,14 @@ with app.app_context():
                 {"text": "A segédmotoros kerékpár", "is_correct": False, "image_path": None}
             ]
         },
-        # --- 10 KÉPES KÉRDÉS ---
+
         {
             "text": "Melyik jelzés a 'Megállni tilos'?",
             "image_path": None,
             "answers": [
-                {"text": None, "is_correct": True, "image_path": "/static/Kresz_images/Megallni_tilos.jpg"},
+                {"text": None, "is_correct": True, "image_path": "/static/Kresz_images/megallni_tilos.jpg"},
                 {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/kotelezo-haladasi-kikerulesi-irany-egy-iranyba.jpg"},
-                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/Kotelezo_haladasi_irany_egyenesen_es_balra.jpg"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/kotelezo_haladasi_irany_egyenesen_es_balra.jpg"},
                 {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/mindket_iranybol_behajtani_tilos.png"}
             ]
         },
@@ -171,7 +171,7 @@ with app.app_context():
                 {"text": None, "is_correct": True, "image_path": "/static/Kresz_images/kikerulesi_irany.png"},
                 {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/ketiranyu_forgalom.png"},
                 {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/behajtani_tilos.jpg"},
-                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/Megallni_tilos.jpg"}
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/megallni_tilos.jpg"}
             ]
         },
         {
@@ -179,7 +179,7 @@ with app.app_context():
             "image_path": None,
             "answers": [
                 {"text": None, "is_correct": True, "image_path": "/static/Kresz_images/sorompoval_biztositott_vasuti_atjaro.png"},
-                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/Kotelezo_haladasi_irany_egyenesen_es_balra.jpg"},
+                {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/kotelezo_haladasi_irany_egyenesen_es_balra.jpg"},
                 {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/kerekparsav.png"},
                 {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/gyalogosok_atkelohelye.png"}
             ]
