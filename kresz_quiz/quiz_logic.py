@@ -3,10 +3,10 @@ from app import db
 from models import User, Score, Question
 
 
-MAX_POINTS = 100
+MAX_POINTS = 10
 TIME_LIMIT = 40
 
-def choose_questions(n=5):
+def choose_questions(n=22):
     total_questions = Question.query.count()
     if not isinstance(n, int) or n <= 0:
         raise ValueError("Number of questions must be a positive integer")
