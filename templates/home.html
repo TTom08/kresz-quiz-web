@@ -1,45 +1,10 @@
-                 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KRESZ Kvíz</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Flask Teszt</title>
 </head>
 <body>
-    <header>
-        <h1>KRESZ Kvíz</h1>
-        <nav>
-            <a href="#">Játék indítása</a>
-            <a href="#">Ranglista</a>
-            <a href="#">Kilépés</a>
-        </nav>
-    </header>
-
-    <main>
-        <h2>A Kvíz kérdései (ellenőrzéshez)</h2>
-        {% for question in questions %}
-            <div class="quiz-question">
-                {% if question.text %}
-                    <p class="question-text">{{ question.text }}</p>
-                {% endif %}
-                {% if question.image_path %}
-                    <img src="{{ url_for('static', filename=question.image_path) }}" alt="Kérdés kép" class="question-image">
-                {% endif %}
-                <div class="answers-container">
-                    {% for answer in question.answers %}
-                        <button class="answer-button">
-                            {% if answer.text %}
-                                {{ answer.text }}
-                            {% endif %}
-                            {% if answer.image_path %}
-                                <img src="{{ url_for('static', filename=answer.image_path) }}" alt="Válasz kép" class="answer-image">
-                            {% endif %}
-                        </button>
-                    {% endfor %}
-                </div>
-            </div>
-        {% endfor %}
-    </main>
+    <h1>Szia, ez egy ideiglenes tesztoldal!</h1>
 </body>
 </html>
