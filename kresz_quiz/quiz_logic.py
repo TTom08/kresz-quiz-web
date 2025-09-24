@@ -1,6 +1,6 @@
 from app import db
 from models import User, Score, Question
-
+from sqlalchemy import func
 
 MAX_POINTS = 10
 TIME_LIMIT = 40
@@ -34,24 +34,31 @@ def add_score(username, score):
     if score < 0 or score > MAX_POINTS:
         raise ValueError(f"Score must be between 0 and {MAX_POINTS}")
 
-    user = User.query.filter_by(username=username).first()
-    if not user:
-        user = User(username=username)
-        db.session.add(user)
-        db.session.flush()
 
-    new_score = Score(user_id=user.id, score=score)
-    db.session.add(new_score)
-    db.session.commit()
+    try:
+        user = User.query.filter_by(username=username).first()
+        if not user:
+            user = User(username=username)
+            db.session.add(user)
+            db.session.flush()
+
+        new_score = Score(user_id=user.id, score=score)
+        db.session.add(new_score)
+        db.session.commit()
+
+    except Exception as e:
+        db.session.rollback()
+        raise RuntimeError(f"Failed to add score for {username}: {e}")
 
 
 def get_leaderboard(limit=10):
     results = (
-        db.session.query(User.username, Score.score, Score.timestamp)
+        db.session.query(User.username, func.max(Score.score).label("best_score"))
         .join(Score, User.id == Score.user_id)
-        .order_by(Score.score.desc())
+        .group_by(User.username)
+        .order_by(func.max(Score.score).desc())
         .limit(limit)
         .all()
     )
-    return [{"username": r.username, "score": r.score, "timestamp": r.timestamp} for r in results]
+    return [{"username": r.username, "score": r.best_score} for r in results]
 
