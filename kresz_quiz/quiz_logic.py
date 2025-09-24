@@ -1,4 +1,3 @@
-import random
 from app import db
 from models import User, Score, Question
 
