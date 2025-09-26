@@ -20,3 +20,7 @@ def home():
 @app.route("/result")
 def result():
     return render_template("result.html")
+
+@app.route("/leaderboard")
+def leaderboard():
+    return render_template("leaderboard.html")
