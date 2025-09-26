@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from app import db
-from models import User, Score
+from models import User, Score, Question, Answer
 
 quiz_bp = Blueprint("quiz", __name__)
 
@@ -89,3 +89,34 @@ def leaderboard():
         {"username": row.username, "best_score": row.best_score} for row in results
     ]
     return jsonify({"leaderboard": leaderboard}), 200
+
+@quiz_bp.route("/questions", methods=["GET"])
+def get_questions():
+
+    """
+    Fetching quiz questions from the database in random order and with a limited number.
+    """
+
+    try:
+        questions_data = Question.query.order_by(db.func.random()).limit(10).all()
+
+        questions_list = []
+        for q in questions_data:
+            answers_list = [
+                {"text": a.text,
+                 "image_path": a.image_path,
+                 "is_correct": a.is_correct}
+                for a in q.answers
+            ]
+            questions_list.append({
+                "id": q.id,
+                "text": q.text,
+                "image_path": q.image_path,
+                "answers": answers_list
+            })
+
+        return jsonify(questions_list), 200
+
+    except Exception as e:
+        print(f"Hiba a kérdések lekérésekor: {e}")
+        return jsonify({"error": "Szerveroldali hiba a kérdések betöltésekor."}), 500
