@@ -11,7 +11,6 @@ def client():
     with flask_app.app_context():
         db.create_all()
         yield flask_app.test_client()
-        db.drop_all()
 
 @pytest.fixture(scope='function', autouse=True)
 def session_scope(client):

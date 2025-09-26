@@ -3,23 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kresz-quiz</title>
+    <title>Kresz-quiz - Felhasználónév</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <main>
-        <section class="hero-section">
+        <section class="hero-section" id="home-view"> 
             <div class="hero-content">
                 <h1>Készülj a vizsgára, teszteld a tudásodat!</h1>
                 <p>Mérd fel KRESZ-ismereteidet, és nézd meg, hogy a ranglistán hányadik helyen végzel!</p>
                 
                 <div class="button-container">
-                    <a href="#" class="cta-button">Játék indítása</a>
+                    <a href="#" class="cta-button" id="start-quiz-button">Játék indítása</a> 
                     <a href="#" class="secondary-button">Ranglista</a>
                     <a href="#" class="secondary-button">Kilépés</a>
                 </div>
             </div>
         </section>
+
+        <section class="username-input-section" id="username-input-view" style="display: none;">
+            <div class="username-input-content">
+                <h2 class="title">Add meg a felhasználóneved!</h2>
+                <form class="username-form" action="/quiz" method="POST"> <div class="form-group">
+                        <label for="username">Felhasználónév</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <button type="submit" class="cta-button username-submit-button">Kezdjük a kvízt!</button>
+                </form>
+            </div>
+        </section>
     </main>
+
+    <script>
+        document.getElementById('start-quiz-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            document.getElementById('home-view').style.display = 'none';
+            
+            document.getElementById('username-input-view').style.display = 'flex';
+        });
+    </script>
 </body>
 </html>

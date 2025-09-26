@@ -1,3 +1,4 @@
+
 /* --- Általános stílusok (General Styles) --- */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -133,10 +134,72 @@ body {
     font-weight: bold;
 }
 
+/* --- ÚJ Bejelentkezés/FELHASZNÁLÓNÉV BEVITEL stílusok (Username Input Styles) --- */
+.username-input-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.username-input-content {
+    background-color: #ffffff;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    width: 90%;
+}
+
+.username-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 2rem;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #2ecc71;
+    outline: none;
+    box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
+}
+
+.username-submit-button {
+    margin-top: 5px;
+    max-width: 100%; 
+    box-sizing: border-box;
+    align-self: center;
+}
+
 /* --- Reszponzivitás (Responsiveness) --- */
 @media screen and (max-width: 768px) {
     .hero-content,
-    .main-container {
+    .main-container,
+    .username-input-content { /* A login-content helyett a username-input-content */
         padding: 2rem;
     }
     .hero-content h1,
@@ -148,4 +211,8 @@ body {
         font-size: 1rem;
         padding: 12px 25px;
     }
+    .username-input-content {
+        max-width: 90%;
+    }
 }
+
