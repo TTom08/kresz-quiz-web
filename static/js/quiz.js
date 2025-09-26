@@ -151,6 +151,8 @@ function loadQuestion() {
 
 // Handling the answer given by the player
 function handleAnswer(clickedButton, answer) {
+    clearInterval(timerInterval);
+    
     Array.from(answersContainer.children).forEach(button => {
         button.disabled = true;
     });

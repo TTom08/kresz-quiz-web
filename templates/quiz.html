@@ -22,12 +22,11 @@
         <div id="result-screen" class="quiz-box" style="display: none;">
             <h2>Kvíz Vége!</h2>
             <p>Pontszámod: <span id="final-score"></span></p>
-            <button onclick="location.reload()" class="cta-button">Újra</button>
+            <button onclick="window.location.href = '/'" class="cta-button" id="restart-button">Vissza a kezdőlapra</button>
         </div>
     </div>
 
     <script>
-        // A FLASK_USERNAME már megfelelően átadásra kerül a korábbi javítások alapján
         const FLASK_USERNAME = "{{ username|safe }}";
         console.log("Felhasználónév a kvíz oldalon:", FLASK_USERNAME);
     </script>
