@@ -1,0 +1,151 @@
+/* --- Általános stílusok (General Styles) --- */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsla(104,9%,33%,1);
+    background-image: radial-gradient(at 100% 100%, hsla(104,47%,41%,1) 0px, transparent 50%), radial-gradient(at 5% 17%, hsla(97,28%,23%,1) 0px, transparent 50%);
+    color: #333;
+}
+
+/* --- Ranglista stílusok (Leaderboard Styles) --- */
+.leaderboard-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.leaderboard-list li {
+    background-color: #f8f8f8;
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.leaderboard-list li.gold {
+    color: #FFD700;
+    font-weight: 700;
+}
+
+.leaderboard-list li.silver {
+    color: #C0C0C0;
+    font-weight: 700;
+}
+
+.leaderboard-list li.bronze {
+    color: #CD7F32;
+    font-weight: 700;
+}
+.leaderboard-list li span {
+    font-weight: 600;
+    color: #2c3e50;
+    flex: 1;
+    text-align: left;
+}
+
+/* --- Közös stílusok (amelyeket a ranglista és az eredményoldal is használ) --- */
+.main-container {
+    background-color: #ffffff;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+     text-align: center;
+    max-width: 600px;
+    width: 90%;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    background-color: #27ae60;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #2ecc71;
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.secondary-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* --- Reszponzivitás (Responsiveness) --- */
+@media screen and (max-width: 1024px) {
+    .main-container {
+        padding: 2.5rem;
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-container {
+        padding: 2rem;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .cta-button,
+    .secondary-button {
+        font-size: 1rem;
+        padding: 12px 25px;
+        width: 90%;
+        max-width: 300px;
+    }
+    .leaderboard-list li {
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 1.2rem;
+    }
+    .leaderboard-list li.gold {
+        font-size: 1.2rem;
+    }
+    .leaderboard-list li.silver {
+        font-size: 1.15rem;
+    }
+    .leaderboard-list li.bronze {
+        font-size: 1.1rem;
+    }
+}
