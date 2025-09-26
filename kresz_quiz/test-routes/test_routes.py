@@ -45,3 +45,53 @@ def test_05_start_quiz_user_count_increase(client, app_db):
     assert User.query.count() == initial_count + 1
 
 
+# UNIT TESTS FOR THE /submit ENDPOINT
+
+def test_06_submit_quiz_success(client, app_db):
+    unique_score = 999
+
+    response = client.post('/api/quiz/submit', json={'username': 'tomi', 'score': unique_score})
+
+    assert response.status_code == 201
+
+    assert Score.query.filter_by(score=unique_score).count() == 1
+
+    data = response.get_json()
+    assert data is not None
+    assert data.get('message') == "Pontszám elmentve"
+
+
+def test_07_submit_quiz_unknown_user(client, app_db):
+    response = client.post('/api/quiz/submit', json={'username': 'ismeretlen', 'score': 10})
+
+    assert response.status_code == 404
+
+    data = response.get_json()
+    expected_error_message = "Ismeretlen felhasználó"
+    assert data is not None
+    assert data.get('error') == expected_error_message
+
+
+def test_08_submit_quiz_missing_score(client, app_db):
+    response = client.post('/api/quiz/submit', json={'username': 'tomi'})
+
+    assert response.status_code == 400
+
+    data = response.get_json()
+    expected_error_message = "Hiányzó adatok"
+    assert data is not None
+    assert data.get('error') == expected_error_message
+
+
+def test_09_submit_quiz_score_count_increase(client, app_db):
+    initial_count = Score.query.count()
+    client.post('/api/quiz/submit', json={'username': 'anna', 'score': 99})
+    assert Score.query.count() == initial_count + 1
+
+
+def test_10_submit_quiz_zero_score(client, app_db):
+    response = client.post('/api/quiz/submit', json={'username': 'zoli', 'score': 0})
+
+    assert response.status_code == 201
+
+    assert Score.query.filter_by(score=0, user_id=User.query.filter_by(username='zoli').first().id).count() == 1
