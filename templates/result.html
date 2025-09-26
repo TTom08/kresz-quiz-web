@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Játék vége</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main>
+        <section class="result-section">
+            <div class="result-content">
+                <h2 class="result-title">🎉 Játék vége!</h2>
+                <p id="score-text" class="result-score">Pontszámod: --</p>
+                <div class="button-container">
+                    <a href="{{ url_for('leaderboard') }}" class="cta-button">Ranglista megtekintése</a>
+                    <a href="{{ url_for('home') }}" class="secondary-button">Vissza a főoldalra</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="{{ url_for('static', filename='js/result.js') }}"></script>
+</body>
+</html>
