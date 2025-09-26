@@ -95,3 +95,69 @@ def test_10_submit_quiz_zero_score(client, app_db):
     assert response.status_code == 201
 
     assert Score.query.filter_by(score=0, user_id=User.query.filter_by(username='zoli').first().id).count() == 1
+
+# UNIT TESTS FOR THE /api/quiz/leaderboard PATH
+
+def test_11_leaderboard_ordering(client, app_db):
+    response = client.get('/api/quiz/leaderboard')
+    data = response.get_json()['leaderboard']
+
+    assert response.status_code == 200
+    assert data[0]['username'] == 'zoli'
+    assert data[1]['username'] == 'tomi'
+    assert data[2]['username'] == 'anna'
+
+
+def test_12_leaderboard_empty(client, app_db):
+    app_db.session.query(Score).delete()
+    app_db.session.query(User).delete()
+    app_db.session.commit()
+
+    response = client.get('/api/quiz/leaderboard')
+    data = response.get_json()['leaderboard']
+
+    assert response.status_code == 200
+    assert len(data) == 0
+
+
+def test_13_leaderboard_limit(client, app_db):
+    for i in range(4, 14):
+        u = User(username=f"tempuser{i}")
+        app_db.session.add(u)
+
+        app_db.session.flush()
+
+        s = Score(score=i * 10, user_id=u.id)
+        app_db.session.add(s)
+
+    app_db.session.commit()
+    response = client.get('/api/quiz/leaderboard')
+    data = response.get_json()['leaderboard']
+
+    assert response.status_code == 200
+    assert len(data) == 10
+
+
+def test_14_leaderboard_best_score_selection(client, app_db):
+    response = client.get('/api/quiz/leaderboard')
+    data = response.get_json()['leaderboard']
+
+    assert response.status_code == 200
+
+    tomi_score = next((item for item in data if item["username"] == "tomi"), None)
+
+    assert tomi_score is not None
+    assert tomi_score['best_score'] == 100
+
+
+def test_15_leaderboard_no_scores(client, app_db):
+    app_db.session.query(Score).delete()
+    app_db.session.commit()
+
+    response = client.get('/api/quiz/leaderboard')
+    data = response.get_json()['leaderboard']
+
+    assert response.status_code == 200
+    assert len(data) == 0
+
+
