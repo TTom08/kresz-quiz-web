@@ -161,3 +161,62 @@ def test_15_leaderboard_no_scores(client, app_db):
     assert len(data) == 0
 
 
+# UNIT TESTS FOR THE /api/quiz/questions PATH
+
+def test_16_get_questions_limit(client, app_db):
+    response = client.get('/api/quiz/questions')
+    data = response.get_json()
+
+    assert response.status_code == 200
+    assert len(data) == 10
+
+
+def test_17_get_questions_question_image_path(client, app_db):
+    response = client.get('/api/quiz/questions')
+    data = response.get_json()
+    q_with_img_text = Question.query.filter(Question.text.like('%Kérdés 2%')).first().text
+    q_no_img_text = Question.query.filter(Question.text.like('%Kérdés 1%')).first().text
+
+    q_with_img = next(q for q in data if q['text'] == q_with_img_text)
+    assert q_with_img['image_path'] is not None
+
+    q_no_img = next(q for q in data if q['text'] == q_no_img_text)
+    assert q_no_img['image_path'] is None
+
+
+def test_18_get_questions_answer_image_path(client, app_db):
+    response = client.get('/api/quiz/questions')
+    data = response.get_json()
+
+    q_with_ans_img_text = Question.query.filter(Question.text.like('%Kérdés 3%')).first().text
+    q_with_ans_img = next(q for q in data if q['text'] == q_with_ans_img_text)
+
+    answer_with_img = next(a for a in q_with_ans_img['answers'] if a['text'] == 'Helyes 3')
+    answer_without_img = next(a for a in q_with_ans_img['answers'] if a['text'] == 'Helytelen 3')
+
+    assert answer_with_img['image_path'] is not None
+    assert answer_without_img['image_path'] is None
+
+
+def test_19_get_questions_correct_answer_flag(client, app_db):
+    response = client.get('/api/quiz/questions')
+    data = response.get_json()
+    q = data[0]
+
+    correct = next(a for a in q['answers'] if a['is_correct'])
+    incorrect = next(a for a in q['answers'] if not a['is_correct'])
+
+    assert correct['is_correct'] is True
+    assert incorrect['is_correct'] is False
+
+
+def test_20_get_questions_empty_db(client, app_db):
+    app_db.session.query(Question).delete()
+    app_db.session.query(Answer).delete()
+    app_db.session.commit()
+
+    response = client.get('/api/quiz/questions')
+    data = response.get_json()
+
+    assert response.status_code == 200
+    assert len(data) == 0
