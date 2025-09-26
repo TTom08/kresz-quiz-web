@@ -108,3 +108,25 @@ async function initializeQuiz() {
         showMessage(`Hiba történt a kvíz betöltésekor: ${error.message}`, true);
     }
 }
+
+// Loading questions
+function loadQuestion() {
+    if (currentQuestionIndex >= questions.length) {
+        endQuiz();
+        return;
+    }
+
+    const currentQuestion = questions[currentQuestionIndex];
+    questionText.textContent = `${currentQuestionIndex + 1}. ${currentQuestion.text}`;
+    answersContainer.innerHTML = '';
+    feedbackElement.textContent = '';
+    nextButton.style.display = 'none';
+
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.textContent = answer.text;
+        button.classList.add('answer-button');
+        button.addEventListener('click', () => handleAnswer(button, answer));
+        answersContainer.appendChild(button);
+    });
+}
