@@ -127,7 +127,7 @@ body {
 .leaderboard-list {
     list-style-type: none;
     padding: 0;
-    text-align: left;
+    text-align: center;
 }
 
 /*.leaderboard-list li {
@@ -142,36 +142,40 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }*/
 
-leaderboard-list li {
+.leaderboard-list li {
 
     background-color: #f8f8f8;
-    padding: 15px;
+    padding: 15px 25px;
     border-radius: 8px;
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
+    font-weight: 500;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
 }
 
 .leaderboard-list li.gold {
     color: #FFD700;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .leaderboard-list li.silver {
     color: #C0C0C0;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .leaderboard-list li.bronze {
     color: #CD7F32;
-    font-weight: bold;
+    font-weight: 700;
 }
 .leaderboard-list li span {
-    font-weight: bold;
+    font-weight: 600;
     color: #2c3e50;/*#2ecc71;*/
+    flex: 1;
+    text-align: left;
 }
 
 /* --- Eredmény oldal stílusok (Result Page Styles) --- */
@@ -277,10 +281,9 @@ leaderboard-list li {
 
 
     .leaderboard-list li {
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-        font-size: 1rem;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 1.2rem;
     }
 
     .leaderboard-list li.gold {
