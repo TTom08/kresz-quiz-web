@@ -9,8 +9,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-import models
-from models import Question, Answer
+from models import Question
+
 
 @app.route('/')
 def home():
@@ -38,5 +38,5 @@ def result():
 def leaderboard():
     return render_template("leaderboard.html")
 
-from routes import quiz_bp
+from kresz_quiz.routes import quiz_bp
 app.register_blueprint(quiz_bp, url_prefix='/api/quiz')

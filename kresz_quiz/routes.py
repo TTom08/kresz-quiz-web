@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app import db
 from models import User, Score, Question, Answer
+from .quiz_logic import choose_questions, add_score, get_leaderboard, calculate_score
 
 quiz_bp = Blueprint("quiz", __name__)
 
@@ -49,21 +50,19 @@ def submit_quiz():
     if not username or score_value is None:
         return jsonify({"error": "Hiányzó adatok"}), 400
 
-    # Check user
-    user = User.query.filter_by(username=username).first()
-    if not user:
-        return jsonify({"error": "Ismeretlen felhasználó"}), 404
+    try:
 
-    # Saving score
-    new_score = Score(score=score_value, user_id=user.id)
-    db.session.add(new_score)
-    db.session.commit()
+        add_score(username=username, score=score_value)
 
-    return jsonify({
-        "message": "Pontszám elmentve",
-        "username": username,
-        "score": score_value
-    }), 201
+        return jsonify({
+            "message": "Pontszám elmentve",
+            "username": username,
+            "score": score_value
+        }), 201
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 404
+    except RuntimeError as e:
+        return jsonify({"error": str(e)}), 500
 
 @quiz_bp.route("/leaderboard", methods=["GET"])
 def leaderboard():
@@ -76,19 +75,13 @@ def leaderboard():
     Only the top 10 users are returned.
     """
 
-    results = (
-        db.session.query(User.username, db.func.max(Score.score).label("best_score"))
-        .join(Score)
-        .group_by(User.username)
-        .order_by(db.desc("best_score"))
-        .limit(10)
-        .all()
-    )
+    try:
 
-    leaderboard = [
-        {"username": row.username, "best_score": row.best_score} for row in results
-    ]
-    return jsonify({"leaderboard": leaderboard}), 200
+        results = get_leaderboard()
+
+        return jsonify({"leaderboard": results}), 200
+    except RuntimeError as e:
+        return jsonify({"error": str(e)}), 500
 
 @quiz_bp.route("/questions", methods=["GET"])
 def get_questions():
@@ -98,7 +91,7 @@ def get_questions():
     """
 
     try:
-        questions_data = Question.query.order_by(db.func.random()).limit(10).all()
+        questions_data = choose_questions(n=10)
 
         questions_list = []
         for q in questions_data:
