@@ -130,3 +130,36 @@ function loadQuestion() {
         answersContainer.appendChild(button);
     });
 }
+
+// Handling the answer given by the player
+function handleAnswer(clickedButton, answer) {
+    Array.from(answersContainer.children).forEach(button => {
+        button.disabled = true;
+    });
+
+    const isCorrect = answer.is_correct;
+
+    if (isCorrect) {
+        clickedButton.classList.add('correct');
+        score++;
+        feedbackElement.textContent = 'Helyes';
+    } else {
+        clickedButton.classList.add('incorrect');
+        feedbackElement.textContent = 'Helytelen';
+        
+        const correctAnswerButton = Array.from(answersContainer.children).find(btn => 
+            questions[currentQuestionIndex].answers.find(a => a.is_correct)?.text === btn.textContent
+        );
+        if (correctAnswerButton) {
+            correctAnswerButton.classList.add('correct');
+        }
+    }
+
+    nextButton.style.display = 'block';
+    nextButton.onclick = nextQuestion;
+}
+
+function nextQuestion() {
+    currentQuestionIndex++;
+    loadQuestion();
+}
