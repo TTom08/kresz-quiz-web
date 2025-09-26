@@ -12,6 +12,7 @@ const feedbackElement = document.getElementById('feedback');
 const nextButton = document.getElementById('next-button');
 const timeLeftElement = document.getElementById('time-left');
 const finalScoreElement = document.getElementById('final-score');
+const currentScoreElement = document.getElementById('current-score');
 
 // Managing errors
 function showMessage(message, isError = false) {
@@ -27,22 +28,22 @@ function showMessage(message, isError = false) {
 async function registerUserAndStartQuiz() {
     try {
         console.log("Regisztrálás felhasználónévvel:", username);
-        
+
         const response = await fetch('/api/quiz/start', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ username: username })
+            body: JSON.stringify({username: username})
         });
 
         const data = await response.json();
-        
+
         if (response.status === 409) {
             console.log("Felhasználó már létezik, kvíz folytatása...");
             return true;
         }
-        
+
         if (!response.ok) {
             throw new Error(data.error || 'Ismeretlen hiba a felhasználó regisztrációjában.');
         }
@@ -60,15 +61,15 @@ async function registerUserAndStartQuiz() {
 // Main loading
 window.onload = async () => {
     let tempUsername = typeof FLASK_USERNAME !== 'undefined' ? FLASK_USERNAME : '';
-    
+
     if (typeof tempUsername === 'string' && (tempUsername.startsWith('"') && tempUsername.endsWith('"')) || (tempUsername.startsWith('\'') && tempUsername.endsWith('\''))) {
         tempUsername = tempUsername.substring(1, tempUsername.length - 1);
     }
 
     username = tempUsername;
-    
+
     console.log("Betöltött felhasználónév:", username);
-    
+
     if (!username || username === 'null' || username === 'undefined' || username.trim() === '') {
         showMessage("Kérjük, először indítsa el a kvízt a kezdőlapon (hiányzó felhasználónév).", true);
         setTimeout(() => window.location.href = '/', 3000);
@@ -76,11 +77,11 @@ window.onload = async () => {
     }
 
     username = username.trim();
-    
+
     console.log("Feldolgozott felhasználónév:", username);
 
     const success = await registerUserAndStartQuiz();
-    
+
     if (success) {
         await initializeQuiz();
     }
@@ -94,7 +95,7 @@ async function initializeQuiz() {
             throw new Error('Hiba a kérdések betöltésekor.');
         }
         questions = await response.json();
-        
+
         if (questions.length === 0) {
             showMessage("A kvíz nem indul el: nincs betöltött kérdés.", true);
             return;
@@ -126,11 +127,11 @@ function loadQuestion() {
     nextButton.style.display = 'none';
 
     let questionContent = `${currentQuestionIndex + 1}. ${currentQuestion.text || ''}`;
-    
+
     if (currentQuestion.image_path) {
         questionContent += `<div class="question-image-container"><img src="${currentQuestion.image_path}" alt="Kvíz kérdés képe" class="question-image"></div>`;
     }
-    
+
     questionText.innerHTML = questionContent;
 
     currentQuestion.answers.forEach(answer => {
@@ -138,7 +139,7 @@ function loadQuestion() {
         button.classList.add('answer-button');
 
         let buttonContent = answer.text || '';
-        
+
         if (answer.image_path) {
             buttonContent += `<img src="${answer.image_path}" alt="${answer.text || 'Válasz kép'}" class="answer-image">`;
         }
@@ -152,7 +153,7 @@ function loadQuestion() {
 // Handling the answer given by the player
 function handleAnswer(clickedButton, answer) {
     clearInterval(timerInterval);
-    
+
     Array.from(answersContainer.children).forEach(button => {
         button.disabled = true;
     });
@@ -163,11 +164,14 @@ function handleAnswer(clickedButton, answer) {
         clickedButton.classList.add('correct');
         score++;
         feedbackElement.textContent = 'Helyes.';
+        if (currentScoreElement) {
+            currentScoreElement.textContent = score;
+        }
     } else {
         clickedButton.classList.add('incorrect');
         feedbackElement.textContent = 'Helytelen.';
-        
-        const correctAnswerButton = Array.from(answersContainer.children).find(btn => 
+
+        const correctAnswerButton = Array.from(answersContainer.children).find(btn =>
             questions[currentQuestionIndex].answers.find(a => a.is_correct)?.text === btn.textContent
         );
         if (correctAnswerButton) {
@@ -210,7 +214,7 @@ function forceNextQuestionDueToTimeout() {
 
     feedbackElement.textContent = 'Lejárt az idő. Helytelen.';
 
-    const correctAnswerButton = Array.from(answersContainer.children).find(btn => 
+    const correctAnswerButton = Array.from(answersContainer.children).find(btn =>
         questions[currentQuestionIndex].answers.find(a => a.is_correct)?.text === btn.textContent
     );
     if (correctAnswerButton) {
@@ -231,7 +235,7 @@ async function endQuiz() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ username: username, score: score })
+            body: JSON.stringify({username: username, score: score})
         });
 
         const data = await response.json();
