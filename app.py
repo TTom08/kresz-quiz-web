@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -16,6 +16,16 @@ from models import Question, Answer
 def home():
     questions = Question.query.all()
     return render_template('home.html', questions=questions)
+
+
+@app.route('/quiz', methods=['POST'])
+def quiz():
+    username = request.form.get('username')
+
+    if not username:
+        return redirect(url_for('home'))
+
+    return render_template('quiz.html', username=username)
 
 @app.route("/result")
 def result():
