@@ -15,8 +15,10 @@
                 
                 <div class="button-container">
                     <a href="#" class="cta-button" id="start-quiz-button">Játék indítása</a> 
-                    <a href="#" class="secondary-button">Ranglista</a>
-                    <a href="#" class="secondary-button">Kilépés</a>
+                    
+                    <a href="{{ url_for('leaderboard') }}" class="secondary-button">Ranglista</a>
+                    
+                    <a href="javascript:window.close()" class="secondary-button">Kilépés</a>
                 </div>
             </div>
         </section>
@@ -24,7 +26,9 @@
         <section class="username-input-section" id="username-input-view" style="display: none;">
             <div class="username-input-content">
                 <h2 class="title">Add meg a felhasználóneved!</h2>
-                <form class="username-form" action="/quiz" method="POST"> <div class="form-group">
+                
+                <form class="username-form" action="/quiz" method="POST"> 
+                    <div class="form-group">
                         <label for="username">Felhasználónév</label>
                         <input type="text" id="username" name="username" required>
                     </div>
@@ -39,7 +43,7 @@
             e.preventDefault();
             
             document.getElementById('home-view').style.display = 'none';
-            
+
             document.getElementById('username-input-view').style.display = 'flex';
         });
     </script>
