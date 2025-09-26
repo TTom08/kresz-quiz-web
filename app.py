@@ -22,6 +22,9 @@ def home():
 def quiz():
     username = request.form.get('username')
 
+    if username:
+        username = username.strip()
+
     if not username:
         return redirect(url_for('home'))
 
@@ -34,3 +37,6 @@ def result():
 @app.route("/leaderboard")
 def leaderboard():
     return render_template("leaderboard.html")
+
+from routes import quiz_bp
+app.register_blueprint(quiz_bp, url_prefix='/api/quiz')
