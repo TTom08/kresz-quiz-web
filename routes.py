@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from app import db
-from models import User, Question, Answer, Score
+from models import User, Score
 
 quiz_bp = Blueprint("quiz", __name__)
 
