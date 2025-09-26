@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             leaderboard.forEach((player, index) => {
                 const li = document.createElement("li");
-                li.innerHTML = `<span>${player.username}</span> ${player.best_score} pont`;
+                li.innerHTML = `<span>${player.username}</span> ${player.score} pont`;
 
 
                 if (index === 0) li.classList.add("gold");
