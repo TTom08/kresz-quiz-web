@@ -101,7 +101,6 @@ async function initializeQuiz() {
         }
 
         if (quizArea) quizArea.style.display = 'block';
-        startTimer(60);
         loadQuestion();
     } catch (error) {
         console.error('Hiba:', error);
@@ -142,10 +141,10 @@ function handleAnswer(clickedButton, answer) {
     if (isCorrect) {
         clickedButton.classList.add('correct');
         score++;
-        feedbackElement.textContent = 'Helyes';
+        feedbackElement.textContent = 'Helyes.';
     } else {
         clickedButton.classList.add('incorrect');
-        feedbackElement.textContent = 'Helytelen';
+        feedbackElement.textContent = 'Helytelen.';
         
         const correctAnswerButton = Array.from(answersContainer.children).find(btn => 
             questions[currentQuestionIndex].answers.find(a => a.is_correct)?.text === btn.textContent
@@ -168,6 +167,7 @@ function nextQuestion() {
 function startTimer(duration) {
     let time = duration;
     timeLeftElement.textContent = time;
+    timeLeftElement.classList.remove('time-warning');
     timerInterval = setInterval(() => {
         time--;
         timeLeftElement.textContent = time;
@@ -176,10 +176,28 @@ function startTimer(duration) {
         }
         if (time <= 0) {
             clearInterval(timerInterval);
-            showMessage("Lejárt az idő! Kvíz vége.");
-            endQuiz();
+            forceNextQuestionDueToTimeout();
         }
     }, 1000);
+}
+
+// If timer ends, skip to next question
+function forceNextQuestionDueToTimeout() {
+    Array.from(answersContainer.children).forEach(button => {
+        button.disabled = true;
+    });
+
+    feedbackElement.textContent = 'Lejárt az idő. Helytelen.';
+
+    const correctAnswerButton = Array.from(answersContainer.children).find(btn => 
+        questions[currentQuestionIndex].answers.find(a => a.is_correct)?.text === btn.textContent
+    );
+    if (correctAnswerButton) {
+        correctAnswerButton.classList.add('correct');
+    }
+
+    nextButton.style.display = 'block';
+    nextButton.onclick = nextQuestion;
 }
 
 // Quiz end
