@@ -6,6 +6,7 @@ quiz_bp = Blueprint("quiz", __name__)
 
 @quiz_bp.route("/start", methods=["POST"])
 def start_quiz():
+    
     data = request.get_json()
     username = data.get("username")
 
@@ -24,6 +25,7 @@ def start_quiz():
 
 @quiz_bp.route("/submit", methods=["POST"])
 def submit_quiz():
+
     data = request.get_json()
     username = data.get("username")
     score_value = data.get("score")
@@ -46,3 +48,20 @@ def submit_quiz():
         "username": username,
         "score": score_value
     }), 201
+
+@quiz_bp.route("/leaderboard", methods=["GET"])
+def leaderboard():
+
+    results = (
+        db.session.query(User.username, db.func.max(Score.score).label("best_score"))
+        .join(Score)
+        .group_by(User.username)
+        .order_by(db.desc("best_score"))
+        .limit(10)
+        .all()
+    )
+
+    leaderboard = [
+        {"username": row.username, "best_score": row.best_score} for row in results
+    ]
+    return jsonify({"leaderboard": leaderboard}), 200
