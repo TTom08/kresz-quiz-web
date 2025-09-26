@@ -1,4 +1,4 @@
-/* --- Általános stílusok (General Styles) --- */
+/* --- Általános stílusok --- */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
@@ -12,7 +12,7 @@ body {
     color: #333;
 }
 
-/* --- Kezdőoldal stílusok (Home Page Styles) --- */
+/* --- Kezdőoldal stílusok --- */
 
 .hero-section {
     display: flex;
@@ -42,14 +42,7 @@ body {
     margin: 0 auto 2rem auto;
 }
 
-.hero-image {
-    max-width: 80%;
-    height: auto;
-    margin: 1.5rem auto;
-    display: block;
-}
-
-/* --- Közös stílusok (Shared Styles) --- */
+/* --- Közös stílusok (Gombok) --- */
 
 .title {
     font-size: 2.5rem;
@@ -58,18 +51,24 @@ body {
     font-weight: 600;
 }
 
+/* Gombok egymás mellé rendezése és középre igazítása (Főoldal) */
 .button-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
     margin-top: 2rem;
 }
 
+/* Fő gomb stílusai */
 .cta-button {
     background-color: #27ae60;
     color: white;
-    padding: 15px 40px;
+    padding: 15px 50px; 
+    min-width: 180px; 
+    text-align: center;
+    
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
@@ -83,10 +82,14 @@ body {
     transform: translateY(-2px);
 }
 
+/* Másodlagos gomb stílusai */
 .secondary-button {
     background-color: #f0f0f0;
     color: #333;
-    padding: 15px 40px;
+    padding: 15px 50px;
+    min-width: 180px; 
+    text-align: center;
+
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
@@ -99,55 +102,8 @@ body {
     background-color: #e0e0e0;
 }
 
-/* --- Ranglista stílusok (Leaderboard Styles) --- */
-.leaderboard-list {
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
-}
 
-.leaderboard-list li {
-    background-color: #f8f8f8;
-    padding: 15px 25px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.4rem;
-    font-weight: 500;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.leaderboard-list li.gold {
-    color: #FFD700;
-    font-weight: 700;
-}
-
-.leaderboard-list li.silver {
-    color: #C0C0C0;
-    font-weight: 700;
-}
-
-.leaderboard-list li.bronze {
-    color: #CD7F32;
-    font-weight: 700;
-}
-.leaderboard-list li span {
-    font-weight: 600;
-    color: #2c3e50;
-    flex: 1;
-    text-align: left;
-}
-
-/* --- Eredmény oldal stílusok (Result Page Styles) --- */
-.result-score {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    font-weight: bold;
-}
-
-/* --- ÚJ Bejelentkezés/FELHASZNÁLÓNÉV BEVITEL stílusok (Username Input Styles) --- */
+/* --- Felhasználónév beviteli stílusok --- */
 .username-input-section {
     display: flex;
     justify-content: center;
@@ -201,17 +157,25 @@ body {
     box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
 }
 
-.username-submit-button {
-    margin-top: 5px;
-    max-width: 100%;
-    box-sizing: border-box;
-    align-self: center;
+.username-input-content .cta-button,
+.username-input-content .secondary-button {
+    min-width: unset; 
+    width: 100%; 
+    padding: 15px 25px; 
+    box-sizing: border-box; 
 }
 
-/* --- Reszponzivitás (Responsiveness) --- */
+.username-input-content .button-container {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 5px; 
+}
+
+
+/* --- Reszponzivitás --- */
 @media screen and (max-width: 768px) {
     .hero-content,
-    .username-input-content {
+    .username-input-content { 
         padding: 2rem;
     }
     .hero-content h1,
@@ -224,29 +188,12 @@ body {
         padding: 12px 25px;
         width: 90%;
         max-width: 300px;
-    }
-    .username-input-content {
-        max-width: 90%;
+        min-width: unset; 
     }
 
-    .result-score {
-        font-size: 2rem;
-    }
-
-
-    .leaderboard-list li {
-        flex-direction: row;
-        justify-content: space-between;
-        font-size: 1.2rem;
-    }
-
-    .leaderboard-list li.gold {
-        font-size: 1.2rem;
-    }
-    .leaderboard-list li.silver {
-        font-size: 1.15rem;
-    }
-    .leaderboard-list li.bronze {
-        font-size: 1.1rem;
+    /* Mobilon oszlopos elrendezés */
+    .button-container {
+        flex-direction: column;
+        gap: 15px; 
     }
 }
