@@ -155,6 +155,20 @@ leaderboard-list li {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
+.leaderboard-list li.gold {
+    color: #FFD700;
+    font-weight: bold;
+}
+
+.leaderboard-list li.silver {
+    color: #C0C0C0;
+    font-weight: bold;
+}
+
+.leaderboard-list li.bronze {
+    color: #CD7F32;
+    font-weight: bold;
+}
 .leaderboard-list li span {
     font-weight: bold;
     color: #2c3e50;/*#2ecc71;*/
@@ -267,5 +281,15 @@ leaderboard-list li {
         align-items: center;
         gap: 5px;
         font-size: 1rem;
+    }
+    
+    .leaderboard-list li.gold {
+        font-size: 1.2rem;
+    }
+    .leaderboard-list li.silver {
+        font-size: 1.15rem;
+    }
+    .leaderboard-list li.bronze {
+        font-size: 1.1rem;
     }
 }

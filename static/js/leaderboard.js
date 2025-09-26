@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", async () => {
     const list = document.getElementById("leaderboard-list");
 
@@ -14,9 +13,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (leaderboard && leaderboard.length > 0) {
             list.innerHTML = "";
-            leaderboard.forEach(player => {
+
+            leaderboard.forEach((player, index) => {
                 const li = document.createElement("li");
                 li.innerHTML = `<span>${player.username}</span> ${player.best_score} pont`;
+
+
+                if (index === 0) li.classList.add("gold");
+                else if (index === 1) li.classList.add("silver");
+                else if (index === 2) li.classList.add("bronze");
+
                 list.appendChild(li);
             });
         } else {
