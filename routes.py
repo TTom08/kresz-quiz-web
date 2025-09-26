@@ -6,7 +6,15 @@ quiz_bp = Blueprint("quiz", __name__)
 
 @quiz_bp.route("/start", methods=["POST"])
 def start_quiz():
-    
+
+    """
+    Start a new quiz session for a user.
+
+    Username is required to start the quiz.
+    If the username already exists in the database, return a 409 Conflict.
+    If the username doesn't exist yet, create a new User record.
+    """
+
     data = request.get_json()
     username = data.get("username")
 
@@ -25,6 +33,14 @@ def start_quiz():
 
 @quiz_bp.route("/submit", methods=["POST"])
 def submit_quiz():
+
+    """
+    Submit a user's quiz score.
+
+    Both username and score are required.
+    If the username does not exist in the database, return 404 Not Found.
+    If valid, save the new score for the user.
+    """
 
     data = request.get_json()
     username = data.get("username")
@@ -51,6 +67,14 @@ def submit_quiz():
 
 @quiz_bp.route("/leaderboard", methods=["GET"])
 def leaderboard():
+
+    """
+    Retrieve the top 10 users ranked by their best score.
+
+    For each user, the highest score is selected.
+    Results are ordered in descending order by best score.
+    Only the top 10 users are returned.
+    """
 
     results = (
         db.session.query(User.username, db.func.max(Score.score).label("best_score"))
