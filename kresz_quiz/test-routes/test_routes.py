@@ -1,5 +1,5 @@
 import json
-from models import User, Score, Question, Answer  # A modellek importálása feltételezett
+from models import User, Score, Question, Answer
 import pytest
 
 def test_01_start_quiz_success(client, app_db):
@@ -35,13 +35,11 @@ def test_03_start_quiz_missing_username(client, app_db):
 
 
 def test_04_start_quiz_empty_username(client, app_db):
-    """4. Üres stringként átadott felhasználónév kezelése (400 Bad Request)."""
     response = client.post('/api/quiz/start', json={'username': '   '})
     assert response.status_code == 400
 
 
 def test_05_start_quiz_user_count_increase(client, app_db):
-    """5. Ellenőrzi, hogy a felhasználók száma nő-e a sikeres regisztráció után."""
     initial_count = User.query.count()
     client.post('/api/quiz/start', json={'username': 'uj_nev'})
     assert User.query.count() == initial_count + 1
