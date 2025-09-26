@@ -235,13 +235,19 @@ async function endQuiz() {
         });
 
         const data = await response.json();
+
         if (response.ok || response.status === 201) {
-            finalScoreElement.textContent = score;
-            if (quizArea) quizArea.style.display = 'none';
-            if (resultScreen) resultScreen.style.display = 'block';
+
+            sessionStorage.setItem('username', username);
+            sessionStorage.setItem('score', score);
+
+
+            window.location.href = '/result';
+
         } else {
             showMessage(`Hiba a pontszám elküldésében: ${data.error || 'Ismeretlen hiba'}`, true);
         }
+
     } catch (error) {
         console.error("Hiba a pontszám küldésekor:", error);
         showMessage("Hálózati hiba a pontszám küldésekor.", true);

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const list = document.getElementById("leaderboard-list");
 
     try {
-        const response = await fetch("/leaderboard");
+        const response = await fetch("/api/quiz/leaderboard");
         if (!response.ok) {
             list.textContent = "Nem sikerült betölteni a ranglistát.";
             return;
