@@ -1,6 +1,6 @@
 import pytest
 from app import app, db
-from models import User, Score, Question, Answer
+from models import User, Question, Answer, Score
 
 
 @pytest.fixture(scope='session')
@@ -10,6 +10,17 @@ def flask_app():
     app.config['WTF_CSRF_ENABLED'] = False
 
     with app.app_context():
+        if hasattr(db, 'session'):
+            db.session.remove()
+
+        if hasattr(db, 'get_engine') and db.get_engine() is not None:
+            db.get_engine().dispose()
+
+        if 'sqlalchemy' in app.extensions:
+            del app.extensions['sqlalchemy']
+
+        db.init_app(app)
+
         yield app
 
 
@@ -22,6 +33,7 @@ def app_db(flask_app):
         u2 = User(username="anna")
         u3 = User(username="zoli")
         db.session.add_all([u1, u2, u3])
+
         db.session.commit()
 
         db.session.add_all([
