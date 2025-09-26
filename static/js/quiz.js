@@ -88,5 +88,23 @@ window.onload = async () => {
 
 // Initialization
 async function initializeQuiz() {
-    
+    try {
+        const response = await fetch('/api/quiz/questions');
+        if (!response.ok) {
+            throw new Error('Hiba a kérdések betöltésekor.');
+        }
+        questions = await response.json();
+        
+        if (questions.length === 0) {
+            showMessage("A kvíz nem indul el: nincs betöltött kérdés.", true);
+            return;
+        }
+
+        if (quizArea) quizArea.style.display = 'block';
+        startTimer(60);
+        loadQuestion();
+    } catch (error) {
+        console.error('Hiba:', error);
+        showMessage(`Hiba történt a kvíz betöltésekor: ${error.message}`, true);
+    }
 }
