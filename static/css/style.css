@@ -1,4 +1,5 @@
 
+
 /* --- Általános stílusok (General Styles) --- */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -45,7 +46,7 @@ body {
 
 /* --- Eredmény és ranglista oldalak stílusai (Other Page Styles) --- */
 
-.main-container {
+/*.main-container {
     background-color: #34495e;
     padding: 4rem;
     border-radius: 12px;
@@ -53,11 +54,30 @@ body {
     text-align: center;
     max-width: 600px;
     width: 90%;
+}*/
+.main-container {
+
+    background-color: #ffffff;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+     text-align: center;
+    max-width: 600px;
+    width: 90%;
 }
 
-.title {
+
+/*.title {
     font-size: 2.5rem;
     color: #2ecc71;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}*/
+
+.title {
+
+    font-size: 2.5rem;
+    color: #2c3e50;
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -110,7 +130,7 @@ body {
     text-align: left;
 }
 
-.leaderboard-list li {
+/*.leaderboard-list li {
     background-color: #496279;
     padding: 15px;
     border-radius: 8px;
@@ -120,17 +140,30 @@ body {
     align-items: center;
     font-size: 1.1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}*/
+
+leaderboard-list li {
+
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .leaderboard-list li span {
     font-weight: bold;
-    color: #2ecc71;
+    color: #2c3e50;/*#2ecc71;*/
 }
 
 /* --- Eredmény oldal stílusok (Result Page Styles) --- */
 .result-score {
     font-size: 2.5rem;
-    color: #2ecc71;
+    color: #2c3e50;/*#2ecc71;*/
     font-weight: bold;
 }
 
@@ -196,10 +229,17 @@ body {
 }
 
 /* --- Reszponzivitás (Responsiveness) --- */
+@media screen and (max-width: 1024px) {
+    .main-container {
+        padding: 2.5rem;
+        max-width: 90%;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .hero-content,
     .main-container,
-    .username-input-content { /* A login-content helyett a username-input-content */
+    .username-input-content { 
         padding: 2rem;
     }
     .hero-content h1,
@@ -210,9 +250,22 @@ body {
     .secondary-button {
         font-size: 1rem;
         padding: 12px 25px;
+        width: 90%;
+        max-width: 300px;
     }
     .username-input-content {
         max-width: 90%;
     }
-}
 
+    .result-score {
+        font-size: 2rem;
+    }
+
+
+    .leaderboard-list li {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        font-size: 1rem;
+    }
+}
