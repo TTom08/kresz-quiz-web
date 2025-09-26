@@ -7,17 +7,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <main>
-        <section class="result-section">
-            <div class="result-content">
-                <h2 class="result-title">🎉 Játék vége!</h2>
-                <p id="score-text" class="result-score">Pontszámod: --</p>
-                <div class="button-container">
-                    <a href="{{ url_for('leaderboard') }}" class="cta-button">Ranglista megtekintése</a>
-                    <a href="{{ url_for('home') }}" class="secondary-button">Vissza a főoldalra</a>
-                </div>
-            </div>
-        </section>
+    <main class="main-container">
+        <h2 class="title">🎉 Játék vége!</h2>
+        <p id="score-text" class="result-score">Pontszámod: --</p>
+        <div class="button-container">
+            <a href="{{ url_for('leaderboard') }}" class="cta-button">Ranglista megtekintése</a>
+            <a href="{{ url_for('home') }}" class="secondary-button">Vissza a főoldalra</a>
+        </div>
     </main>
     <script type="module" src="{{ url_for('static', filename='js/result.js') }}"></script>
 </body>
