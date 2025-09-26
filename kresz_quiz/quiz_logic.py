@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 MAX_POINTS = 10
 TIME_LIMIT = 40
 
-def choose_questions(n=22):
+def choose_questions(n=10):
 
     try:
         total_questions = Question.query.count()
