@@ -1,7 +1,9 @@
 # Tesztjegyzőkönyv
 
 **Projekt:** Kresz kviz weboldal
+
 **Dátum:** 2025. szeptember 26.
+
 **Tesztelő:** Tóth Tamás
 
 ---
