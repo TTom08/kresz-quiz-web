@@ -139,7 +139,7 @@ with app.app_context():
             "image_path": None,
             "answers": [
                 {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/jobbra_kanyarodni_tilos.png"},
-                {"text": None, "is_correct": True, "image_path": "/static/Kresz_imagess/kotelezo-haladasi-kikerulesi-irany-egy-iranyba.jpg"},
+                {"text": None, "is_correct": True, "image_path": "/static/Kresz_imagess/kotelezo_haladasi_irany_egyenesen_es_balra.jpg"},
                 {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/autobusz_megallohely.png"},
                 {"text": None, "is_correct": False, "image_path": "/static/Kresz_images/korforgalom.png"}
             ]
