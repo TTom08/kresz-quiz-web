@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Kvíz Játék</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <div id="quiz-area">
+            <div id="timer">Idő: <span id="time-left">60</span>s</div>
+            <h2 id="question-text">Kérdés betöltése...</h2>
+            <div id="answers-container">
+                </div>
+            <p id="feedback" class="feedback-message"></p>
+            <button id="next-button" style="display: none;">Következő</button>
+        </div>
+
+        <div id="result-screen" style="display: none;">
+            <h2>Kvíz Vége!</h2>
+            <p>Pontszámod: <span id="final-score"></span></p>
+            <button onclick="location.reload()">Újra</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
