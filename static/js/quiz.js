@@ -163,3 +163,48 @@ function nextQuestion() {
     currentQuestionIndex++;
     loadQuestion();
 }
+
+// Timer
+function startTimer(duration) {
+    let time = duration;
+    timeLeftElement.textContent = time;
+    timerInterval = setInterval(() => {
+        time--;
+        timeLeftElement.textContent = time;
+        if (time <= 10) {
+            timeLeftElement.classList.add('time-warning');
+        }
+        if (time <= 0) {
+            clearInterval(timerInterval);
+            showMessage("Lejárt az idő! Kvíz vége.");
+            endQuiz();
+        }
+    }, 1000);
+}
+
+// Quiz end
+async function endQuiz() {
+    clearInterval(timerInterval);
+
+    try {
+        const response = await fetch('/api/quiz/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username: username, score: score })
+        });
+
+        const data = await response.json();
+        if (response.ok || response.status === 201) {
+            finalScoreElement.textContent = score;
+            if (quizArea) quizArea.style.display = 'none';
+            if (resultScreen) resultScreen.style.display = 'block';
+        } else {
+            showMessage(`Hiba a pontszám elküldésében: ${data.error || 'Ismeretlen hiba'}`, true);
+        }
+    } catch (error) {
+        console.error("Hiba a pontszám küldésekor:", error);
+        showMessage("Hálózati hiba a pontszám küldésekor.", true);
+    }
+}
