@@ -117,7 +117,7 @@ function loadQuestion() {
     }
 
     clearInterval(timerInterval);
-    startTimer(60); 
+    startTimer(40);
 
     const currentQuestion = questions[currentQuestionIndex];
     questionText.innerHTML = '';
