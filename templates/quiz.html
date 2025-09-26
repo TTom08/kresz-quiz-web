@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kvíz Játék</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
 </head>
+
 <body>
     <div id="quiz-container">
-        <div id="quiz-area">
+        <div id="quiz-area" class="quiz-box">
             <div id="timer">Idő: <span id="time-left">60</span>s</div>
-            <h2 id="question-text">Kérdés betöltése...</h2>
+            <h2 id="question-text" class="question-text-style">Kérdés betöltése...</h2>
             <div id="answers-container"></div>
             <p id="feedback" class="feedback-message"></p>
-            <button id="next-button" style="display: none;">Következő</button>
+            <div id="button-footer">
+                <button id="next-button" class="cta-button" style="display: none;">Következő</button>
+            </div>
         </div>
-        <div id="result-screen" style="display: none;">
+        <div id="result-screen" class="quiz-box" style="display: none;">
             <h2>Kvíz Vége!</h2>
             <p>Pontszámod: <span id="final-score"></span></p>
-            <button onclick="location.reload()">Újra</button>
+            <button onclick="location.reload()" class="cta-button">Újra</button>
         </div>
     </div>
 
     <script>
-    const FLASK_USERNAME = "{{ username|safe }}"; 
-    console.log("Felhasználónév a kvíz oldalon:", FLASK_USERNAME);
-</script>
+        // A FLASK_USERNAME már megfelelően átadásra kerül a korábbi javítások alapján
+        const FLASK_USERNAME = "{{ username|safe }}";
+        console.log("Felhasználónév a kvíz oldalon:", FLASK_USERNAME);
+    </script>
     <script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
 </body>
+
 </html>
