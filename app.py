@@ -16,3 +16,7 @@ from models import Question, Answer
 def home():
     questions = Question.query.all()
     return render_template('home.html', questions=questions)
+
+@app.route("/result")
+def result():
+    return render_template("result.html")
