@@ -1,4 +1,5 @@
 
+
 /* --- Általános stílusok (General Styles) --- */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -238,7 +239,7 @@ leaderboard-list li {
 @media screen and (max-width: 768px) {
     .hero-content,
     .main-container,
-    .username-input-content { /* A login-content helyett a username-input-content */
+    .username-input-content { 
         padding: 2rem;
     }
     .hero-content h1,
@@ -268,4 +269,3 @@ leaderboard-list li {
         font-size: 1rem;
     }
 }
-
