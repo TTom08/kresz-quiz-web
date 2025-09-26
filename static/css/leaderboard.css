@@ -17,17 +17,19 @@ body {
     list-style-type: none;
     padding: 0;
     text-align: center;
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 .leaderboard-list li {
     background-color: #f8f8f8;
-    padding: 15px 25px;
+    padding: 10px 20px;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 500;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -133,6 +135,9 @@ body {
         padding: 12px 25px;
         width: 90%;
         max-width: 300px;
+    }
+    .leaderboard-list {
+        max-height: 300px;
     }
     .leaderboard-list li {
         flex-direction: row;
