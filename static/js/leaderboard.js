@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         list.innerHTML = '';
         leaderboardMock.forEach(player => {
             const li = document.createElement("li");
-            li.innerHTML = `<span>${player.username}</span> - ${player.score} pont`;
+            li.innerHTML = `<span>${player.username}</span> ${player.score} pont`;
             list.appendChild(li);
         });
     } else {
