@@ -103,7 +103,9 @@ def get_questions():
         questions_list = []
         for q in questions_data:
             answers_list = [
-                {"text": a.text, "is_correct": a.is_correct}
+                {"text": a.text,
+                 "image_path": a.image_path,
+                 "is_correct": a.is_correct}
                 for a in q.answers
             ]
             questions_list.append({

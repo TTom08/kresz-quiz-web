@@ -111,20 +111,39 @@ async function initializeQuiz() {
 // Loading questions
 function loadQuestion() {
     if (currentQuestionIndex >= questions.length) {
+        clearInterval(timerInterval);
         endQuiz();
         return;
     }
 
+    clearInterval(timerInterval);
+    startTimer(60); 
+
     const currentQuestion = questions[currentQuestionIndex];
-    questionText.textContent = `${currentQuestionIndex + 1}. ${currentQuestion.text}`;
+    questionText.innerHTML = '';
     answersContainer.innerHTML = '';
     feedbackElement.textContent = '';
     nextButton.style.display = 'none';
 
+    let questionContent = `${currentQuestionIndex + 1}. ${currentQuestion.text || ''}`;
+    
+    if (currentQuestion.image_path) {
+        questionContent += `<div class="question-image-container"><img src="${currentQuestion.image_path}" alt="Kvíz kérdés képe" class="question-image"></div>`;
+    }
+    
+    questionText.innerHTML = questionContent;
+
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement('button');
-        button.textContent = answer.text;
         button.classList.add('answer-button');
+
+        let buttonContent = answer.text || '';
+        
+        if (answer.image_path) {
+            buttonContent += `<img src="${answer.image_path}" alt="${answer.text || 'Válasz kép'}" class="answer-image">`;
+        }
+
+        button.innerHTML = buttonContent;
         button.addEventListener('click', () => handleAnswer(button, answer));
         answersContainer.appendChild(button);
     });
