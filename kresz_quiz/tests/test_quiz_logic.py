@@ -54,6 +54,10 @@ def test_choose_questions_valid(test_app):
     questions = choose_questions(2)
     assert len(questions) == 2
 
+def test_choose_questions_exact_total(test_app):
+    total = Question.query.count()
+    questions = choose_questions(total)
+    assert len(questions) == total
 
 def test_calculate_score_negative_time():
     with pytest.raises(ValueError):
@@ -90,6 +94,14 @@ def test_add_score_invalid_score_too_high(test_app, test_user):
     with pytest.raises(ValueError):
         add_score(test_user.username, 20)
 
+def test_add_score_empty_username(test_app):
+            with pytest.raises(ValueError):
+                add_score("", 5)
+
+def test_add_score_invalid_score_type(test_app, test_user):
+            with pytest.raises(ValueError):
+                add_score(test_user.username, "öt")
+
 def test_add_score_valid(test_app, test_user):
     add_score(test_user.username, 7)
     scores = Score.query.filter_by(user_id=test_user.id).all()
@@ -111,12 +123,6 @@ def test_get_leaderboard_limit(test_app, test_user):
     assert len(leaderboard) <= 1
 
 
-def test_choose_questions_exact_total(test_app):
-    total = Question.query.count()
-    questions = choose_questions(total)
-    assert len(questions) == total
-
-
 def test_add_score_zero_point(test_app, test_user):
     add_score(test_user.username, 0)
     scores = Score.query.filter_by(user_id=test_user.id).all()
@@ -136,7 +142,7 @@ def test_get_leaderboard_limit_exceeds(test_app, test_user):
     assert len(leaderboard) == 1
     assert leaderboard[0]["username"] == test_user.username
 
-#uj
+
 def test_add_score_float(test_app, test_user):
     add_score(test_user.username, 7.5)
     scores = Score.query.filter_by(user_id=test_user.id).all()
@@ -178,3 +184,16 @@ def test_get_leaderboard_limit_exceeds_users(test_app):
     usernames = [u["username"] for u in leaderboard]
     assert "Charlie" in usernames
     assert "Dave" in usernames
+
+def test_get_leaderboard_best_score_only(test_app):
+    user = User(username="Eva")
+    db.session.add(user)
+    db.session.commit()
+
+    add_score("Eva", 3)
+    add_score("Eva", 9)
+
+    leaderboard = get_leaderboard(limit=1)
+
+    assert leaderboard[0]["username"] == "Eva"
+    assert leaderboard[0]["score"] == 9
