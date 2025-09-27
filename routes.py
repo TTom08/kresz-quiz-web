@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app import db
 from models import User, Score, Question, Answer
-from .quiz_logic import choose_questions, add_score, get_leaderboard, calculate_score
+from kresz_quiz.tests.test_quiz_logic import choose_questions, add_score, get_leaderboard, calculate_score
 
 quiz_bp = Blueprint("quiz", __name__)
 
@@ -52,6 +52,7 @@ def submit_quiz():
 
     try:
 
+
         add_score(username=username, score=score_value)
 
         return jsonify({
@@ -59,8 +60,11 @@ def submit_quiz():
             "username": username,
             "score": score_value
         }), 201
+
     except ValueError as e:
+
         return jsonify({"error": str(e)}), 404
+
     except RuntimeError as e:
         return jsonify({"error": str(e)}), 500
 

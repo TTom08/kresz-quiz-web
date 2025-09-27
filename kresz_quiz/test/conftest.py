@@ -1,19 +1,27 @@
+import uuid
+
 import pytest
-from app import app as flask_app
-from app import db
+# KIZÁRÓLAG a create_app függvényt importáljuk, nem a globális app példányt!
+from app import create_app, db
 from models import User, Question, Answer, Score
 
 @pytest.fixture(scope='session')
 def client():
-    flask_app.config['TESTING'] = True
-    flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+    # Itt hozza létre az alkalmazást a tesztkonfigurációval,
+    # amely felülírja az éles PostgreSQL URI-t.
+    app = create_app({
+        'TESTING': True,
+        'SQLALCHEMY_DATABASE_URI': 'sqlite:///:memory:', # Elszigetelt, ideiglenes DB
+    })
 
-    with flask_app.app_context():
+    with app.app_context():
+        # A memóriában lévő DB tábláinak létrehozása
         db.create_all()
-        yield flask_app.test_client()
+        yield app.test_client()
 
 @pytest.fixture(scope='function', autouse=True)
 def session_scope(client):
+    # Ez továbbra is gondoskodik a tesztek közötti rollbackről (takarításról)
     with client.application.app_context():
         yield db.session
         db.session.rollback()
@@ -21,7 +29,8 @@ def session_scope(client):
 
 @pytest.fixture
 def test_user(session_scope):
-    user = User(username="TestUserForFixture")
+    unique_username = "TestUser_" + str(uuid.uuid4())[:8]
+    user = User(username=unique_username)
     session_scope.add(user)
     session_scope.commit()
     return user
