@@ -13,6 +13,15 @@ const nextButton = document.getElementById('next-button');
 const timeLeftElement = document.getElementById('time-left');
 const finalScoreElement = document.getElementById('final-score');
 const currentScoreElement = document.getElementById('current-score');
+const MAX_POINTS = 1;
+const TIME_LIMIT = 40;
+
+// JS-ben pontszám számítás
+function calculateScoreJS(elapsedTime, correct) {
+    if (!correct || elapsedTime >= TIME_LIMIT) return 0;
+    let questionScore = MAX_POINTS * ((TIME_LIMIT - elapsedTime) / TIME_LIMIT);
+    return Math.round(questionScore * 100) / 100;
+}
 
 // Managing errors
 function showMessage(message, isError = false) {
@@ -159,17 +168,18 @@ function handleAnswer(clickedButton, answer) {
     });
 
     const isCorrect = answer.is_correct;
+    const elapsedTime = TIME_LIMIT - parseInt(timeLeftElement.textContent);
+    let questionScore = calculateScoreJS(elapsedTime, isCorrect);
 
     if (isCorrect) {
         clickedButton.classList.add('correct');
-        score++;
-        feedbackElement.textContent = 'Helyes.';
-        if (currentScoreElement) {
-            currentScoreElement.textContent = score;
-        }
+
+        score += questionScore;
+        feedbackElement.textContent = `Helyes. `;
     } else {
         clickedButton.classList.add('incorrect');
-        feedbackElement.textContent = 'Helytelen.';
+
+        feedbackElement.textContent = 'Helytelen. ';
 
         const correctAnswerButton = Array.from(answersContainer.children).find(btn =>
             questions[currentQuestionIndex].answers.find(a => a.is_correct)?.text === btn.textContent
@@ -178,6 +188,8 @@ function handleAnswer(clickedButton, answer) {
             correctAnswerButton.classList.add('correct');
         }
     }
+
+    if (currentScoreElement) currentScoreElement.textContent = score.toFixed(2);
 
     nextButton.style.display = 'block';
     nextButton.onclick = nextQuestion;

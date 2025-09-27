@@ -83,7 +83,7 @@ def get_leaderboard(limit=10):
             logger.info("Leaderboard is empty")
             return []
 
-        return [{"username": r.username, "score": r.best_score} for r in results]
+        return [{"username": r.username, "score": round(r.best_score, 2)} for r in results]
 
     except Exception as e:
         logger.error(f"Failed to fetch leaderboard: {e}")

@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 li.innerHTML = `
                     <span class="rank">${index + 1}.</span>
                     <span class="name">${player.username}</span>
-                    <span class="score">${player.score} pont</span>
+                    <span class="score">${player.score.toFixed(2)} pont</span>
                 `;
 
 
