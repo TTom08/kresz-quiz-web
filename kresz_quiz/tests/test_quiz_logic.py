@@ -135,3 +135,46 @@ def test_get_leaderboard_limit_exceeds(test_app, test_user):
     leaderboard = get_leaderboard(limit=100)
     assert len(leaderboard) == 1
     assert leaderboard[0]["username"] == test_user.username
+
+#uj
+def test_add_score_float(test_app, test_user):
+    add_score(test_user.username, 7.5)
+    scores = Score.query.filter_by(user_id=test_user.id).all()
+    assert any(s.score == 7.5 for s in scores)
+
+
+def test_get_leaderboard_multiple_users(test_app):
+
+    user1 = User(username="Alice")
+    user2 = User(username="Bob")
+    db.session.add_all([user1, user2])
+    db.session.commit()
+
+
+    add_score("Alice", 8)
+    add_score("Bob", 10)
+
+    leaderboard = get_leaderboard(limit=2)
+
+
+    assert leaderboard[0]["username"] == "Bob"
+    assert leaderboard[0]["score"] == 10
+    assert leaderboard[1]["username"] == "Alice"
+    assert leaderboard[1]["score"] == 8
+
+
+def test_get_leaderboard_limit_exceeds_users(test_app):
+    user1 = User(username="Charlie")
+    user2 = User(username="Dave")
+    db.session.add_all([user1, user2])
+    db.session.commit()
+
+    add_score("Charlie", 6)
+    add_score("Dave", 9)
+
+    leaderboard = get_leaderboard(limit=10)
+
+    assert len(leaderboard) == 2
+    usernames = [u["username"] for u in leaderboard]
+    assert "Charlie" in usernames
+    assert "Dave" in usernames
