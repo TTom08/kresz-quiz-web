@@ -1,6 +1,5 @@
 from app import db
 import pytest
-
 from models import Score, User
 
 
@@ -24,7 +23,7 @@ def test_4_database_data_passed_to_template(client):
 
 def test_5_static_css_link_exists(client):
     response = client.get('/')
-    assert b'/static/css/style.css' in response.data or b'style.css' in response.data
+    assert b'/static/css/home.css' in response.data or b'home.css' in response.data
 
 def test_6_home_page_has_cta_button(client):
     response = client.get('/')
@@ -44,7 +43,7 @@ def test_8_home_page_has_exit_button(client):
 def test_9_static_css_link_exists(client):
     response = client.get('/')
     assert response.status_code == 200
-    assert b'/static/css/style.css' in response.data
+    assert b'/static/css/home.css' in response.data
 
 def test_10_home_page_has_main_tag(client):
     response = client.get('/')
