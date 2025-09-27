@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app import db
 from models import User, Score, Question, Answer
-from kresz_quiz.tests.test_quiz_logic import choose_questions, add_score, get_leaderboard, calculate_score
+from kresz_quiz.quiz_logic import choose_questions, add_score, get_leaderboard, calculate_score
 
 quiz_bp = Blueprint("quiz", __name__)
 
