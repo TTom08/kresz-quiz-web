@@ -1,3 +1,4 @@
+
 from models import User, Question, Answer, Score
 from app import db
 import pytest

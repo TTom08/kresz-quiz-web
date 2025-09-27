@@ -1,3 +1,5 @@
+import uuid
+
 import pytest
 from app import app as flask_app
 from app import db
@@ -21,7 +23,8 @@ def session_scope(client):
 
 @pytest.fixture
 def test_user(session_scope):
-    user = User(username="TestUserForFixture")
+    unique_username = "TestUser_" + str(uuid.uuid4())[:8]
+    user = User(username=unique_username)
     session_scope.add(user)
     session_scope.commit()
     return user
