@@ -52,6 +52,7 @@ def submit_quiz():
 
     try:
 
+
         add_score(username=username, score=score_value)
 
         return jsonify({
@@ -59,8 +60,11 @@ def submit_quiz():
             "username": username,
             "score": score_value
         }), 201
+
     except ValueError as e:
+
         return jsonify({"error": str(e)}), 404
+
     except RuntimeError as e:
         return jsonify({"error": str(e)}), 500
 
