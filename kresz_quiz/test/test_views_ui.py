@@ -20,8 +20,9 @@ def test_3_navigation_links_placeholder(client):
     assert b'Ranglista' in response.data
 
 
-def test_4_database_data_passed_to_template(client):
-    assert True
+def test_4_home_page_has_main_headline(client):
+    response = client.get('/')
+    assert b'K\xc3\xa9sz\xc3\xbclj a vizsg\xc3\xa1ra, teszteld a tud\xc3\xa1sodat!' in response.data
 
 def test_5_static_css_link_exists(client):
     response = client.get('/')
