@@ -8,8 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
     sessionStorage.removeItem("username");
     sessionStorage.removeItem("score");
 
-    if (username && score) {
-        scoreText.textContent = `Pontszámod: ${score}`;
+     if (username && score) {
+
+        const formattedScore = parseFloat(score).toFixed(2);
+        scoreText.textContent = `Pontszámod: ${formattedScore}`;
     } else {
         scoreText.textContent = "Nincs elérhető pontszám.";
     }
