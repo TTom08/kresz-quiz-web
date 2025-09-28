@@ -17,7 +17,7 @@ Ez a rész a főoldal (`/`) elérését, a szükséges HTML elemeket, a CSS link
 | **01** | Főoldal elérésének státusza | `/` | `200 OK` | N/A | **Sikeres** | A főoldal sikeresen betöltődik. |
 | **02** | Főoldal alapvető HTML szerkezete | `/` | `200 OK` | `<html>` tag megléte | **Sikeres** | Ellenőrizve, hogy HTML-t ad vissza. |
 | **03** | Navigációs linkek szövege | `/` | `200 OK` | "Játék indítása", "Ranglista" | **Sikeres** | Helyes magyar szövegek megjelennek. |
-| **04** | Adatbázis adatok template-be jutása | N/A | N/A | N/A | **Sikeres** | Placeholder teszt. |
+| **04** | **H1 fő címsor ellenőrzése** | `/` | `200 OK` | "Készülj a vizsgára, teszteld a tudásodat!" | **Sikeres** | A főoldali üzenet statikus tartalma megjelenik. |
 | **05** | Statikus CSS fájl linkjének megléte (általános) | `/` | `200 OK` | `/static/css/home.css` link | **Sikeres** | A stíluslap be van illesztve a fejlécre. |
 | **06** | CTA (Call to Action) gomb megléte | `/` | `200 OK` | "Játék indítása" és `cta-button` | **Sikeres** | A fő akció gomb látható. |
 | **07** | Ranglista gomb megléte | `/` | `200 OK` | "Ranglista" és `secondary-button` | **Sikeres** | A másodlagos navigációs gomb látható. |
