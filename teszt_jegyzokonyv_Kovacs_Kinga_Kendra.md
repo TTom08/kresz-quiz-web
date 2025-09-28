@@ -3,6 +3,21 @@
 **Dátum:** 2025.09.24  
 **Projekt:** KRESZ Quiz  
 
+---
+## 1. Teszt célja
+
+Az egységtesztek célja annak ellenőrzése, hogy a kvíz logikai függvényei helyesen működnek, függetlenül az API-tól vagy az éles adatbázistól.  
+Különösen az alábbi funkciókat vizsgáltam:
+
+- `choose_questions(n)` – kérdések kiválasztása.
+- `calculate_score(elapsed_time, correct)` – pontszám számítása.
+- `add_score(username, score)` – pont hozzáadása felhasználóhoz.
+- `get_leaderboard(limit)` – ranglista lekérése.
+
+---
+
+## 2. Teszt forgatókönyvek
+
 | Teszt ID | Teszt neve                               | Cél                                                                                                          | Bemenet                             | Várt eredmény               | Tény eredmény               | Státusz |
 |----------|------------------------------------------|--------------------------------------------------------------------------------------------------------------|-------------------------------------|-----------------------------|-----------------------------|---------|
 | 1        | test_choose_questions_negative_number    | Ellenőrizni, hogy a kérdésszám negatív értéke ValueError-t dob                                               | n= -5                               | ValueError                  | ValueError                  | Sikeres |
@@ -32,3 +47,16 @@
 | 25       | test_get_leaderboard_multiple_users      | Több felhasználó pontszámának összehasonlítása a leaderboardon                                               | Alice=8, Bob=10                     | Legjobb pontok sorrendben   | Legjobb pontok sorrendben   | Sikeres |
 | 26       | test_get_leaderboard_limit_exceeds_users | Ellenőrizni, hogy több felhasználónál a limit nagyobb lehet, de minden felhasználó megjelenik                | limit=100, több user                | Minden felhasználó listázva | Minden felhasználó listázva | Sikeres |
 | 27       | test_get_leaderboard_best_score_only     | Ellenőrizni, hogy egy felhasználónál csak a legmagasabb pont jelenik meg a leaderboardon                     | Eva=3 és Eva=9                      | Legmagasabb pont jelenik    | Legmagasabb pont jelenik    | Sikeres |
+
+## 3. Megjegyzések
+
+- A tesztek **in-memory SQLite adatbázison** futnak, így az éles adatbázis **nem változik**.  
+- Minden függvény izolált, a tesztek egymástól függetlenek.  
+- A jegyzőkönyv minden tesztre tartalmazza a bemenetet, várt eredményt és tényleges eredményt.  
+
+---
+
+## 4. Összegzés
+
+- A kvíz logikai függvényei helyesen működnek minden tesztelt esetben.  
+- Az érvényes és hibás bemenetek megfelelően kezelve vannak.  

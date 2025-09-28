@@ -1,18 +1,19 @@
 
 import pytest
 import uuid
-from app import app, db
+from app import create_app, db
 from models import User, Score
 
 @pytest.fixture(scope="function")
 def client():
+    test_app = create_app({
+        "TESTING": True,
+        "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:",
+        "SQLALCHEMY_TRACK_MODIFICATIONS": False,
+    })
 
-    app.config['TESTING'] = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-    with app.test_client() as client:
-        with app.app_context():
+    with test_app.test_client() as client:
+        with test_app.app_context():
             db.create_all()
             yield client
             db.session.remove()

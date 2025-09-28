@@ -1,5 +1,5 @@
 import pytest
-from app import app, db
+from app import create_app, db
 from models import User, Score, Question, Answer
 from kresz_quiz.quiz_logic import choose_questions, calculate_score, add_score, get_leaderboard
 
@@ -7,9 +7,13 @@ from kresz_quiz.quiz_logic import choose_questions, calculate_score, add_score, 
 @pytest.fixture(scope="function")
 def test_app():
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
-    app.config['TESTING'] = True
-    with app.app_context():
+    test_app = create_app({
+        "TESTING": True,
+        "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:",
+        "SQLALCHEMY_TRACK_MODIFICATIONS": False,
+    })
+
+    with test_app.app_context():
         db.create_all()
 
 
@@ -24,7 +28,9 @@ def test_app():
             Answer(text="Sárga rombusz", is_correct=False, question_id=q2.id)
         ])
         db.session.commit()
-        yield app
+
+        yield test_app
+
         db.session.remove()
         db.drop_all()
 

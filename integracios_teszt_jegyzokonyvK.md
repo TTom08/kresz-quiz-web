@@ -75,4 +75,4 @@ Minden integrációs teszt sikeresen lefutott, az API végpontok helyesen műkö
 - `/api/quiz/submit` → pontszám mentése - **Sikeres**    
 - `/api/quiz/leaderboard` → helyes sorrendű ranglista - **Sikeres**   
 
-**Állapot:** Sikeres, hibamentes.
+
