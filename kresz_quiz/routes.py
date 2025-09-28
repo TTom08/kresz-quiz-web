@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
-from app import db
+#from app import db
+from models import db
 from models import User, Score, Question, Answer
 from kresz_quiz.quiz_logic import choose_questions, add_score, get_leaderboard, calculate_score
 
