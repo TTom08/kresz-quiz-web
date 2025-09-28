@@ -1,16 +1,19 @@
+import uuid
+
 import pytest
-from app import app as flask_app
-from app import db
+from app import create_app, db
 from models import User, Question, Answer, Score
 
 @pytest.fixture(scope='session')
 def client():
-    flask_app.config['TESTING'] = True
-    flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+    app = create_app({
+        'TESTING': True,
+        'SQLALCHEMY_DATABASE_URI': 'sqlite:///:memory:',
+    })
 
-    with flask_app.app_context():
+    with app.app_context():
         db.create_all()
-        yield flask_app.test_client()
+        yield app.test_client()
 
 @pytest.fixture(scope='function', autouse=True)
 def session_scope(client):
@@ -21,7 +24,8 @@ def session_scope(client):
 
 @pytest.fixture
 def test_user(session_scope):
-    user = User(username="TestUserForFixture")
+    unique_username = "TestUser_" + str(uuid.uuid4())[:8]
+    user = User(username=unique_username)
     session_scope.add(user)
     session_scope.commit()
     return user
