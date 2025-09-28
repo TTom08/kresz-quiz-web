@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranglista</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/leaderboard.css') }}">
+</head>
+<body>
+    <main class="main-container">
+        <h2 class="title">🏆 Ranglista</h2>
+        <ul id="leaderboard-list" class="leaderboard-list">
+        </ul>
+        <div class="button-container">
+            <a href="{{ url_for('home') }}" class="secondary-button">Vissza a főoldalra</a>
+        </div>
+    </main>
+    <script type="module" src="{{ url_for('static', filename='js/leaderboard.js') }}"></script>
+</body>
+</html>
