@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_migrate import Migrate
 from models import db
-from flask_sqlalchemy import SQLAlchemy
 
 
 def create_app(test_config=None):
@@ -35,12 +34,11 @@ def create_app(test_config=None):
 
     @app.route("/leaderboard")
     def leaderboard():
-        from models import Score, User
         return render_template("leaderboard.html")
 
     # Import routes at the end to avoid circular imports
     try:
-        from routes import quiz_bp
+        from kresz_quiz.routes import quiz_bp
         app.register_blueprint(quiz_bp, url_prefix='/api/quiz')
     except ImportError:
         print("Quiz blueprint not found, continuing without API routes")
