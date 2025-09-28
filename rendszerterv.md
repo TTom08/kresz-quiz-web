@@ -75,17 +75,17 @@ A fejlesztést egy háromfős csapat végzi. A feladatok felosztása úgy lett k
 ## Ütemterv
 
 | Feladat / Task | Prioritás | Becslés (óra) | Aktuális becslés (óra) | Eltelt idő (óra) | Hátralévő idő (óra) |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| Követelmény specifikáció | 0 | 4 | 4 | 4 | 0 |
-| Funkcionális specifikáció | 0 | 4 | 4 | 4 | 0 |
-| Rendszerterv | 0 | 8 | 8 | 8 | 0 |
-| Adatbázis séma és kapcsolatok tervezése | 1 | 8 | 0 | 0 | 8 |
-| Flask API fejlesztése (felhasználónév kezelése) | 1 | 10 | 0 | 0 | 10 |
-| Kvízlogika és pontszámítás implementálása | 1 | 12 | 0 | 0 | 12 |
-| Frontend felület (kvíz, ranglista) | 1 | 14 | 0 | 0 | 14 |
-| Kommunikáció a frontend és backend között | 1 | 10 | 0 | 0 | 10 |
-| Funkcionális tesztelés | 2 | 6 | 0 | 0 | 6 |
-| Telepítési és karbantartási terv | 3 | 4 | 0 | 0 | 4 |
+| :--- | :---: | :---: |:----------------------:|:----------------:|:-------------------:|
+| Követelmény specifikáció | 0 | 4 |           4            |        4         |          0          |
+| Funkcionális specifikáció | 0 | 4 |           4            |        4         |          0          |
+| Rendszerterv | 0 | 8 |           8            |        8         |          0          |
+| Adatbázis séma és kapcsolatok tervezése | 1 | 8 |           8            |        8         |          0          |
+| Flask API fejlesztése (felhasználónév kezelése) | 1 | 10 |           10           |        10        |          0          |
+| Kvízlogika és pontszámítás implementálása | 1 | 12 |           12           |        12        |          0          |
+| Frontend felület (kvíz, ranglista) | 1 | 14 |           14           |        14        |          0          |
+| Kommunikáció a frontend és backend között | 1 | 10 |           10           |        10        |          0          |
+| Funkcionális tesztelés | 2 | 6 |           6            |        6         |          0          |
+| Telepítési és karbantartási terv | 3 | 4 |           4            |        4         |          0          |
 
 ## Mérföldkövek
 
